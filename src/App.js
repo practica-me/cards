@@ -3,11 +3,11 @@ import Dropdown from 'react-dropdown';
 import './App.css';
 
 const topics = [
-  { value: 'ShortReplies', label: "Short Replies" },
-  { value: 'FollowUpQuestions', label: "Follow Up Questions" },
-  { value: 'Questions', label: "Questions" },
-  { value: 'Goodbyes', label: "Goodbyes" },
-  { value: 'Compliments', label: "Compliments" }
+  { value: 'ShortReplies', label: "Week 1: Short Replies" },
+  { value: 'FollowUpQuestions', label: "Week 2: Follow Up Questions" },
+  { value: 'Questions', label: "Week 3: Questions" },
+  { value: 'Goodbyes', label: "Week 4: Goodbyes" },
+  { value: 'Compliments', label: "Week 5: Compliments" }
 ];
 const fallbackTopic = 'TopicCard';
 const maxIndex = 17;
