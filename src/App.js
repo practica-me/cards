@@ -43,7 +43,6 @@ class CardViewer extends Component {
     return (
         <div className="cards">
           <div className="cardBar">
-            <img className="card" alt="" src={img1} />
             <img className="card" alt="" src={img2} />
           </div>
           <div className="buttonBar">
