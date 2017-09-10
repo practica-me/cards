@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import Dropdown from 'react-dropdown';
-import ImageCardApp from './components/image-card-viewer.js';
+import ScriptViewer from './components/script-viewer.js';
+
+import script from './data/short_replies.json';
+import transcript from './data/short_replies_aligned.json';
+import destructivelyAlignScript from './data/script-aligner.js';
 
 class App extends Component {
   render() {
+    destructivelyAlignScript(script, transcript);
     return(
-      <ImageCardApp />
+      <ScriptViewer script={script}/>
     );
   }
 }

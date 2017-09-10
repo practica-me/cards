@@ -1,0 +1,31 @@
+.script-viewer {
+
+}
+.all-conversations {
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.pagination {
+  align-self: flex-end;
+}
+.single-conversation {
+  display: flex;
+  flex-direction: column;
+}
+.line {
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+.line.left {
+  background-color: #2e88c4;
+  margin-right: 2em;
+}
+.line.right {
+  background-color: #8c8c8c;
+  align-self: flex-end;
+  margin-left: 2em;
+}
