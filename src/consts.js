@@ -1,6 +1,7 @@
 const SCRIPT_MODES = {
   AUDIO: "AUDIO",
-  TEXT: "text"
+  TEXT: "TEXT",
+  AUDIO_AND_TEXT: "AUDIO_AND_TEXT"
 };
 
 export default SCRIPT_MODES;

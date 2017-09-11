@@ -19,4 +19,5 @@ storiesOf('Button', module)
 
 storiesOf('ScriptViewer', module)
   .add('text mode', () => <ScriptViewer script={script} mode={SCRIPT_MODES.TEXT}/>)
-  .add('audio mode', () => <ScriptViewer script={script} mode={SCRIPT_MODES.AUDIO}/>);
+  .add('audio mode', () => <ScriptViewer script={script} mode={SCRIPT_MODES.AUDIO}/>)
+  .add('both', () => <ScriptViewer script={script} mode={SCRIPT_MODES.AUDIO_AND_TEXT}/>);

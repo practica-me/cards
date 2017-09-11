@@ -10,7 +10,8 @@ class SingleLine extends Component {
     var cls = "line " + this.props.side;
     var {text} = this.props.line;
     var dotted = text.replace(/[\w,'.!?]/ig, "-");
-    if (this.props.mode === SCRIPT_MODES.TEXT) {
+    if (this.props.mode === SCRIPT_MODES.TEXT ||
+        this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT) {
       return(
         <div className={"line " + this.props.side}>
           {text}
@@ -40,6 +41,11 @@ class ConversationViewer extends Component {
     };
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
+    this.audioMode = this.audioMode.bind(this);
+  }
+  audioMode() {
+    return (this.props.mode === SCRIPT_MODES.AUDIO ||
+            this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT);
   }
   componentWillReceiveProps(nextProps) {
     var {conversation} = nextProps.convoElement;
@@ -63,16 +69,21 @@ class ConversationViewer extends Component {
       return <SingleLine key={index} mode={mode} line={line} side={side} />
     });
     var sound = <div/>;
-    if (this.props.audio_url && this.props.mode === SCRIPT_MODES.AUDIO) {
+    if (this.audioMode()) {
+      if (!this.props.audio_url) { console.error("404:", this.props.audio_url);}
       var onPlaying = (obj) => {
         var {position} = obj;
-        if (position > _this.state.audioEnd) _this.pause();
+        if (position > _this.state.audioEnd) {
+          _this.pause();
+          this.props.onFinishedPlaying();
+          this.setState({position: this.state.audioStart});
+        }
       };
       sound = <Sound
                 url={this.props.audio_url}
                 autoLoad={true}
                 playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
-                playFromPosition={this.state.audioStart}
+                position={this.state.position}
                 onPlaying={onPlaying}
               />
     }
@@ -84,7 +95,7 @@ class ConversationViewer extends Component {
         <div className="conversation-title"> <h4> {title} </h4> </div>
         {lines}
         {sound}
-        {this.props.mode === SCRIPT_MODES.AUDIO ? playOrPause : ""}
+        {this.audioMode() ? playOrPause : ""}
       </div>
     )
   }
@@ -94,10 +105,17 @@ class AllConversationsViewer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      conversationIndex: 0
+      conversationIndex: 0,
+      mode: this.props.mode // WE WILL CONTROL THE MODE
     }
     this.getActiveConvo = this.getActiveConvo.bind(this);
     this.changeConversation = this.changeConversation.bind(this);
+    this.advance = this.advance.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.mode !== this.props.mode) {
+      this.setState({mode: nextProps.mode});
+    }
   }
   getActiveConvo() {
     var convoElement = this.props.conversations[this.state.conversationIndex];
@@ -109,8 +127,26 @@ class AllConversationsViewer extends Component {
     if (newIndex < 0) { newIndex = limit - 1; }
     this.setState({conversationIndex: newIndex});
   }
+  advance() {
+    // If mode == AUDIO, change mode to AUDIO_AND_TEXT
+    // If mode == AUDIO_AND_TEXT, change mode to AUDIO and changeConversation
+    if (this.state.mode === SCRIPT_MODES.AUDIO) {
+      this.setState({mode: SCRIPT_MODES.AUDIO_AND_TEXT});
+    } else if (this.state.mode === SCRIPT_MODES.AUDIO_AND_TEXT) {
+      this.setState({mode: SCRIPT_MODES.AUDIO});
+      this.changeConversation(+1);
+    } else {
+      console.log("CATCH ALL MODE", this.state.mode);
+      this.changeConversation(+1);
+    }
+  }
   render() {
     var numConversations = this.props.conversations.length;
+    var prevNext = (this.state.mode !== SCRIPT_MODES.TEXT) ? <div/> :
+      <div className="controls">
+        <button onClick={() => this.changeConversation(-1)} > Prev </button>
+        <button onClick={() => this.changeConversation(+1)} > Next </button>
+      </div>;
     return(
       <div className="all-conversations">
         <div className="pagination">
@@ -118,12 +154,11 @@ class AllConversationsViewer extends Component {
         </div>
         <ConversationViewer
           convoElement={this.getActiveConvo()}
-          mode={this.props.mode}
-          audio_url={this.props.audio_url} />
-        {(this.state.conversationIndex > 0) ?
-          <button onClick={() => this.changeConversation(-1)} > Prev </button> : ""}
-        {(this.state.conversationIndex < numConversations) ?
-          <button onClick={() => this.changeConversation(+1)} > Next </button> : ""}
+          mode={this.state.mode} // MODE is controlled
+          audio_url={this.props.audio_url}
+          onFinishedPlaying={this.advance}
+        />
+        {prevNext}
       </div>
     )
 
