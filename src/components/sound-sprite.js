@@ -11,16 +11,24 @@ class SoundSprite extends Component {
         console.error("Missing required key", key, 'in props', this.props);
     });
     this.state = {position: props.audioStart, playing: props.playing};
+    this.play = this.play.bind(this);
+    this.pause = this.pause.bind(this);
   }
   componentWillReceiveProps(nextProps) {
-    // Allow state.playing to be change on propchange
-    if (nextProps.playing != this.state.playing) {
+    // Allow state.playing to be changed if prop changes from above
+    if ('playing' in nextProps && nextProps.playing != this.state.playing) {
       this.setState({playing: nextProps.playing});
     }
     // If a new audio Start comes in, reset the position
     if (nextProps.audioStart != this.props.audioStart) {
       this.setState({position: nextProps.audioStart});
     }
+  }
+  play() {
+    this.setState({playing: true}, () => console.log('PLAY', this.state))
+  }
+  pause() {
+    this.setState({playing: false}, () => console.log('PAUSE', this.state))
   }
   render() {
     var _this = this;
@@ -35,12 +43,18 @@ class SoundSprite extends Component {
         this.setState({position: position});
       }
     }
+    var playOrPause = this.state.playing ?
+     <button className="playpause pause" onClick={this.pause}> Pause </button> :
+     <button className="playpause play" onClick={this.play}> Play </button>;
     return(
-      <Sound url={this.props.audio_url}
-             autoLoad={true}
-             playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
-             position={this.state.position}
-             onPlaying={onPlaying} />
+      <div className="sound-sprite">
+        {this.props.hideButton ? "" : playOrPause}
+        <Sound url={this.props.audio_url}
+               autoLoad={true}
+               playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
+               position={this.state.position}
+               onPlaying={onPlaying} />
+      </div>
     );
   }
 }
