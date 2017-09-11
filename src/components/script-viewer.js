@@ -34,10 +34,10 @@ class ConversationViewer extends Component {
     super(props);
     var {conversation} = props.convoElement;
     this.state = {
-      playing: false
+      renderNext: false,
+      audioStart: 1000 * conversation[0].audioStart,
+      audioEnd: 1000 * conversation[conversation.length - 1].audioEnd
     };
-    this.play = this.play.bind(this);
-    this.pause = this.pause.bind(this);
     this.audioMode = this.audioMode.bind(this);
   }
   updateStartAndEnd(props) {
@@ -55,12 +55,6 @@ class ConversationViewer extends Component {
     return (this.props.mode === SCRIPT_MODES.AUDIO ||
             this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT);
   }
-  play() {
-    this.setState({playing: true});
-  }
-  pause() {
-    this.setState({playing: false});
-  }
   render() {
     var _this = this;
     var {mode, convoElement} = this.props;
@@ -71,23 +65,27 @@ class ConversationViewer extends Component {
       return <SingleLine key={index} mode={mode} line={line} side={side} />
     });
     /* Audio Details */
-    var onFinished = () => { this.pause(); this.props.onFinishedPlaying(); }
+    var onFinished = () => { this.setState({renderNext: true}); };
     var sound = (!this.audioMode()) ? <div/> :
       <SoundSprite
+        hidePlayPause={this.state.renderNext}
         audioStart ={this.state.audioStart}
         audioEnd={this.state.audioEnd}
         audio_url={this.props.audio_url}
-        playing={this.state.playing}
         onFinishedPlaying={onFinished} />
-    var playOrPause = this.state.playing ?
-      <button onClick={this.pause}> Pause </button> :
-      <button onClick={this.play}> Play </button>;
+    /* Next button */
+    var onNext = () => {
+      this.setState({renderNext: false});
+      this.props.onFinishedPlaying();
+    }
+    var next = this.state.renderNext ?
+      <button className="next" onClick={onNext}> Next </button> : "";
     return(
       <div className="single-conversation">
         <div className="conversation-title"> <h4> {title} </h4> </div>
         {lines}
         {sound}
-        {this.audioMode() ? playOrPause : ""}
+        {next}
       </div>
     )
   }

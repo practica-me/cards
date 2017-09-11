@@ -48,7 +48,7 @@ class SoundSprite extends Component {
      <button className="playpause play" onClick={this.play}> Play </button>;
     return(
       <div className="sound-sprite">
-        {this.props.hideButton ? "" : playOrPause}
+        {this.props.hidePlayPause ? "" : playOrPause}
         <Sound url={this.props.audio_url}
                autoLoad={true}
                playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
