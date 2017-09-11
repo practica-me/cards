@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import ScriptViewer from './components/script-viewer.js';
+import SCRIPT_MODES from './consts.js';
 
-import script from './data/short_replies.json';
-import transcript from './data/short_replies_aligned.json';
-import destructivelyAlignScript from './data/script-aligner.js';
+import script from './data/short_replies_annotated.json';
 
 class App extends Component {
   render() {
-    destructivelyAlignScript(script, transcript);
     return(
-      <ScriptViewer script={script} mode={'text'}/>
+      <ScriptViewer script={script} mode={SCRIPT_MODES.AUDIO}/>
     );
   }
 }

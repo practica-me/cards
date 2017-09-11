@@ -1,4 +1,6 @@
 {
+ "title": "Short Replies",
+ "audio_url": "/audio/short_replies.mp3",
  "conversations": [
   {
    "usage": "Use to agree with someone, and let them know you are listening (informal).",
@@ -99,6 +101,5 @@
    ],
    "title": "Aww!!!"
   }
- ],
- "title": "Short Replies"
+ ]
 }
