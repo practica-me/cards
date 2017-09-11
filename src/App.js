@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     destructivelyAlignScript(script, transcript);
     return(
-      <ScriptViewer script={script}/>
+      <ScriptViewer script={script} mode={'text'}/>
     );
   }
 }
