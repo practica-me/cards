@@ -7,7 +7,7 @@ class SoundSprite extends Component {
     /* TODO: Replace with PropTypes */
     var required_keys = ['audio_url', 'audioStart', 'audioEnd', 'onFinishedPlaying', 'playing'];
     required_keys.forEach((key) => {
-      if(!key in this.props)
+      if(!(key in this.props))
         console.error("Missing required key", key, 'in props', this.props);
     });
     this.state = {position: props.audioStart, playing: props.playing};
@@ -16,19 +16,19 @@ class SoundSprite extends Component {
   }
   componentWillReceiveProps(nextProps) {
     // Allow state.playing to be changed if prop changes from above
-    if ('playing' in nextProps && nextProps.playing != this.state.playing) {
+    if ('playing' in nextProps && nextProps.playing !== this.state.playing) {
       this.setState({playing: nextProps.playing});
     }
     // If a new audio Start comes in, reset the position
-    if (nextProps.audioStart != this.props.audioStart) {
+    if (nextProps.audioStart !== this.props.audioStart) {
       this.setState({position: nextProps.audioStart});
     }
   }
   play() {
-    this.setState({playing: true}, () => console.log('PLAY', this.state))
+    this.setState({playing: true})
   }
   pause() {
-    this.setState({playing: false}, () => console.log('PAUSE', this.state))
+    this.setState({playing: false})
   }
   render() {
     var _this = this;
@@ -44,8 +44,10 @@ class SoundSprite extends Component {
       }
     }
     var playOrPause = this.state.playing ?
-     <button className="playpause pause" onClick={this.pause}> Pause </button> :
-     <button className="playpause play" onClick={this.play}> Play </button>;
+     <button className="playpause pause" onClick={this.pause}>
+      {this.props.pauseText || "Pause"} </button> :
+     <button className="playpause play" onClick={this.play}>
+      {this.props.playText || "Play"} </button>;
     return(
       <div className="sound-sprite">
         {this.props.hidePlayPause ? "" : playOrPause}

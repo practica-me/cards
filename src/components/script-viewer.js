@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import SoundSprite from './sound-sprite.js';
 import SCRIPT_MODES from '../consts.js';
-import conversations from '../data/short_replies.json';
 import './script-viewer.css';
 
 class SingleLine extends Component {
   render() {
-    var cls = "line " + this.props.side;
     var {text} = this.props.line;
     var dotted = text.replace(/[\w,'.!?]/ig, "-");
     if (this.props.mode === SCRIPT_MODES.TEXT ||
@@ -22,6 +20,8 @@ class SingleLine extends Component {
           {dotted}
         </div>
       );
+    } else if (this.props.mode === SCRIPT_MODES.TITLE_AUDIO) {
+      return <div/>;
     } else {
       console.error("MODE", this.props.mode, "not yet supported");
       return (<div/>);
@@ -33,30 +33,29 @@ class ConversationViewer extends Component {
   constructor(props) {
     super(props);
     var {conversation} = props.convoElement;
-    this.state = {
-      renderNext: false,
-      audioStart: 1000 * conversation[0].audioStart,
-      audioEnd: 1000 * conversation[conversation.length - 1].audioEnd
-    };
+    this.state = Object.assign({renderNext: false}, this.audioStartEnd(this.props));
     this.audioMode = this.audioMode.bind(this);
   }
-  updateStartAndEnd(props) {
-    var {mode, convoElement} = props;
-    var {title, conversation} = convoElement;
-    this.setState({
-      audioStart: 1000 * conversation[0].audioStart,
-      audioEnd: 1000 * conversation[conversation.length - 1].audioEnd
-    })
+   audioStartEnd(props) {
+    var {convoElement} = props;
+    if (props.mode == SCRIPT_MODES.TITLE_AUDIO) {
+      return {audioStart: 1000 * convoElement.titleAudioStart,
+              audioEnd: 1000 * convoElement.titleAudioEnd};
+    } else {
+      var {conversation} = convoElement;
+      return {audioStart: 1000 * conversation[0].audioStart,
+              audioEnd: 1000 * conversation[conversation.length - 1].audioEnd};
+    }
   }
   componentWillReceiveProps(nextProps) {
-    this.updateStartAndEnd(nextProps);
+    this.setState(this.audioStartEnd(nextProps));
   }
   audioMode() {
     return (this.props.mode === SCRIPT_MODES.AUDIO ||
+            this.props.mode === SCRIPT_MODES.TITLE_AUDIO ||
             this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT);
   }
   render() {
-    var _this = this;
     var {mode, convoElement} = this.props;
     var {title, conversation} = convoElement;
     /* Display lines */
@@ -120,7 +119,9 @@ class AllConversationsViewer extends Component {
   advance() {
     // If mode == AUDIO, change mode to AUDIO_AND_TEXT
     // If mode == AUDIO_AND_TEXT, change mode to AUDIO and changeConversation
-    if (this.state.mode === SCRIPT_MODES.AUDIO) {
+    if (this.state.mode === SCRIPT_MODES.TITLE_AUDIO) {
+      this.setState({mode: SCRIPT_MODES.AUDIO});
+    } else if (this.state.mode === SCRIPT_MODES.AUDIO) {
       this.setState({mode: SCRIPT_MODES.AUDIO_AND_TEXT});
     } else if (this.state.mode === SCRIPT_MODES.AUDIO_AND_TEXT) {
       this.setState({mode: SCRIPT_MODES.AUDIO});

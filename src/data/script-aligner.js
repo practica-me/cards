@@ -42,8 +42,16 @@ function destructivelyAlignScript(practicaJSON, gentleJSON) {
            audioEnd: endWord.end
          };
        }
-     })
-
+     });
+     // Now find the line that matches with the title, and get audioStart & audioEnd in the title
+     convoElement.conversation.forEach(function(line) {
+       var normalize = (s) => { return s.replace(/[^\w]/ig, '').toLowerCase() };
+       if (normalize(line.text) === normalize(convoElement.title)) {
+         convoElement.titleAudioStart = line.audioStart;
+         convoElement.titleAudioEnd = line.audioEnd;
+       }
+     });
+     console.log(JSON.stringify(practicaJSON));
    })
 
 }

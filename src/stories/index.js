@@ -18,6 +18,7 @@ storiesOf('Button', module)
   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
 
 storiesOf('ScriptViewer', module)
+  .add('title mode', () => <ScriptViewer script={script} mode={SCRIPT_MODES.TITLE_AUDIO}/>)
   .add('text mode', () => <ScriptViewer script={script} mode={SCRIPT_MODES.TEXT}/>)
   .add('audio mode', () => <ScriptViewer script={script} mode={SCRIPT_MODES.AUDIO}/>)
   .add('both', () => <ScriptViewer script={script} mode={SCRIPT_MODES.AUDIO_AND_TEXT}/>);
