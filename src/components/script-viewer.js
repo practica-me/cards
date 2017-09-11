@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Sound from 'react-sound';
-
+import SoundSprite from './sound-sprite.js';
+import SCRIPT_MODES from '../consts.js';
 import conversations from '../data/short_replies.json';
 import './script-viewer.css';
-import SCRIPT_MODES from '../consts.js';
 
 class SingleLine extends Component {
   render() {
@@ -35,24 +34,26 @@ class ConversationViewer extends Component {
     super(props);
     var {conversation} = props.convoElement;
     this.state = {
-      playing: false,
-      audioStart: 1000 * conversation[0].audioStart ,
-      audioEnd: 1000 * conversation[conversation.length - 1].audioEnd
+      playing: false
     };
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.audioMode = this.audioMode.bind(this);
   }
+  updateStartAndEnd(props) {
+    var {mode, convoElement} = props;
+    var {title, conversation} = convoElement;
+    this.setState({
+      audioStart: 1000 * conversation[0].audioStart,
+      audioEnd: 1000 * conversation[conversation.length - 1].audioEnd
+    })
+  }
+  componentWillReceiveProps(nextProps) {
+    this.updateStartAndEnd(nextProps);
+  }
   audioMode() {
     return (this.props.mode === SCRIPT_MODES.AUDIO ||
             this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT);
-  }
-  componentWillReceiveProps(nextProps) {
-    var {conversation} = nextProps.convoElement;
-    this.setState({
-      audioStart: 1000 * conversation[0].audioStart ,
-      audioEnd: 1000 * conversation[conversation.length - 1].audioEnd
-    });
   }
   play() {
     this.setState({playing: true});
@@ -64,29 +65,20 @@ class ConversationViewer extends Component {
     var _this = this;
     var {mode, convoElement} = this.props;
     var {title, conversation} = convoElement;
+    /* Display lines */
     var lines = conversation.map(function(line, index) {
       var side = (index % 2) ? "right" : "left";
       return <SingleLine key={index} mode={mode} line={line} side={side} />
     });
-    var sound = <div/>;
-    if (this.audioMode()) {
-      if (!this.props.audio_url) { console.error("404:", this.props.audio_url);}
-      var onPlaying = (obj) => {
-        var {position} = obj;
-        if (position > _this.state.audioEnd) {
-          _this.pause();
-          this.props.onFinishedPlaying();
-          this.setState({position: this.state.audioStart});
-        }
-      };
-      sound = <Sound
-                url={this.props.audio_url}
-                autoLoad={true}
-                playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
-                position={this.state.position}
-                onPlaying={onPlaying}
-              />
-    }
+    /* Audio Details */
+    var onFinished = () => { this.pause(); this.props.onFinishedPlaying(); }
+    var sound = (!this.audioMode()) ? <div/> :
+      <SoundSprite
+        audioStart ={this.state.audioStart}
+        audioEnd={this.state.audioEnd}
+        audio_url={this.props.audio_url}
+        playing={this.state.playing}
+        onFinishedPlaying={onFinished} />
     var playOrPause = this.state.playing ?
       <button onClick={this.pause}> Pause </button> :
       <button onClick={this.play}> Play </button>;
