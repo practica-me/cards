@@ -38,8 +38,8 @@ function destructivelyAlignScript(practicaJSON, gentleJSON) {
          }
          return {
            text: line,
-           audioStart: startWord.start,
-           audioEnd: endWord.end
+           audioStart: 1000 * startWord.start, // convert from s to ms
+           audioEnd: 1000 * endWord.end // convert from s to ms
          };
        }
      });

@@ -42,12 +42,12 @@ class ConversationViewer extends Component {
   audioStartEnd(props) {
     var {convoElement} = props;
     if (props.mode === SCRIPT_MODES.TITLE_AUDIO) {
-      return {audioStart: 1000 * convoElement.titleAudioStart,
-              audioEnd: 1000 * convoElement.titleAudioEnd};
+      return {audioStart: convoElement.titleAudioStart,
+              audioEnd: convoElement.titleAudioEnd};
     } else {
       var {conversation} = convoElement;
-      return {audioStart: 1000 * conversation[0].audioStart,
-              audioEnd: 1000 * conversation[conversation.length - 1].audioEnd};
+      return {audioStart: conversation[0].audioStart,
+              audioEnd: conversation[conversation.length - 1].audioEnd};
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -56,8 +56,8 @@ class ConversationViewer extends Component {
   onAudioPosition(position) {
     var conversation = this.props.convoElement.conversation;
     // Special case: if we are at very end or beginning; we aren't active.
-    if (position <= (1000 * conversation[0].audioStart) ||
-        position >= (1000 * conversation[conversation.length-1].audioEnd)) {
+    if (position <= conversation[0].audioStart ||
+        position >= conversation[conversation.length-1].audioEnd) {
       this.setState({ activeLineIndex: undefined });
       return;
     }
@@ -66,8 +66,8 @@ class ConversationViewer extends Component {
       // start searching forward from current activeLineIndex
       var searchIdx = (i + (this.state.activeLineIndex || 0)) % conversation.length;
       var line = conversation[searchIdx];
-      var start = 1000 * line.audioStart;
-      var end = 1000 * line.audioEnd;
+      var start = line.audioStart;
+      var end = line.audioEnd;
       // If the position is between linestart and lineend, set activeLineIndex
       if (position <= end & position >= start) {
         this.setState({ activeLineIndex: searchIdx });
@@ -105,8 +105,9 @@ class ConversationViewer extends Component {
     }
     var next = this.state.renderNext ?
       <button className="next" onClick={onNext}> Next </button> : "";
+    var cls = "single-conversation " + this.props.mode;
     return(
-      <div className="single-conversation">
+      <div className={cls}>
         <div className="conversation-title"> <h4> {title} </h4> </div>
         {lines}
         {sound}
