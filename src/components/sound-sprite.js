@@ -18,7 +18,7 @@ class SoundSprite extends Component {
   componentWillReceiveProps(nextProps) {
     // if audio_url changes reset everything
     if (nextProps.audio_url !== this.props.audio_url) {
-      this.setState({position: props.audioStart, playing: nextProps.playing,
+      this.setState({position: nextProps.audioStart, playing: nextProps.playing,
                     loaded: false, played: false, errorMsg: undefined});
     }
     // If a new audioStart comes in, its new audio: reset position + played
