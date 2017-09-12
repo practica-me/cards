@@ -5,7 +5,7 @@ class SoundSprite extends Component {
   constructor(props) {
     super(props);
     /* TODO: Replace with PropTypes */
-    var required_keys = ['audio_url', 'audioStart', 'audioEnd', 'onFinishedPlaying', 'playing'];
+    var required_keys = ['audio_url', 'audioStart', 'audioEnd', 'onFinishedPlaying'];
     required_keys.forEach((key) => {
       if(!(key in this.props))
         console.error("Missing required key", key, 'in props', this.props);
@@ -41,6 +41,7 @@ class SoundSprite extends Component {
       } else {
       // If not, update position; this is a controlled component
         this.setState({position: position});
+        this.props.onPlaying(position);
       }
     }
     var playOrPause = this.state.playing ?

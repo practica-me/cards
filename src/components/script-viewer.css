@@ -27,12 +27,17 @@
   margin-bottom: 0.5em;
   color: #fff;
 }
+.active.line {
+  border: 2px solid #ff88c4 !important;
+}
 .line.left {
   background-color: #2e88c4;
+  border: 2px solid #2e88c4;
   margin-right: 2em;
 }
 .line.right {
   background-color: #8c8c8c;
+  border: 2px solid #8c8c8c;
   align-self: flex-end;
   margin-left: 2em;
 }
