@@ -11,18 +11,23 @@ class SoundSprite extends Component {
         console.error("Missing required key", key, 'in props', this.props);
     });
     this.state = {position: props.audioStart, playing: props.playing,
-                  loaded: false, errorMsg: undefined};
+                  loaded: false, played: false, errorMsg: undefined};
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
   }
   componentWillReceiveProps(nextProps) {
+    // if audio_url changes reset everything
+    if (nextProps.audio_url !== this.props.audio_url) {
+      this.setState({position: props.audioStart, playing: nextProps.playing,
+                    loaded: false, played: false, errorMsg: undefined});
+    }
+    // If a new audioStart comes in, its new audio: reset position + played
+    if (nextProps.audioStart !== this.props.audioStart) {
+      this.setState({position: nextProps.audioStart, played: false});
+    }
     // Allow state.playing to be changed if prop changes from above
     if ('playing' in nextProps && nextProps.playing !== this.state.playing) {
       this.setState({playing: nextProps.playing});
-    }
-    // If a new audio Start comes in, reset the position
-    if (nextProps.audioStart !== this.props.audioStart) {
-      this.setState({position: nextProps.audioStart});
     }
   }
   play() {
@@ -46,7 +51,8 @@ class SoundSprite extends Component {
       var {position} = obj;
       // If finished, reset position to the start of sprite, and pause playing
       if (position > _this.props.audioEnd) {
-        this.setState({playing: false, position: this.props.audioStart});
+        this.setState({playing: false, played: true,
+                       position: this.props.audioStart});
         this.props.onFinishedPlaying();
       } else {
       // If not, update position; this is a controlled component
@@ -54,11 +60,12 @@ class SoundSprite extends Component {
         this.props.onPlaying(position);
       }
     }
+    var rePlay = (this.state.played) ? "replay" : "play";
     var playOrPause = this.props.hidePlayPause ? "" : (this.state.playing ?
      <button className="playpause pause" onClick={this.pause}>
       {this.props.pauseText || "Pause"} </button> :
-     <button className="playpause play" onClick={this.play}>
-      {this.props.playText || "Play"} </button>);
+     <button className={"playpause " + rePlay} onClick={this.play}>
+      {this.props.playText || rePlay} </button>);
     return(
       <div className="sound-sprite">
         {this.state.errorMsg}

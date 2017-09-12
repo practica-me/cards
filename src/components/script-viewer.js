@@ -41,13 +41,18 @@ class ConversationViewer extends Component {
   }
   audioStartEnd(props) {
     var {convoElement} = props;
+
+    // XXX: TODO: This is a hack to induce "Play" (and not "Replay") when you
+    // shift modes. Do this properly instead of this hacky way soon.
+    var dec = (props.mode === SCRIPT_MODES.AUDIO_AND_TEXT) ? -1 : 0;
+
     if (props.mode === SCRIPT_MODES.TITLE_AUDIO) {
       return {audioStart: convoElement.titleAudioStart,
               audioEnd: convoElement.titleAudioEnd};
     } else {
       var {conversation} = convoElement;
-      return {audioStart: conversation[0].audioStart,
-              audioEnd: conversation[conversation.length - 1].audioEnd};
+      return {audioStart: conversation[0].audioStart + dec,
+              audioEnd: conversation[conversation.length - 1].audioEnd + dec};
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -92,7 +97,6 @@ class ConversationViewer extends Component {
     var onFinished = () => { this.setState({renderNext: true}); };
     var sound = (!audioMode(this.props)) ? <div/> :
       <SoundSprite
-        hidePlayPause={this.state.renderNext}
         audioStart ={this.state.audioStart}
         audioEnd={this.state.audioEnd}
         audio_url={this.props.audio_url}
