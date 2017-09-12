@@ -109,9 +109,13 @@ class ConversationViewer extends Component {
     return(
       <div className={cls}>
         <div className="conversation-title"> <h4> {title} </h4> </div>
-        {lines}
-        {sound}
-        {next}
+        <div className="lines">
+          {lines}
+        </div>
+        <div className="controls">
+          {sound}
+          {next}
+        </div>
       </div>
     )
   }
