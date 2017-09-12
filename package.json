@@ -8,7 +8,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-dropdown": "^1.2.5",
-    "react-sound": "^0.8.0"
+    "soundmanager2": "^2.97.20170602"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.6",
