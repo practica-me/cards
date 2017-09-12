@@ -1,0 +1,270 @@
+{
+ "title": "Short Replies",
+ "audio_url": "/audio/short_replies.mp3",
+ "conversations": [
+  {
+   "usage": "Use to agree with someone, and let them know you are listening (informal).",
+   "conversation": [
+    {
+     "text": "How do you like this weather?",
+     "audioStart": 1200,
+     "audioEnd": 2290
+    },
+    {
+     "text": "I don't like it, it's  too hot.",
+     "audioStart": 2560,
+     "audioEnd": 4040
+    },
+    {
+     "text": "Mmhmm",
+     "audioStart": 4430,
+     "audioEnd": 5109.999999999999
+    },
+    {
+     "text": "But my kids like it. They like to go swimming.",
+     "audioStart": 5970,
+     "audioEnd": 7920
+    },
+    {
+     "text": "Oh, where do you go swimming?",
+     "audioStart": 8480,
+     "audioEnd": 9670
+    }
+   ],
+   "title": "Mmhmm…",
+   "titleAudioStart": 4430,
+   "titleAudioEnd": 5109.999999999999
+  },
+  {
+   "usage": "Say when you hear some sad news, or feel sorry for someone (informal).",
+   "conversation": [
+    {
+     "text": "How are you doing today?",
+     "audioStart": 13210,
+     "audioEnd": 14200
+    },
+    {
+     "text": "Not great, I didn't sleep much last night.",
+     "audioStart": 14950,
+     "audioEnd": 17060
+    },
+    {
+     "text": "Aww...",
+     "audioStart": 17389.999,
+     "audioEnd": 18039.999
+    },
+    {
+     "text": "I was working really late.",
+     "audioStart": 18910,
+     "audioEnd": 20080
+    },
+    {
+     "text": "Are you working late again tonight?",
+     "audioStart": 20759.999999999996,
+     "audioEnd": 22259.999999999996
+    }
+   ],
+   "title": "Aww…",
+   "titleAudioStart": 17389.999,
+   "titleAudioEnd": 18039.999
+  },
+  {
+   "usage": "Say when you hear bad news (formal).",
+   "conversation": [
+    {
+     "text": "How are you doing?",
+     "audioStart": 23790,
+     "audioEnd": 24610
+    },
+    {
+     "text": "Not good, my arm hurts a lot.",
+     "audioStart": 24710,
+     "audioEnd": 26429.999
+    },
+    {
+     "text": "I'm sorry to hear that.",
+     "audioStart": 26720,
+     "audioEnd": 27850
+    },
+    {
+     "text": "Yeah, I fell last week.",
+     "audioStart": 27939.999999999996,
+     "audioEnd": 29380
+    },
+    {
+     "text": "Are you going to the doctor?",
+     "audioStart": 29780,
+     "audioEnd": 30969.998999999996
+    }
+   ],
+   "title": "I'm sorry to hear that.",
+   "titleAudioStart": 26720,
+   "titleAudioEnd": 27850
+  },
+  {
+   "usage": "Say when you hear good news (informal).",
+   "conversation": [
+    {
+     "text": "Do you have any plans for the weekend?",
+     "audioStart": 34279.999,
+     "audioEnd": 35819.998999999996
+    },
+    {
+     "text": "Yes! I'm moving to a new apartment.",
+     "audioStart": 36980.00000000001,
+     "audioEnd": 38570
+    },
+    {
+     "text": "That's awesome!",
+     "audioStart": 38810,
+     "audioEnd": 39670
+    },
+    {
+     "text": "Yeah, I'm excited to move.",
+     "audioStart": 39760,
+     "audioEnd": 41120.00000000001
+    },
+    {
+     "text": "Where is your new apartment?",
+     "audioStart": 41690,
+     "audioEnd": 42860.00000000001
+    }
+   ],
+   "title": "That's awesome!",
+   "titleAudioStart": 38810,
+   "titleAudioEnd": 39670
+  },
+  {
+   "usage": "Say when you hear about really good news (formal).",
+   "conversation": [
+    {
+     "text": "How's your day going?",
+     "audioStart": 45590,
+     "audioEnd": 46650.00000000001
+    },
+    {
+     "text": "Great, I got a new job!",
+     "audioStart": 47240,
+     "audioEnd": 48640
+    },
+    {
+     "text": "Congratulations!",
+     "audioStart": 48900,
+     "audioEnd": 50010
+    },
+    {
+     "text": "Thanks, I'm excited.",
+     "audioStart": 50190,
+     "audioEnd": 51259.999
+    },
+    {
+     "text": "Where is your new job?",
+     "audioStart": 51679.999,
+     "audioEnd": 52809.99999999999
+    }
+   ],
+   "title": "Congratulations!",
+   "titleAudioStart": 48900,
+   "titleAudioEnd": 50010
+  },
+  {
+   "usage": "Say when you hear something positive or interesting (informal).",
+   "conversation": [
+    {
+     "text": "What did you do this weekend?",
+     "audioStart": 56300,
+     "audioEnd": 57670
+    },
+    {
+     "text": "I went to a movie on Sunday.",
+     "audioStart": 57900,
+     "audioEnd": 59110
+    },
+    {
+     "text": "Cool!",
+     "audioStart": 59380,
+     "audioEnd": 59950
+    },
+    {
+     "text": "I saw the new Star Wars movie.",
+     "audioStart": 60670,
+     "audioEnd": 61980.00000000001
+    },
+    {
+     "text": "Did you like it?",
+     "audioStart": 62309.998999999996,
+     "audioEnd": 63080
+    }
+   ],
+   "title": "Cool",
+   "titleAudioStart": 59380,
+   "titleAudioEnd": 59950
+  },
+  {
+   "usage": "Say when you are impressed or surprised by good news (informal).",
+   "conversation": [
+    {
+     "text": "How are your kids doing?",
+     "audioStart": 65920,
+     "audioEnd": 66980
+    },
+    {
+     "text": "Great, my son got into college.",
+     "audioStart": 67299.999,
+     "audioEnd": 69040
+    },
+    {
+     "text": "Wow!",
+     "audioStart": 69070,
+     "audioEnd": 69910
+    },
+    {
+     "text": "I know, I'm really excited for him.",
+     "audioStart": 70070,
+     "audioEnd": 71799.999
+    },
+    {
+     "text": "What college is he going to?",
+     "audioStart": 71859.999,
+     "audioEnd": 73220
+    }
+   ],
+   "title": "Wow!",
+   "titleAudioStart": 69070,
+   "titleAudioEnd": 69910
+  },
+  {
+   "usage": "Use to let someone know you are interested, and want to know more (formal).",
+   "conversation": [
+    {
+     "text": "How is your week going?",
+     "audioStart": 75970,
+     "audioEnd": 76840
+    },
+    {
+     "text": "Good, I went to Sacramento yesterday.",
+     "audioStart": 77460,
+     "audioEnd": 79210
+    },
+    {
+     "text": "Oh, interesting!",
+     "audioStart": 79430,
+     "audioEnd": 80390
+    },
+    {
+     "text": "I was visiting my aunt and uncle there.",
+     "audioStart": 80670,
+     "audioEnd": 81990
+    },
+    {
+     "text": "What did you do together?",
+     "audioStart": 82400,
+     "audioEnd": 83499.999
+    }
+   ],
+   "title": "Oh, interesting!",
+   "titleAudioStart": 79430,
+   "titleAudioEnd": 80390
+  }
+ ]
+}
