@@ -177,16 +177,22 @@ class AllConversationsViewer extends Component {
     }
   }
   render() {
+    var clickfn = (fn) => (e) => {e.preventDefault(); fn();}
+    var previous = () => this.changeConversation(-1);
+    var next = () => this.changeConversation(+1);
+    var idx = this.state.conversationIndex;
     var numConversations = this.props.conversations.length;
     var prevNext = (this.state.mode !== SCRIPT_MODES.TEXT) ? <div/> :
       <div className="controls">
-        <button onClick={() => this.changeConversation(-1)} > Prev </button>
-        <button onClick={() => this.changeConversation(+1)} > Next </button>
+        <button onClick={previous} > Prev </button>
+        <button onClick={next} > Next </button>
       </div>;
     return(
       <div className="all-conversations">
         <div className="pagination">
-          #{this.state.conversationIndex + 1} / {numConversations}
+          {idx > 0 ? <a href="#" onClick={clickfn(previous)}> {"<"} </a> : ""}
+          # {this.state.conversationIndex + 1} / {numConversations}
+          <a href="#" onClick={clickfn(next)}> {">"} </a>
         </div>
         <ConversationViewer
           convoElement={this.getActiveConvo()}
