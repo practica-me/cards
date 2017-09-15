@@ -37,29 +37,24 @@ class SoundSprite extends Component {
     this.setState({playing: false})
   }
   render() {
-    console.log(this.state.position, this.props.audioStart);
     var _this = this;
     var onLoad = (obj) => {
-      if (obj.readyState < 3) { // soundmanager-2: readyState = 3 is loaded state
+      if (obj.readyState < 3) { // soundmanager-2: readyState = 3 => loaded
         this.setState({errorMsg: "Sound not loaded :( :(", loaded: false})
       } else {
         this.setState({loaded: true, errorMsg: ''})
       }
       console.log("Sound loaded!")
     }
-    var onPlaying = (obj) => {
-      var {position} = obj;
-      // If finished, reset position to the start of sprite, and pause playing
-      if (position > _this.props.audioEnd) {
-        this.setState({playing: false, played: true,
-                       position: this.props.audioStart});
-        this.props.onFinishedPlaying();
-      } else {
-      // If not, update position; this is a controlled component
-        this.setState({position: position});
-        this.props.onPlaying(position);
-      }
+    var onEnd = (pos) => {
+      this.setState({playing: false, played: true, position: this.props.audioStart});
+      this.props.onFinishedPlaying();
     }
+    var onPlaying = (o) => {
+      this.setState({position: o.position});
+      this.props.onPlaying(o.position);
+    }
+    var onPause = (o) => { this.setState({position: o.position}); };
     var rePlay = (this.state.played) ? "replay" : "play";
     var playOrPause = this.props.hidePlayPause ? "" : (this.state.playing ?
      <button className="playpause pause" onClick={this.pause}>
@@ -74,8 +69,11 @@ class SoundSprite extends Component {
                autoLoad={true}
                playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
                onLoad={onLoad}
-               position={this.state.position}
-               onPlaying={onPlaying} />
+               onPosition={this.props.audioEnd}
+               onPositionCallBack={onEnd}
+               onPause={onPause}
+               onPlaying={onPlaying}
+               playFromPosition={this.state.position} />
       </div>
     );
   }
