@@ -23,6 +23,7 @@
 }
 .conversation-title {
   align-self: center;
+  text-align: center;
 }
 .line {
   padding: 10px;
@@ -63,4 +64,7 @@ button.primary, button.play, button.next {
 }
 .sound-sprite {
   align-self: center;
+}
+.bold {
+  font-weight: bold;
 }

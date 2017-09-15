@@ -109,10 +109,18 @@ class ConversationViewer extends Component {
     }
     var next = this.state.renderNext ?
       <button className="next" onClick={onNext}> Next </button> : "";
+    // Some mode-specific stuff
     var cls = "single-conversation " + this.props.mode;
+    var ptitle = this.props.mode === SCRIPT_MODES.AUDIO ?
+                 "Listening Practice" :
+                 this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT ?
+                 "Speaking Practice" : "";
     return(
       <div className={cls}>
-        <div className="conversation-title"> <h4> {title} </h4> </div>
+        <div className="conversation-title">
+          {ptitle}
+          <div className="bold"> {title} </div>
+        </div>
         <div className="lines">
           {lines}
         </div>
