@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SoundSprite from './sound-sprite.js';
 import SCRIPT_MODES from '../consts.js';
+import SoundSprite from '../lib/sound-sprite.js';
 import T from 'prop-types';
 import './script-viewer.css';
 
@@ -105,20 +105,24 @@ class ConversationViewer extends Component {
     var {mode, convoElement, audio_url} = this.props;
     var {title, conversation} = convoElement;
     /* Audio Details */
+    /* What should you do when each line is played? */
     var onLinePlayed = () => {
       var activeLineIndex = _this.state.activeLineIndex;
       var {conversation, title} = _this.props.convoElement;
+      /* If this is the title audio, each line is the whole thing. */
       if (_this.props.mode === SCRIPT_MODES.TITLE_AUDIO) {
         if (activeLineIndex !== title.lineIndexInConversation) {
           _this.setState({activeLineIndex: _this.state.defaultLineIndex});
         } else {
           _this.setState({playing: false, allPlayed: true});
         }
+      /* Otherwise, we played something before the last line: add a Pause and keep playing. */
       } else if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
         _this.setState({activeLineIndex: activeLineIndex + 1,
                         playing: false, waiting: true,});
         setTimeout(() => _this & _this.setState({playing: true, waiting: false}),
                          this.state.pauseLength);
+      /* We played the last line: allPlayed is true */
       } else {
         _this.setState({allPlayed: true, playing: false,
                         activeLineIndex: _this.state.defaultLineIndex});
