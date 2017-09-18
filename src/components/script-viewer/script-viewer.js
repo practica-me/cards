@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SCRIPT_MODES from '../consts.js';
-import SoundSprite from '../lib/sound-sprite.js';
+import SCRIPT_MODES from './consts.js';
+import SoundSprite from '../../lib/sound-sprite.js';
 import T from 'prop-types';
 import './script-viewer.css';
 
@@ -120,7 +120,7 @@ class ConversationViewer extends Component {
       } else if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
         _this.setState({activeLineIndex: activeLineIndex + 1,
                         playing: false, waiting: true,});
-        setTimeout(() => _this & _this.setState({playing: true, waiting: false}),
+        setTimeout(() => { if (_this.state.waiting) _this.setState({playing: true, waiting: false})},
                          this.state.pauseLength);
       /* We played the last line: allPlayed is true */
       } else {
