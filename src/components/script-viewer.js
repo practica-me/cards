@@ -56,6 +56,7 @@ class ConversationViewerControl extends Component {
     onPause: T.func.isRequired,
     onNext: T.func.isRequired,
     playing: T.bool.isRequired,
+    waiting: T.bool,
     played: T.bool
   };
   render() {
@@ -72,7 +73,7 @@ class ConversationViewerControl extends Component {
     } else {
       return (
         <div className="controls">
-          {this.props.playing ? pause : play }
+          {this.props.playing || this.props.waiting ? pause : play }
         </div>
       );
     }
@@ -88,7 +89,9 @@ class ConversationViewer extends Component {
     var defaultIdx = (props.mode === SCRIPT_MODES.TITLE_AUDIO) ?
                       props.convoElement.title.lineIndexInConversation : 0;
     this.state = {activeLineIndex: defaultIdx, defaultLineIndex: defaultIdx,
-                  playing: false, allPlayed: false};
+                  pauseLength: 1000,
+                  playing: false,
+                  allPlayed: false};
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.mode !== this.props.mode) {
@@ -107,15 +110,18 @@ class ConversationViewer extends Component {
       var {conversation, title} = _this.props.convoElement;
       if (_this.props.mode === SCRIPT_MODES.TITLE_AUDIO) {
         if (activeLineIndex !== title.lineIndexInConversation) {
-          _this.setState({activeLineIndex: this.state.defaultLineIndex});
+          _this.setState({activeLineIndex: _this.state.defaultLineIndex});
         } else {
           _this.setState({playing: false, allPlayed: true});
         }
       } else if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
-        _this.setState({activeLineIndex: activeLineIndex + 1});
+        _this.setState({activeLineIndex: activeLineIndex + 1,
+                        playing: false, waiting: true,});
+        setTimeout(() => _this & _this.setState({playing: true, waiting: false}),
+                         this.state.pauseLength);
       } else {
         _this.setState({allPlayed: true, playing: false,
-                        activeLineIndex: this.state.defaultLineIndex});
+                        activeLineIndex: _this.state.defaultLineIndex});
       }
     }
     /* Display lines */
@@ -132,8 +138,8 @@ class ConversationViewer extends Component {
       this.setState({activeLineIndex: 0, playing: false, allPlayed: false});
       this.props.onFinishedPlaying();
     }
-    var play = () => this.setState({playing: true});
-    var pause = () => this.setState({playing: false});
+    var play = () => this.setState({playing: true, waiting: false});
+    var pause = () => this.setState({playing: false, waiting: false});
     var replay = () => this.setState({playing: true, allPlayed: false,
       activeLineIndex: this.state.defaultLineIndex});
     return(
@@ -146,7 +152,9 @@ class ConversationViewer extends Component {
         </div>
         <ConversationViewerControl
           onPlay={play} onPause={pause} onReplay={replay} onNext={onNext}
-          playing={this.state.playing} played={this.state.allPlayed} />
+          playing={this.state.playing}
+          waiting={this.state.waiting}
+          played={this.state.allPlayed} />
       </div>
     )
   }
