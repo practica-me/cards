@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SoundSprite from './sound-sprite.js';
 import SCRIPT_MODES from '../consts.js';
+import T from 'prop-types';
 import './script-viewer.css';
 
 function audioMode(props) {

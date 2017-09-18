@@ -5,6 +5,7 @@ import T from 'prop-types';
 class SoundSprite extends Component {
   static propTypes = {
     audio_url: T.string.isRequired,
+    allowPausing: T.bool,
     audioStart: T.number.isRequired,
     audioEnd: T.number.isRequired,
     onFinishedPlaying: T.func.isRequired,
@@ -30,11 +31,19 @@ class SoundSprite extends Component {
     }
     // Allow state.playing to be changed if prop changes from above
     if ('playing' in nextProps && nextProps.playing !== this.state.playing) {
-      this.setState({playing: nextProps.playing});
+      if (this.props.allowPausing) {
+        this.setState({playing: nextProps.playing});
+      } else {
+        this.setState({playing: nextProps.playing, position: this.props.audioStart});
+      }
     }
   }
   play() {
-    this.setState({playing: true})
+    if (this.props.allowPausing) {
+      this.setState({playing: true});
+    } else {
+      this.setState({playing: true, position: this.props.audioStart});
+    }
   }
   pause() {
     this.setState({playing: false})
@@ -50,12 +59,13 @@ class SoundSprite extends Component {
       console.log("Sound loaded!")
     }
     var onEnd = (pos) => {
-      this.setState({playing: false, played: true, position: this.props.audioStart});
+      var newPosition = (this.props.resetPosition ? {position: this.props.audioStart} : {});
+      this.setState(Object.assign({playing: false, played: true}, newPosition));
       this.props.onFinishedPlaying();
     }
     var onPlaying = (o) => {
       this.setState({position: o.position});
-      this.props.onPlaying(o.position);
+      if (this.props.onPlaying) this.props.onPlaying(o.position);
     }
     var onPause = (o) => { this.setState({position: o.position}); };
     var rePlay = (this.state.played) ? "replay" : "play";
@@ -76,7 +86,7 @@ class SoundSprite extends Component {
                onPositionCallBack={onEnd}
                onPause={onPause}
                onPlaying={onPlaying}
-               playFromPosition={this.state.position} />
+               position={this.state.position} />
       </div>
     );
   }
