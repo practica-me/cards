@@ -104,11 +104,15 @@ class ConversationViewer extends Component {
     /* Audio Details */
     var onLinePlayed = () => {
       var activeLineIndex = _this.state.activeLineIndex;
-      var conversation = _this.props.convoElement.conversation;
-      if (this.props.mode === SCRIPT_MODES.TITLE_AUDIO) {
-        _this.setState({playing: false, allPlayed: true});
+      var {conversation, title} = _this.props.convoElement;
+      if (_this.props.mode === SCRIPT_MODES.TITLE_AUDIO) {
+        if (activeLineIndex !== title.lineIndexInConversation) {
+          _this.setState({activeLineIndex: this.state.defaultLineIndex});
+        } else {
+          _this.setState({playing: false, allPlayed: true});
+        }
       } else if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
-        _this.setState({activeLineIndex: activeLineIndex + 1, playing: false});
+        _this.setState({activeLineIndex: activeLineIndex + 1});
       } else {
         _this.setState({allPlayed: true, playing: false,
                         activeLineIndex: this.state.defaultLineIndex});
