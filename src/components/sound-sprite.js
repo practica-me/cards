@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import Sound from './react-sound-plus.js';
+import T from 'prop-types';
 
 class SoundSprite extends Component {
+  static propTypes = {
+    audio_url: T.string.isRequired,
+    audioStart: T.number.isRequired,
+    audioEnd: T.number.isRequired,
+    onFinishedPlaying: T.func.isRequired,
+    playing: T.bool,
+    resetPosition: T.bool
+  };
   constructor(props) {
     super(props);
-    /* TODO: Replace with PropTypes */
-    var required_keys = ['audio_url', 'audioStart', 'audioEnd', 'onFinishedPlaying'];
-    required_keys.forEach((key) => {
-      if(!(key in this.props))
-        console.error("Missing required key", key, 'in props', this.props);
-    });
     this.state = {position: props.audioStart, playing: props.playing,
                   loaded: false, played: false, errorMsg: undefined};
     this.play = this.play.bind(this);
