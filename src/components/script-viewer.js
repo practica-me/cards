@@ -12,21 +12,69 @@ function audioMode(props) {
 
 /* Single Line component. Just renders ---- or real text depending on mode. */
 class SingleLine extends Component {
+  static propTypes = {
+    audio_url: T.string.isRequired,
+    mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired,
+    line: T.shape({
+      text: T.string.isRequired,
+      audioStart: T.number.isRequired,
+      audioEnd: T.number.isRequired
+    }),
+    index: T.number.isRequired,
+    active: T.bool,
+    playing: T.bool,
+    onDone: T.func
+  };
   render() {
-    var {text} = this.props.line;
+    var {text, audioStart, audioEnd} = this.props.line;
     var dotted = text.replace(/[\w,'.!?]/ig, "-");
-    var cls = ["line", this.props.side, (this.props.active ? "active" : ""),
+    var side = (this.props.index % 2) ? "right" : "left";
+    var cls = ["line", side, (this.props.active ? "active" : ""),
                (audioMode(this.props) ? "audio" : "")].join(" ");
-    if (this.props.mode === SCRIPT_MODES.TEXT ||
-        this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT) {
-      return <div className={cls}> {text} </div>;
-    } else if (this.props.mode === SCRIPT_MODES.AUDIO) {
-      return <div className={cls}>{dotted}</div>;
-    } else if (this.props.mode === SCRIPT_MODES.TITLE_AUDIO) {
-      return <div/>;
+    var txt = (this.props.mode === SCRIPT_MODES.TEXT ||
+      this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT) ? text :
+      this.props.mode === SCRIPT_MODES.AUDIO ? dotted : "";
+    return (
+        <div className={cls}>
+          {txt}
+          <SoundSprite
+              playing={this.props.active}
+              hidePlayPause={true}
+              audioStart={audioStart}
+              audioEnd={audioEnd}
+              audio_url={this.props.audio_url}
+              onFinishedPlaying={this.props.onDone} />
+        </div>
+    );
+  }
+}
+
+class ConversationViewerControl extends Component {
+  static propTypes = {
+    onPlay: T.func.isRequired,
+    onReplay: T.func,
+    onPause: T.func.isRequired,
+    onNext: T.func.isRequired,
+    playing: T.bool.isRequired,
+    played: T.bool
+  };
+  render() {
+    var btnGen = function (cls, onClk, txt) {
+      return <button className={cls} onClick={onClk}> {txt} </button>;
+    }
+    var next = btnGen("next", this.props.onNext, "Next");
+    var replayFn = this.props.onReplay ? this.props.onReplay : this.props.onPlay;
+    var replay = btnGen("playpause replay", replayFn, "Replay");
+    var pause = btnGen("playpause pause", this.props.onPause, "Pause");
+    var play = btnGen("playpause play", this.props.onPlay, "Play");
+    if (this.props.played) {
+      return <div className="controls"> {next} {replay} </div>
     } else {
-      console.error("MODE", this.props.mode, "not yet supported");
-      return <div/>;
+      return (
+        <div className="controls">
+          {this.props.playing ? pause : play }
+        </div>
+      );
     }
   }
 }
@@ -37,98 +85,52 @@ class SingleLine extends Component {
 class ConversationViewer extends Component {
   constructor(props) {
     super(props);
-    this.state = Object.assign({renderNext: false}, this.audioStartEnd(this.props));
-    this.onAudioPosition = this.onAudioPosition.bind(this);
-  }
-  audioStartEnd(props) {
-    var {convoElement} = props;
-
-    // XXX: TODO: This is a hack to induce "Play" (and not "Replay") when you
-    // shift modes. Do this properly instead of this hacky way soon.
-    var dec = (props.mode === SCRIPT_MODES.AUDIO_AND_TEXT) ? -1 : 0;
-
-    if (props.mode === SCRIPT_MODES.TITLE_AUDIO) {
-      return {audioStart: convoElement.titleAudioStart,
-              audioEnd: convoElement.titleAudioEnd};
-    } else {
-      var {conversation} = convoElement;
-      return {audioStart: conversation[0].audioStart + dec,
-              audioEnd: conversation[conversation.length - 1].audioEnd + dec};
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setState(this.audioStartEnd(nextProps));
-  }
-  onAudioPosition(position) {
-    var conversation = this.props.convoElement.conversation;
-    // Special case: if we are at very end or beginning; we aren't active.
-    if (position <= conversation[0].audioStart ||
-        position >= conversation[conversation.length-1].audioEnd) {
-      this.setState({ activeLineIndex: undefined });
-      return;
-    }
-    // We are active, find which line is active.
-    for(var i=0; i < conversation.length; i++) {
-      // start searching forward from current activeLineIndex
-      var searchIdx = (i + (this.state.activeLineIndex || 0)) % conversation.length;
-      var line = conversation[searchIdx];
-      var start = line.audioStart;
-      var end = line.audioEnd;
-      // If the position is between linestart and lineend, set activeLineIndex
-      if (position <= end & position >= start) {
-        this.setState({ activeLineIndex: searchIdx });
-        return;
-      }
-    }
-    // We couldn't find the audio position, which means its in between lines.
-    // if (i == conversation.length) { //NO ACTION, leave activeLineIndex be}
+    this.state = {activeLineIndex: 0,
+                  playing: false,
+                  allPlayed: false};
   }
   render() {
-    var {mode, convoElement} = this.props;
+    var _this = this;
+    var {mode, convoElement, audio_url} = this.props;
     var {title, conversation} = convoElement;
+    /* Audio Details */
+    var onLinePlayed = () => {
+      var activeLineIndex = _this.state.activeLineIndex;
+      var conversation = _this.props.convoElement.conversation;
+      if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
+        _this.setState({activeLineIndex: activeLineIndex + 1, playing: false});
+      } else {
+        _this.setState({allPlayed: true, activeLineIndex: 0, playing: false});
+      }
+    }
     /* Display lines */
     var activeLineIndex = this.state.activeLineIndex;
     var lines = conversation.map(function(line, index) {
-      var side = (index % 2) ? "right" : "left";
-      var active = (index === activeLineIndex) ? "active" : ""
-      return <SingleLine key={index} active={active}
-                         mode={mode} line={line} side={side} />
+      var active = _this.state.playing && (index === activeLineIndex);
+      return <SingleLine
+                  key={index} active={active} index={index}
+                  mode={mode} audio_url={audio_url} line={line}
+                  onDone={onLinePlayed} />
     });
-    /* Audio Details */
-    var onFinished = () => { this.setState({renderNext: true}); };
-    var sound = (!audioMode(this.props)) ? <div/> :
-      <SoundSprite
-        audioStart ={this.state.audioStart}
-        audioEnd={this.state.audioEnd}
-        audio_url={this.props.audio_url}
-        onPlaying={this.onAudioPosition}
-        onFinishedPlaying={onFinished} />
     /* Next button */
     var onNext = () => {
-      this.setState({renderNext: false});
+      this.setState({activeLineIndex: 0, playing: false, allPlayed: false});
       this.props.onFinishedPlaying();
     }
-    var next = this.state.renderNext ?
-      <button className="next" onClick={onNext}> Next </button> : "";
-    // Some mode-specific stuff
-    var cls = "single-conversation " + this.props.mode;
-    var ptitle = this.props.mode === SCRIPT_MODES.AUDIO ?
-                 "Listening Practice" :
-                 this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT ?
-                 "Speaking Practice" : "";
+    var play = () => this.setState({playing: true});
+    var pause = () => this.setState({playing: false});
+    var replay = () => this.setState({playing: true, activeLineIndex: 0, allPlayed: false});
     return(
-      <div className={cls}>
+      <div className={"single-conversation"}>
         <div className="conversation-title">
-          {ptitle}
           <div className="bold"> {title} </div>
         </div>
         <div className="lines">
           {lines}
         </div>
-        <div className="controls">
-          {sound}
-          {next}
-        </div>
+        <ConversationViewerControl
+          onPlay={play} onPause={pause} onReplay={replay} onNext={onNext}
+          playing={this.state.playing} played={this.state.allPlayed} />
       </div>
     )
   }
