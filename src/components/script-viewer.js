@@ -68,7 +68,7 @@ class ConversationViewerControl extends Component {
     var pause = btnGen("playpause pause", this.props.onPause, "Pause");
     var play = btnGen("playpause play", this.props.onPlay, "Play");
     if (this.props.played) {
-      return <div className="controls"> {next} {replay} </div>
+      return <div className="controls"> {replay} {next} </div>
     } else {
       return (
         <div className="controls">
