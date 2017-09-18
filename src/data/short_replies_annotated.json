@@ -31,9 +31,12 @@
      "audioEnd": 9670
     }
    ],
-   "title": "Mmhmm…",
-   "titleAudioStart": 4430,
-   "titleAudioEnd": 5109.999999999999
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Mmhmm",
+    "audioStart": 4430,
+    "audioEnd": 5109.999999999999
+   }
   },
   {
    "usage": "Say when you hear some sad news, or feel sorry for someone (informal).",
@@ -64,9 +67,12 @@
      "audioEnd": 22259.999999999996
     }
    ],
-   "title": "Aww…",
-   "titleAudioStart": 17389.999,
-   "titleAudioEnd": 18039.999
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Aww...",
+    "audioStart": 17389.999,
+    "audioEnd": 18039.999
+   }
   },
   {
    "usage": "Say when you hear bad news (formal).",
@@ -97,9 +103,12 @@
      "audioEnd": 30969.998999999996
     }
    ],
-   "title": "I'm sorry to hear that.",
-   "titleAudioStart": 26720,
-   "titleAudioEnd": 27850
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "I'm sorry to hear that.",
+    "audioStart": 26720,
+    "audioEnd": 27850
+   }
   },
   {
    "usage": "Say when you hear good news (informal).",
@@ -130,9 +139,12 @@
      "audioEnd": 42860.00000000001
     }
    ],
-   "title": "That's awesome!",
-   "titleAudioStart": 38810,
-   "titleAudioEnd": 39670
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "That's awesome!",
+    "audioStart": 38810,
+    "audioEnd": 39670
+   }
   },
   {
    "usage": "Say when you hear about really good news (formal).",
@@ -163,9 +175,12 @@
      "audioEnd": 52809.99999999999
     }
    ],
-   "title": "Congratulations!",
-   "titleAudioStart": 48900,
-   "titleAudioEnd": 50010
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Congratulations!",
+    "audioStart": 48900,
+    "audioEnd": 50010
+   }
   },
   {
    "usage": "Say when you hear something positive or interesting (informal).",
@@ -196,9 +211,12 @@
      "audioEnd": 63080
     }
    ],
-   "title": "Cool",
-   "titleAudioStart": 59380,
-   "titleAudioEnd": 59950
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Cool!",
+    "audioStart": 59380,
+    "audioEnd": 59950
+   }
   },
   {
    "usage": "Say when you are impressed or surprised by good news (informal).",
@@ -229,9 +247,12 @@
      "audioEnd": 73220
     }
    ],
-   "title": "Wow!",
-   "titleAudioStart": 69070,
-   "titleAudioEnd": 69910
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Wow!",
+    "audioStart": 69070,
+    "audioEnd": 69910
+   }
   },
   {
    "usage": "Use to let someone know you are interested, and want to know more (formal).",
@@ -262,9 +283,12 @@
      "audioEnd": 83499.999
     }
    ],
-   "title": "Oh, interesting!",
-   "titleAudioStart": 79430,
-   "titleAudioEnd": 80390
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Oh, interesting!",
+    "audioStart": 79430,
+    "audioEnd": 80390
+   }
   }
  ]
 }

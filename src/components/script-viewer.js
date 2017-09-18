@@ -119,11 +119,11 @@ class ConversationViewer extends Component {
     }
     var play = () => this.setState({playing: true});
     var pause = () => this.setState({playing: false});
-    var replay = () => this.setState({playing: true, activeLineIndex: 0, allPlayed: false});
+    var replay = () => this.setState({playing: true, allPlayed: false, activeLineIndex: 0});
     return(
       <div className={"single-conversation"}>
         <div className="conversation-title">
-          <div className="bold"> {title} </div>
+          <div className="bold"> {title.text} </div>
         </div>
         <div className="lines">
           {lines}
