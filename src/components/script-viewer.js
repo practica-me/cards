@@ -85,9 +85,17 @@ class ConversationViewerControl extends Component {
 class ConversationViewer extends Component {
   constructor(props) {
     super(props);
-    this.state = {activeLineIndex: 0,
-                  playing: false,
-                  allPlayed: false};
+    var defaultIdx = (props.mode === SCRIPT_MODES.TITLE_AUDIO) ?
+                      props.convoElement.title.lineIndexInConversation : 0;
+    this.state = {activeLineIndex: defaultIdx, defaultLineIndex: defaultIdx,
+                  playing: false, allPlayed: false};
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.mode !== this.props.mode) {
+      var defaultIdx = (nextProps.mode === SCRIPT_MODES.TITLE_AUDIO) ?
+                        nextProps.convoElement.title.lineIndexInConversation : 0;
+      this.setState({defaultLineIndex: defaultIdx});
+    }
   }
   render() {
     var _this = this;
@@ -97,10 +105,13 @@ class ConversationViewer extends Component {
     var onLinePlayed = () => {
       var activeLineIndex = _this.state.activeLineIndex;
       var conversation = _this.props.convoElement.conversation;
-      if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
+      if (this.props.mode === SCRIPT_MODES.TITLE_AUDIO) {
+        _this.setState({playing: false, allPlayed: true});
+      } else if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
         _this.setState({activeLineIndex: activeLineIndex + 1, playing: false});
       } else {
-        _this.setState({allPlayed: true, activeLineIndex: 0, playing: false});
+        _this.setState({allPlayed: true, playing: false,
+                        activeLineIndex: this.state.defaultLineIndex});
       }
     }
     /* Display lines */
@@ -119,7 +130,8 @@ class ConversationViewer extends Component {
     }
     var play = () => this.setState({playing: true});
     var pause = () => this.setState({playing: false});
-    var replay = () => this.setState({playing: true, allPlayed: false, activeLineIndex: 0});
+    var replay = () => this.setState({playing: true, allPlayed: false,
+      activeLineIndex: this.state.defaultLineIndex});
     return(
       <div className={"single-conversation"}>
         <div className="conversation-title">
