@@ -52,9 +52,17 @@ export default class AllConversationsViewer extends Component {
     }
   }
   render() {
+    /* Pagination: creating too much trouble for now.
     var previous = () => this.changeConversation(-1);
     var next = () => this.changeConversation(+1);
     var idx = this.state.conversationIndex;
+    var pagination =
+      <div className="pagination">
+        (idx > 0 ?  <button className="minimal" onclick={previous}> {"<"} </button> : "")
+        # {idx + 1} / {numConversations}
+        <button className="minimal" onClick={next}> {">"} </button>
+      </div>;
+    */
     var numConversations = this.props.conversations.length;
     return(
       <div className="all-conversations">
@@ -65,9 +73,7 @@ export default class AllConversationsViewer extends Component {
           onFinishedPlaying={this.advance}
           />
         <div className="pagination">
-          {idx > 0 ? <button className="minimal" onclick={previous}> {"<"} </button> : ""}
-          # {this.state.conversationIndex + 1} / {numConversations}
-          <button className="minimal" onClick={next}> {">"} </button>
+        # {this.state.conversationIndex + 1} / {numConversations}
         </div>
       </div>
     )

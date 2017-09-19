@@ -45,6 +45,13 @@ export default class ConversationRecorder extends Component {
     if (nextProps.mode !== this.props.mode) {
       this.setState({activeLineIndex: this.defaultIndex(nextProps),
                      waitingToRecord: this.recordMode(nextProps)});
+    } else if (nextProps.convoElement.title.text !== this.props.convoElement.title.text) {
+      //conversation updated: do a full reset
+      this.setState({
+        activeLineIndex: this.defaultIndex(nextProps),
+        waitingToRecord: this.recordMode(nextProps),
+        playing: false, allPlayed: false, waitingToPlay: false
+      });
     }
   }
   /* The big callback to be called everytime a line gets "played"

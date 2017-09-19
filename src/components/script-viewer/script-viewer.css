@@ -8,6 +8,7 @@
 }
 .pagination {
   align-self: center;
+  color: #888;
 }
 .single-conversation, .title-screen {
   display: flex;
