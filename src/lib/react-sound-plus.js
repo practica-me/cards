@@ -7,6 +7,7 @@ let initialized = false;
 let soundManager;
 if (typeof window !== 'undefined') {
   soundManager = require('soundmanager2').soundManager;
+  soundManager.html5PollingInterval = 50;
 
   soundManager.onready(() => {
     pendingCalls.slice().forEach(cb => cb());
