@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import SCRIPT_MODES from './consts.js';
 import T from 'prop-types';
-import ConversationViewer from './conversation-viewer.js';
+import ConversationRecorder from './conversation-recorder.js';
 
 /* AllConversationsViewer manages which conversation we are viewing,
  * and the MODE in which we are viewing each conversation. */
 export default class AllConversationsViewer extends Component {
+  static propTypes = {
+    mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired,
+    audio_url: T.string.isRequired,
+    conversations: T.array.isRequired
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +56,6 @@ export default class AllConversationsViewer extends Component {
     var previous = () => this.changeConversation(-1);
     var next = () => this.changeConversation(+1);
     var idx = this.state.conversationIndex;
-    console.log(this.props);
     var numConversations = this.props.conversations.length;
     var prevNext = (this.state.mode !== SCRIPT_MODES.TEXT) ? <div/> :
       <div className="controls">

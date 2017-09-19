@@ -3,19 +3,16 @@ import T from 'prop-types';
 import './script-viewer.css';
 
 import SCRIPT_MODES from './consts.js';
-import SoundSprite from '../../lib/sound-sprite.js';
 import AllConversationsViewer from './all-conversations-viewer.js';
-
-function audioMode(props) {
-  return (props.mode === SCRIPT_MODES.AUDIO ||
-          props.mode === SCRIPT_MODES.TITLE_AUDIO ||
-          props.mode === SCRIPT_MODES.AUDIO_AND_TEXT);
-}
 
 /* ScriptViewer manages which set of conversations (eg. short replies)
  * we are viewing.
  * Currently a pass-through, because only short replies are thought of so far. */
 class ScriptViewer extends Component {
+  static propTypes = {
+    script: T.object.isRequired,
+    mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired
+  };
   render() {
     return(
       <div className="script-viewer">
