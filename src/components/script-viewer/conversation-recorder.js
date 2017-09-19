@@ -4,46 +4,6 @@ import T from 'prop-types';
 import SingleLineViewer from './single-line-viewer.js';
 import SoundSprite from '../../lib/sound-sprite.js';
 
-class ConversationRecorderControl extends Component {
-  static propTypes = {
-    onPlay: T.func.isRequired,
-    onReplay: T.func,
-    onPause: T.func.isRequired,
-    onNext: T.func.isRequired,
-    playing: T.bool.isRequired,
-    waitingToPlay: T.bool,
-    onContinue: T.func.isRequired,
-    waitingToRecord: T.bool,
-    played: T.bool
-  };
-  render() {
-    var btnGen = function (cls, onClk, txt) {
-      return <button className={cls} onClick={onClk}> {txt} </button>;
-    }
-    var next = btnGen("next", this.props.onNext, "Next");
-    var replayFn = this.props.onReplay ? this.props.onReplay : this.props.onPlay;
-    var replay = btnGen("playpause replay", replayFn, "Replay");
-    var pause = btnGen("playpause pause", this.props.onPause, "Pause");
-    var play = btnGen("playpause play", this.props.onPlay, "Play");
-    if (this.props.played) {
-      return <div className="controls"> {replay} {next} </div>
-    } else if (this.props.waitingToRecord) {
-      return (
-        <div className="controls">
-          Your turn to speak!
-          {btnGen("playpause continue", this.props.onContinue, "Continue")}
-        </div>
-        );
-    } else {
-      return (
-        <div className="controls">
-          {this.props.playing || this.props.waitingToPlay ? pause : play }
-        </div>
-      );
-    }
-  }
-}
-
 /* ConversationViewer renders an SoundSprite to play audio from start to end,
  * which are mode dependent.
  * Also, keeps track of activeLineIndex based on audio position. */
@@ -58,8 +18,9 @@ export default class ConversationRecorder extends Component {
     this.defaultIndex = this.defaultIndex.bind(this);
     this.recordMode = this.recordMode.bind(this);
     this.onLinePlayed = this.onLinePlayed.bind(this);
-    this.renderLines = this.renderLines.bind(this);
     this.renderBodyForTitleMode = this.renderBodyForTitleMode.bind(this);
+    this.renderLines = this.renderLines.bind(this);
+    this.renderControls = this.renderControls.bind(this);
   }
   /* DefaultIndex: special only if we are in title audio mode. */
   defaultIndex(optionalProps) {
@@ -151,6 +112,7 @@ export default class ConversationRecorder extends Component {
     });
     return lines;
   }
+  /* Render the body for title mode, which doesn't really display the lines. */
   renderBodyForTitleMode() {
     var {title, usage} = this.props.convoElement;
     return (
@@ -166,24 +128,48 @@ export default class ConversationRecorder extends Component {
         </div>
     );
   }
+  renderControls() {
+    /* play and pause overwrite waitingToPlay; user action overrides timer wait. */
+    var onPlay = () => this.setState({playing: true, waitingToPlay: false});
+    var onPause = () => this.setState({playing: false, waitingToPlay: false});
+    /* Replay: playing or waitingToRecord depending on mode,
+     * allPlayed set to false and activeLineIndex is reset */
+    var onReplay = () => this.setState({
+      playing: !this.recordMode(), waitingToRecord: this.recordMode(),
+      allPlayed: false, activeLineIndex: this.defaultIndex()});
+    /* Next button: reset allPlayed, waitingToRecord if in recording mode. */
+    var onNext = () => {
+      this.setState({allPlayed: false, waitingToRecord: this.recordMode()});
+      this.props.onFinishedPlaying();
+    }
+    /* Define all the buttons */
+    var btnGen = function (cls, onClk, txt) {
+      return <button className={cls} onClick={onClk}> {txt} </button>;
+    }
+    var play = btnGen("playpause play", onPlay, "Play");
+    var pause = btnGen("playpause pause", onPause, "Pause");
+    var replay = btnGen("playpause replay", onReplay, "Replay");
+    var next = btnGen("next", onNext, "Next");
+    var cont = btnGen("playpause continue", this.onLinePlayed, "Continue");
+    if (this.state.allPlayed) {
+      return <div className="controls"> {replay} {next} </div>
+    } else if (this.state.waitingToRecord) {
+      return (
+        <div className="controls">
+          Your turn to speak! {cont}
+        </div>
+      );
+    } else {
+      return (
+        <div className="controls">
+          {this.state.playing || this.state.waitingToPlay ? pause : play }
+        </div>
+      );
+    }
+  }
   render() {
     var _this = this;
     var {title} = this.props.convoElement;
-    /* Next button */
-    var onNext = () => {
-      this.setState({playing: false,
-                     allPlayed: false,
-                     waitingToRecord: _this.recordMode()});
-      this.props.onFinishedPlaying();
-    }
-    var play = () => this.setState({playing: true, waitingToPlay: false});
-    var pause = () => this.setState({playing: false, waitingToPlay: false});
-    var replay = () => this.setState({
-      playing: !this.recordMode(),
-      waitingToPlay: false,
-      waitingToRecord: this.recordMode(),
-      allPlayed: false,
-      activeLineIndex: this.defaultIndex()});
     return(
       <div className={"single-conversation"}>
         <div className="conversation-title">
@@ -194,16 +180,7 @@ export default class ConversationRecorder extends Component {
           this.renderBodyForTitleMode() :
           this.renderLines()}
         </div>
-        <ConversationRecorderControl
-          onPlay={play}
-          onPause={pause}
-          onReplay={replay}
-          onNext={onNext}
-          onContinue={this.onLinePlayed}
-          waitingToRecord={this.state.waitingToRecord}
-          playing={this.state.playing}
-          waitingToPlay={this.state.waitingToPlay}
-          played={this.state.allPlayed} />
+        {this.renderControls()}
       </div>
     )
   }
