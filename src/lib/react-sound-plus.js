@@ -7,6 +7,7 @@ let initialized = false;
 let soundManager;
 if (typeof window !== 'undefined') {
   soundManager = require('soundmanager2').soundManager;
+  soundManager.html5PollingInterval = 50;
 
   soundManager.onready(() => {
     pendingCalls.slice().forEach(cb => cb());
@@ -45,7 +46,6 @@ const playStatuses = {
 
 export default class Sound extends React.Component {
   static status = playStatuses;
-
   static propTypes = {
     url: T.string.isRequired,
     playStatus: T.oneOf(Object.keys(playStatuses)).isRequired,
@@ -59,6 +59,8 @@ export default class Sound extends React.Component {
     onResume: T.func,
     onStop: T.func,
     onFinishedPlaying: T.func,
+    onPosition: T.number,
+    onPositionCallBack: T.func,
     autoLoad: T.bool,
     loop: T.bool,
   };
@@ -73,6 +75,8 @@ export default class Sound extends React.Component {
     onResume: noop,
     onStop: noop,
     onFinishedPlaying: noop,
+    onPosition: undefined,
+    onPositionCallBack: noop,
     autoLoad: false,
     loop: false,
   };
@@ -81,6 +85,9 @@ export default class Sound extends React.Component {
     this.createSound(sound => {
       if (this.props.playStatus === playStatuses.PLAYING) {
         sound.play();
+      }
+      if (this.props.onPosition && this.props.onPositionCallBack) {
+        sound.onPosition(this.props.onPosition, this.props.onPositionCallBack);
       }
     });
   }
@@ -115,7 +122,7 @@ export default class Sound extends React.Component {
         sound.setPosition(this.props.playFromPosition);
       }
 
-      if (this.props.position != null) {
+      if (this.props.position !== null) {
         if (sound.position !== this.props.position &&
           Math.round(sound.position) !== Math.round(this.props.position)) {
 
@@ -126,6 +133,11 @@ export default class Sound extends React.Component {
       if (this.props.volume !== prevProps.volume) {
         sound.setVolume(this.props.volume);
       }
+      if (this.props.onPosition !== prevProps.onPosition) {
+        if (prevProps.onPosition) sound.clearOnPosition(prevProps.onPosition);
+        sound.onPosition(this.props.onPosition, this.props.onPositionCallBack);
+      }
+
     };
 
     if (this.props.url !== prevProps.url) {

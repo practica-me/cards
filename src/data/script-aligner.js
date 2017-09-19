@@ -44,23 +44,23 @@ function destructivelyAlignScript(practicaJSON, gentleJSON) {
        }
      });
      // Now find the line that matches with the title, and get audioStart & audioEnd in the title
-     convoElement.conversation.forEach(function(line) {
-       var normalize = (s) => { return s.replace(/[^\w]/ig, '').toLowerCase() };
+     convoElement.conversation.forEach(function(line, index) {
+       var normalize = (s) => {
+         return (typeof s !== "string") ? s : s.replace(/[^\w]/ig, '').toLowerCase();
+       }
        if (normalize(line.text) === normalize(convoElement.title)) {
-         convoElement.titleAudioStart = line.audioStart;
-         convoElement.titleAudioEnd = line.audioEnd;
+         convoElement.title = Object.assign({lineIndexInConversation: index}, line);
        }
      });
    });
    return practicaJSON;
 }
 
-var USAGE = "Example usage:\n" +
+var USAGE = "\nExample usage:\n\t" +
   "node script-aligner.js short_replies.json short_replies_aligned.json > short_replies_annotated.json"
 if(process.argv.length < 4) {
   console.log(USAGE);
-  console.log(process.argv);
-  throw "script-alinger requires path to XML data";
+  throw "script-alinger requires path to json data";
 } else {
   var practicaJSON = require('./' + process.argv[2]);
   var alignedJSON = require('./' + process.argv[3]);

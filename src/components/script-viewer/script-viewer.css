@@ -1,0 +1,114 @@
+.script-viewer {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  max-width: 400px;
+}
+.all-conversations {
+  display: flex;
+  flex-direction: column;
+}
+.pagination {
+  align-self: center;
+  color: #888;
+}
+.single-conversation, .title-screen {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #2e88c4;
+  width: 320px;
+  height: 420px;
+  padding: 20px 10px 20px 10px;
+  margin: 10px;
+  border-radius: 5px;
+  justify-content: space-around;
+}
+.conversation-title, .script-title {
+  align-self: center;
+  text-align: center;
+  color: #2d2d2d;
+}
+.conversation-title .header, .script-title .header {
+  margin-top: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.conversation-title .subheader, .script-title .subheader {
+  font-size: 1em;
+  font-weight: bold;
+  color: #5c5c5c;
+}
+.line {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 0.5em;
+  color: #2d2d2d;
+}
+.active.line {
+  border: 2px solid #ff2f56 !important;
+}
+.line.left {
+  background-color: #92d1fb;
+  border: 2px solid #92d1fb;
+  margin-right: 2em;
+}
+.line.left.hidden {
+  color: #92d1fb;
+}
+.line.right {
+  background-color: #d8d8d8;
+  border: 2px solid #d8d8d8;
+  align-self: flex-end;
+  margin-left: 2em;
+}
+.line.right.hidden {
+  color: #d8d8d8;
+}
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+}
+.usage, .script-description {
+  font-size: 1.25em;
+  text-align: center;
+  padding: 40px 10px 40px 10px;
+  align-self: center;
+  color: #2d2d2d;
+}
+button {
+  border: 0;
+  height: 30px;
+  min-width: 80px;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+button.minimal {
+  background-color: transparent;
+  padding: 0;
+  min-width: 0;
+  height: 0;
+  font-weight: bold;
+  color: #2086ca;
+  opacity: 0.8;
+}
+button.minimal:hover {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+button:hover {
+  box-shadow: 2px 1px 2px rgba(0,0,0,0.5);
+}
+button:focus {
+  outline:0;
+}
+button.primary, button.play, button.next {
+  background-color: #2086ca;
+  color: white;
+}
+.sound-sprite {
+  align-self: center;
+}
+.bold {
+  font-weight: bold;
+}

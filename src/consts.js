@@ -1,8 +1,0 @@
-const SCRIPT_MODES = {
-  TITLE_AUDIO: "TITLE_AUDIO",
-  AUDIO: "AUDIO",
-  TEXT: "TEXT",
-  AUDIO_AND_TEXT: "AUDIO_AND_TEXT"
-};
-
-export default SCRIPT_MODES;
