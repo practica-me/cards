@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import T from 'prop-types';
 import './script-viewer.css';
 
-import SCRIPT_MODES from './consts.js';
+import MODES from './consts.js';
 import AllConversationsViewer from './all-conversations-viewer.js';
 
 /* ScriptViewer manages which set of conversations (eg. short replies)
@@ -11,7 +11,7 @@ import AllConversationsViewer from './all-conversations-viewer.js';
 class ScriptViewer extends Component {
   static propTypes = {
     script: T.object.isRequired,
-    mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired
+    mode: T.oneOf(Object.keys(MODES)).isRequired
   };
   constructor(props) {
     super(props);

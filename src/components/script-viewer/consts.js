@@ -1,8 +1,8 @@
-const SCRIPT_MODES = {
-  TITLE_AUDIO: "TITLE_AUDIO",
-  AUDIO: "AUDIO",
-  TEXT: "TEXT",
-  AUDIO_AND_TEXT: "AUDIO_AND_TEXT"
+const MODES = {
+  TitleMode: "TitleMode",
+  Recording: "Recording",
+  Listening: "Listening",
+  Text: "Text",
 };
 
-export default SCRIPT_MODES;
+export default MODES;

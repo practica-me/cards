@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SCRIPT_MODES from './consts.js';
+import MODES from './consts.js';
 import T from 'prop-types';
 import SingleLineViewer from './single-line-viewer.js';
 import SoundSprite from '../../lib/sound-sprite.js';
@@ -9,7 +9,7 @@ import SoundSprite from '../../lib/sound-sprite.js';
  * Also, keeps track of activeLineIndex based on audio position. */
 export default class ConversationRecorder extends Component {
   static propTypes = {
-    mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired,
+    mode: T.oneOf(Object.keys(MODES)).isRequired,
     audio_url: T.string.isRequired,
     convoElement: T.shape({
       title: T.object.isRequired,
@@ -33,13 +33,13 @@ export default class ConversationRecorder extends Component {
   /* DefaultIndex: special only if we are in title audio mode. */
   defaultIndex(optionalProps) {
     var props = optionalProps || this.props;
-    return props.mode === SCRIPT_MODES.TITLE_AUDIO ?
+    return props.mode === MODES.TitleMode ?
            props.convoElement.title.lineIndexInConversation : 0;
   }
   /* recordMode: only when we are in recording mode. */
   recordMode(optionalProps) {
     var props = optionalProps || this.props;
-    return props.mode === SCRIPT_MODES.AUDIO_AND_TEXT;
+    return props.mode === MODES.Recording;
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.mode !== this.props.mode) {
@@ -55,11 +55,11 @@ export default class ConversationRecorder extends Component {
     var isFinal = (activeLineIndex >= conversation.length - 1);
     switch (this.props.mode) {
       /* For audio mode, just reset to be ready to play again. */
-      case SCRIPT_MODES.TITLE_AUDIO:
+      case MODES.TitleMode:
         this.setState({playing: false, allPlayed: true});
         return;
       /* For record mode, depends on whether user spoke, audio played, or we finished. */
-      case SCRIPT_MODES.AUDIO_AND_TEXT:
+      case MODES.Recording:
         if (isFinal) { // got to the end of the script, just display everything
           this.setState({activeLineIndex: this.defaultIndex(),
                          allPlayed: true, playing: false});
@@ -72,7 +72,7 @@ export default class ConversationRecorder extends Component {
         }
         return;
       /* For audio mode, depends on whether a final or non-final line played. */
-      case SCRIPT_MODES.AUDIO:
+      case MODES.Listening:
         if (!isFinal) {
           // wait for pauseLengthe, and play the next line
           this.setState({activeLineIndex: activeLineIndex + 1,
@@ -103,7 +103,7 @@ export default class ConversationRecorder extends Component {
       var active = (_this.state.waitingToRecord || _this.state.playing) && onCurrentLine;
       /* In recording mode, before everything is played, all but activeLine is visible. */
       var invisible = false;
-      if (_this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT &&
+      if (_this.props.mode === MODES.Recording &&
           !_this.state.allPlayed && !onCurrentLine) {
         invisible = true;
       }
@@ -178,9 +178,9 @@ export default class ConversationRecorder extends Component {
   render() {
     var {title} = this.props.convoElement;
     var cardTitle =
-      (this.props.mode === SCRIPT_MODES.TITLE_AUDIO) ? "Explanation" :
-      (this.props.mode === SCRIPT_MODES.AUDIO) ? "Listening Practice" :
-      (this.props.mode === SCRIPT_MODES.AUIO_AND_TEXT) ? "Speaking Practice" : "";
+      (this.props.mode === MODES.TitleMode) ? "Explanation" :
+      (this.props.mode === MODES.Listening) ? "Listening Practice" :
+      (this.props.mode === MODES.Recording) ? "Speaking Practice" : "";
     return(
       <div className={"single-conversation"}>
         <div className="conversation-title">
@@ -188,7 +188,7 @@ export default class ConversationRecorder extends Component {
           <div className="header"> {title.text} </div>
         </div>
         <div className="lines">
-        {this.props.mode === SCRIPT_MODES.TITLE_AUDIO ?
+        {this.props.mode === MODES.TitleMode ?
           this.renderBodyForTitleMode() :
           this.renderLines()}
         </div>

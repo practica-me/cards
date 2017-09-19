@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SCRIPT_MODES from './consts.js';
+import MODES from './consts.js';
 import T from 'prop-types';
 import ConversationRecorder from './conversation-recorder.js';
 
@@ -7,7 +7,7 @@ import ConversationRecorder from './conversation-recorder.js';
  * and the MODE in which we are viewing each conversation. */
 export default class AllConversationsViewer extends Component {
   static propTypes = {
-    mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired,
+    mode: T.oneOf(Object.keys(MODES)).isRequired,
     audio_url: T.string.isRequired,
     conversations: T.array.isRequired
   };
@@ -37,14 +37,14 @@ export default class AllConversationsViewer extends Component {
     this.setState({conversationIndex: newIndex});
   }
   advance() {
-    // Cycle MODE from TITLE_AUDIO -> AUDIO -> AUDIO_AND_TEXT -> TITLE_AUDIO
-    // When switching to another TITLE_AUDIO, advance to next conversation
-    if (this.state.mode === SCRIPT_MODES.TITLE_AUDIO) {
-      this.setState({mode: SCRIPT_MODES.AUDIO});
-    } else if (this.state.mode === SCRIPT_MODES.AUDIO) {
-      this.setState({mode: SCRIPT_MODES.AUDIO_AND_TEXT});
-    } else if (this.state.mode === SCRIPT_MODES.AUDIO_AND_TEXT) {
-      this.setState({mode: SCRIPT_MODES.TITLE_AUDIO});
+    // Cycle MODE from Title_Mode -> Listening -> Recording -> Title_Mode
+    // When switching to another Title_Mode, advance to next conversation
+    if (this.state.mode === MODES.TitleMode) {
+      this.setState({mode: MODES.Listening});
+    } else if (this.state.mode === MODES.Listening) {
+      this.setState({mode: MODES.Recording});
+    } else if (this.state.mode === MODES.Recording) {
+      this.setState({mode: MODES.TitleMode});
       this.changeConversation(+1);
     } else {
       console.log("CATCH ALL MODE", this.state.mode);
