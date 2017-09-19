@@ -69,12 +69,12 @@ export default class AllConversationsViewer extends Component {
           # {this.state.conversationIndex + 1} / {numConversations}
           <a href="#" onClick={clickfn(next)}> {">"} </a>
         </div>
-        <ConversationViewer
+        <ConversationRecorder
           convoElement={this.getActiveConvo()}
           mode={this.state.mode} // MODE is controlled
           audio_url={this.props.audio_url}
           onFinishedPlaying={this.advance}
-        />
+          />
         {prevNext}
       </div>
     )
