@@ -8,6 +8,14 @@ import SoundSprite from '../../lib/sound-sprite.js';
  * which are mode dependent.
  * Also, keeps track of activeLineIndex based on audio position. */
 export default class ConversationRecorder extends Component {
+  static propTypes = {
+    mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired,
+    audio_url: T.string.isRequired,
+    convoElement: T.shape({
+      title: T.object.isRequired,
+      conversation: T.array.isRequired
+    }).isRequired,
+  };
   constructor(props) {
     super(props);
     this.state = {pauseLength: 1000,
@@ -168,7 +176,6 @@ export default class ConversationRecorder extends Component {
     }
   }
   render() {
-    var _this = this;
     var {title} = this.props.convoElement;
     return(
       <div className={"single-conversation"}>

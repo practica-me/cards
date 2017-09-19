@@ -46,7 +46,6 @@ const playStatuses = {
 
 export default class Sound extends React.Component {
   static status = playStatuses;
-
   static propTypes = {
     url: T.string.isRequired,
     playStatus: T.oneOf(Object.keys(playStatuses)).isRequired,

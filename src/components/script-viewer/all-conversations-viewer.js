@@ -52,16 +52,10 @@ export default class AllConversationsViewer extends Component {
     }
   }
   render() {
-    var clickfn = (fn) => (e) => {e.preventDefault(); fn();}
     var previous = () => this.changeConversation(-1);
     var next = () => this.changeConversation(+1);
     var idx = this.state.conversationIndex;
     var numConversations = this.props.conversations.length;
-    var prevNext = (this.state.mode !== SCRIPT_MODES.TEXT) ? <div/> :
-      <div className="controls">
-        <button onClick={previous} > Prev </button>
-        <button onClick={next} > Next </button>
-      </div>;
     return(
       <div className="all-conversations">
         <ConversationRecorder
