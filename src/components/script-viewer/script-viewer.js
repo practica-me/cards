@@ -13,14 +13,33 @@ class ScriptViewer extends Component {
     script: T.object.isRequired,
     mode: T.oneOf(Object.keys(SCRIPT_MODES)).isRequired
   };
+  constructor(props) {
+    super(props);
+    this.state = { pastTheTitle: false };
+    this.renderTitleScreen = this.renderTitleScreen.bind(this);
+  }
+  renderTitleScreen() {
+    var {title, description} = this.props.script;
+    var movePastTitle = ()=> this.setState({ pastTheTitle: true});
+    return(
+        <div className="title-screen">
+          <div className="script-title"> {title} </div>
+          <div className="script-description"> {description} </div>
+          <div className="controls">
+            <button className={"primary start"} onClick={movePastTitle}> Start </button>
+          </div>
+        </div>
+    );
+  }
   render() {
     return(
       <div className="script-viewer">
-      <div className="script-title"> {this.props.script.title} </div>
-      <AllConversationsViewer
-        conversations={this.props.script.conversations}
-        mode={this.props.mode}
-        audio_url={this.props.script.audio_url} />
+      {this.state.pastTheTitle ?
+        <AllConversationsViewer
+          conversations={this.props.script.conversations}
+          mode={this.props.mode}
+          audio_url={this.props.script.audio_url} />
+        : this.renderTitleScreen()}
       </div>
     );
   }

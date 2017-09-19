@@ -64,18 +64,17 @@ export default class AllConversationsViewer extends Component {
       </div>;
     return(
       <div className="all-conversations">
-        <div className="pagination">
-          {idx > 0 ? <a href="#" onClick={clickfn(previous)}> {"<"} </a> : ""}
-          # {this.state.conversationIndex + 1} / {numConversations}
-          <a href="#" onClick={clickfn(next)}> {">"} </a>
-        </div>
         <ConversationRecorder
           convoElement={this.getActiveConvo()}
           mode={this.state.mode} // MODE is controlled
           audio_url={this.props.audio_url}
           onFinishedPlaying={this.advance}
           />
-        {prevNext}
+        <div className="pagination">
+          {idx > 0 ? <button className="minimal" onclick={previous}> {"<"} </button> : ""}
+          # {this.state.conversationIndex + 1} / {numConversations}
+          <button className="minimal" onClick={next}> {">"} </button>
+        </div>
       </div>
     )
 

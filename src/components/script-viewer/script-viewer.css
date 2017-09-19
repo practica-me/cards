@@ -1,16 +1,15 @@
 .script-viewer {
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  max-width: 400px;
 }
 .all-conversations {
-  max-width: 400px;
   display: flex;
-  align-items: center;
   flex-direction: column;
 }
 .pagination {
-  align-self: flex-end;
+  align-self: center;
 }
-.single-conversation {
+.single-conversation, .title-screen {
   display: flex;
   flex-direction: column;
   border: 3px solid #2e88c4;
@@ -21,11 +20,12 @@
   border-radius: 5px;
   justify-content: space-around;
 }
-.conversation-title {
+.conversation-title, .script-title {
   margin-top: 5px;
   align-self: center;
   text-align: center;
   font-size: 1.5em;
+  font-weight: bold;
 }
 .line {
   padding: 10px;
@@ -58,7 +58,7 @@
   align-self: center;
   align-items: center;
 }
-.usage {
+.usage, .script-description {
   font-size: 1.25em;
   text-align: center;
   padding: 40px 10px 40px 10px;
@@ -73,6 +73,18 @@ button {
   margin-left: 10px;
   text-transform: uppercase;
 }
+button.minimal {
+  background-color: transparent;
+  padding: 0;
+  min-width: 0;
+  height: 0;
+  font-weight: bold;
+  color: #2086ca;
+  opacity: 0.8;
+}
+button.minimal:hover {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
 button:hover {
   box-shadow: 2px 1px 2px rgba(0,0,0,0.5);
 }
@@ -82,15 +94,6 @@ button:focus {
 button.primary, button.play, button.next {
   background-color: #2086ca;
   color: white;
-}
-a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #2086ca;
-  opacity: 0.8;
-}
-a:hover {
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 .sound-sprite {
   align-self: center;
