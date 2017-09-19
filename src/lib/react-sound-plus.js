@@ -122,7 +122,7 @@ export default class Sound extends React.Component {
         sound.setPosition(this.props.playFromPosition);
       }
 
-      if (this.props.position != null) {
+      if (this.props.position !== null) {
         if (sound.position !== this.props.position &&
           Math.round(sound.position) !== Math.round(this.props.position)) {
 
@@ -133,7 +133,7 @@ export default class Sound extends React.Component {
       if (this.props.volume !== prevProps.volume) {
         sound.setVolume(this.props.volume);
       }
-      if (this.props.onPosition != prevProps.onPosition) {
+      if (this.props.onPosition !== prevProps.onPosition) {
         if (prevProps.onPosition) sound.clearOnPosition(prevProps.onPosition);
         sound.onPosition(this.props.onPosition, this.props.onPositionCallBack);
       }

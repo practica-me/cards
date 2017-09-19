@@ -49,7 +49,6 @@ class SoundSprite extends Component {
     this.setState({playing: false})
   }
   render() {
-    var _this = this;
     var onLoad = (obj) => {
       if (obj.readyState < 3) { // soundmanager-2: readyState = 3 => loaded
         this.setState({errorMsg: "Sound not loaded :( :(", loaded: false})
