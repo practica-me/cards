@@ -23,7 +23,9 @@ class ScriptViewer extends Component {
     var movePastTitle = ()=> this.setState({ pastTheTitle: true});
     return(
         <div className="title-screen">
-          <div className="script-title"> {title} </div>
+          <div className="script-title">
+            <div className="header"> {title} </div>
+          </div>
           <div className="script-description"> {description} </div>
           <div className="controls">
             <button className={"primary start"} onClick={movePastTitle}> Start </button>

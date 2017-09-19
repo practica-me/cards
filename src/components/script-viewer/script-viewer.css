@@ -21,12 +21,19 @@
   justify-content: space-around;
 }
 .conversation-title, .script-title {
-  margin-top: 5px;
   align-self: center;
   text-align: center;
+  color: #2d2d2d;
+}
+.conversation-title .header, .script-title .header {
+  margin-top: 5px;
   font-size: 1.5em;
   font-weight: bold;
-  color: #2d2d2d;
+}
+.conversation-title .subheader, .script-title .subheader {
+  font-size: 1em;
+  font-weight: bold;
+  color: #5c5c5c;
 }
 .line {
   padding: 10px;

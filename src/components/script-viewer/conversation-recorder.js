@@ -177,10 +177,15 @@ export default class ConversationRecorder extends Component {
   }
   render() {
     var {title} = this.props.convoElement;
+    var cardTitle =
+      (this.props.mode === SCRIPT_MODES.TITLE_AUDIO) ? "Explanation" :
+      (this.props.mode === SCRIPT_MODES.AUDIO) ? "Listening Practice" :
+      (this.props.mode === SCRIPT_MODES.AUIO_AND_TEXT) ? "Speaking Practice" : "";
     return(
       <div className={"single-conversation"}>
         <div className="conversation-title">
-          <div className="bold"> {title.text} </div>
+          <div className="subheader"> {cardTitle} </div>
+          <div className="header"> {title.text} </div>
         </div>
         <div className="lines">
         {this.props.mode === SCRIPT_MODES.TITLE_AUDIO ?
