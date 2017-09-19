@@ -39,16 +39,23 @@
   border: 2px solid #92d1fb;
   margin-right: 2em;
 }
+.line.left.hidden {
+  color: #92d1fb;
+}
 .line.right {
   background-color: #d8d8d8;
   border: 2px solid #d8d8d8;
   align-self: flex-end;
   margin-left: 2em;
 }
+.line.right.hidden {
+  color: #d8d8d8;
+}
 .controls {
   display: flex;
   flex-direction: row;
   align-self: center;
+  align-items: center;
 }
 button {
   border: 0;

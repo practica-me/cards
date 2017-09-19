@@ -22,22 +22,25 @@ export default class SingleLineViewer extends Component {
     index: T.number.isRequired,
     active: T.bool,
     playing: T.bool,
+    invisible: T.bool,
     onDone: T.func
   };
   render() {
     var {text, audioStart, audioEnd} = this.props.line;
     var dotted = text.replace(/[\w,'.!?]/ig, "-");
     var side = (this.props.index % 2) ? "right" : "left";
-    var cls = ["line", side, (this.props.active ? "active" : ""),
+    var cls = ["line", side,
+               (this.props.active ? "active" : ""),
+               (this.props.invisible ? "hidden" : ""),
                (audioMode(this.props) ? "audio" : "")].join(" ");
-    var txt = (this.props.mode === SCRIPT_MODES.TEXT ||
-      this.props.mode === SCRIPT_MODES.AUDIO_AND_TEXT) ? text :
-      this.props.mode === SCRIPT_MODES.AUDIO ? dotted : "";
+    var txt = this.props.mode === SCRIPT_MODES.AUDIO ? dotted : text;
+    /* If this.props.playing is used, that sets playing. Else, use active */
+    var isPlaying = ("playing" in this.props ? this.props.playing : this.props.active);
     return (
         <div className={cls}>
           {txt}
           <SoundSprite
-              playing={this.props.active}
+              playing={isPlaying}
               hidePlayPause={true}
               audioStart={audioStart}
               audioEnd={audioEnd}
