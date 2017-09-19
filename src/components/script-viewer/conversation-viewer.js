@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SCRIPT_MODES from './consts.js';
 import T from 'prop-types';
-import SingleLineViewer from './single-line-viewer.js';
+import SingleLineViewer from './single-line-viewer.js'
 
 class ConversationViewerControl extends Component {
   static propTypes = {
@@ -10,7 +10,7 @@ class ConversationViewerControl extends Component {
     onPause: T.func.isRequired,
     onNext: T.func.isRequired,
     playing: T.bool.isRequired,
-    waiting: T.bool,
+    waitingToPlay: T.bool,
     played: T.bool
   };
   render() {
@@ -27,7 +27,7 @@ class ConversationViewerControl extends Component {
     } else {
       return (
         <div className="controls">
-          {this.props.playing || this.props.waiting ? pause : play }
+          {this.props.playing || this.props.waitingToPlay ? pause : play }
         </div>
       );
     }
@@ -42,7 +42,8 @@ export default class ConversationViewer extends Component {
     super(props);
     var defaultIdx = (props.mode === SCRIPT_MODES.TITLE_AUDIO) ?
                       props.convoElement.title.lineIndexInConversation : 0;
-    this.state = {activeLineIndex: defaultIdx, defaultLineIndex: defaultIdx,
+    this.state = {activeLineIndex: defaultIdx,
+                  defaultLineIndex: defaultIdx,
                   pauseLength: 1000,
                   playing: false,
                   allPlayed: false};
@@ -73,9 +74,12 @@ export default class ConversationViewer extends Component {
       /* Otherwise, we played something before the last line: add a Pause and keep playing. */
       } else if (activeLineIndex >= 0 && activeLineIndex < conversation.length - 1) {
         _this.setState({activeLineIndex: activeLineIndex + 1,
-                        playing: false, waiting: true,});
-        setTimeout(() => { if (_this.state.waiting) _this.setState({playing: true, waiting: false})},
-                         this.state.pauseLength);
+                        playing: false,
+                        waitingToPlay: true,});
+        setTimeout(() => {
+          if (_this.state.waitingToPlay)
+            _this.setState({playing: true, waitingToPlay: false})
+        }, this.state.pauseLength);
       /* We played the last line: allPlayed is true */
       } else {
         _this.setState({allPlayed: true, playing: false,
@@ -93,11 +97,13 @@ export default class ConversationViewer extends Component {
     });
     /* Next button */
     var onNext = () => {
-      this.setState({activeLineIndex: 0, playing: false, allPlayed: false});
+      this.setState({activeLineIndex: this.state.defaultLineIndex,
+                     playing: false,
+                     allPlayed: false});
       this.props.onFinishedPlaying();
     }
-    var play = () => this.setState({playing: true, waiting: false});
-    var pause = () => this.setState({playing: false, waiting: false});
+    var play = () => this.setState({playing: true, waitingToPlay: false});
+    var pause = () => this.setState({playing: false, waitingToPlay: false});
     var replay = () => this.setState({playing: true, allPlayed: false,
       activeLineIndex: this.state.defaultLineIndex});
     return(
@@ -109,9 +115,12 @@ export default class ConversationViewer extends Component {
           {lines}
         </div>
         <ConversationViewerControl
-          onPlay={play} onPause={pause} onReplay={replay} onNext={onNext}
+          onPlay={play}
+          onPause={pause}
+          onReplay={replay}
+          onNext={onNext}
           playing={this.state.playing}
-          waiting={this.state.waiting}
+          waitingToPlay={this.state.waitingToPlay}
           played={this.state.allPlayed} />
       </div>
     )
