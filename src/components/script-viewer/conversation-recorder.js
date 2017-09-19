@@ -78,6 +78,8 @@ export default class ConversationRecorder extends Component {
                      waitingToRecord: this.recordMode(nextProps)});
     }
   }
+  /* The big callback to be called everytime a line gets "played"
+   * or someone hits continue (which is treated as the equivalent). */
   onLinePlayed() {
     var {conversation} = this.props.convoElement;
     var activeLineIndex = this.state.activeLineIndex;
@@ -89,7 +91,6 @@ export default class ConversationRecorder extends Component {
         return;
       /* For record mode, depends on whether user spoke, audio played, or we finished. */
       case SCRIPT_MODES.AUDIO_AND_TEXT:
-        console.log(activeLineIndex, isFinal, this.state);
         if (isFinal) { // got to the end of the script, just display everything
           this.setState({activeLineIndex: this.defaultIndex(),
                          allPlayed: true, playing: false});
@@ -122,6 +123,7 @@ export default class ConversationRecorder extends Component {
         console.error("UNSUPPORTED MODE!!!", this.props.mode);
     }
   }
+  /* Render the script lines. SingleLineViewer takes care of rendering the sound object. */
   renderLines() {
     var _this = this;
     var {conversation} = this.props.convoElement;
@@ -169,11 +171,9 @@ export default class ConversationRecorder extends Component {
     var {title} = this.props.convoElement;
     /* Next button */
     var onNext = () => {
-      console.log("Next button clicked");
-      // Note: not setting activeLineIndex here intentionally. See note "Bugfix"
       this.setState({playing: false,
                      allPlayed: false,
-                     waitingToRecord: _this.recordMode()}, () => console.log(this.state));
+                     waitingToRecord: _this.recordMode()});
       this.props.onFinishedPlaying();
     }
     var play = () => this.setState({playing: true, waitingToPlay: false});
