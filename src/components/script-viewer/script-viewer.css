@@ -13,18 +13,19 @@
 .single-conversation {
   display: flex;
   flex-direction: column;
-  border: 1px solid #2e88c4;
-  width: 300px;
-  min-height: 400px;
-  padding: 10px;
+  border: 3px solid #2e88c4;
+  width: 320px;
+  height: 420px;
+  padding: 20px 10px 20px 10px;
   margin: 10px;
   border-radius: 5px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .conversation-title {
   margin-top: 5px;
   align-self: center;
   text-align: center;
+  font-size: 1.5em;
 }
 .line {
   padding: 10px;
@@ -56,6 +57,12 @@
   flex-direction: row;
   align-self: center;
   align-items: center;
+}
+.usage {
+  font-size: 1.25em;
+  text-align: center;
+  padding: 40px 10px 40px 10px;
+  align-self: center;
 }
 button {
   border: 0;

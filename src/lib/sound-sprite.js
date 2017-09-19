@@ -68,15 +68,17 @@ class SoundSprite extends Component {
     }
     var onPause = (o) => { this.setState({position: o.position}); };
     var rePlay = (this.state.played) ? "replay" : "play";
-    var playOrPause = this.props.hidePlayPause ? "" : (this.state.playing ?
-     <button className="playpause pause" onClick={this.pause}>
-      {this.props.pauseText || "Pause"} </button> :
-     <button className={"playpause " + rePlay} onClick={this.play}>
-      {this.props.playText || rePlay} </button>);
+    var playOrPause =
+     this.state.playing ?
+      <button className="playpause pause" onClick={this.pause}>
+        {this.props.pauseText || "Pause"} </button> :
+      <button className={"playpause " + rePlay} onClick={this.play}>
+        {this.props.playText || rePlay} </button>;
     return(
       <div className="sound-sprite">
         {this.state.errorMsg}
-        {(this.state.loaded ? playOrPause : "Loading audio...")}
+        {this.props.hidePlayPause ? "" :
+          (!this.state.loaded) ? "Loading audio..." : playOrPause}
         <Sound url={this.props.audio_url}
                autoLoad={true}
                playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
