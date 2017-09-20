@@ -45,6 +45,14 @@
 .line.playing, .line.recording {
   border: 2px solid #ff2f56 !important;
 }
+@keyframes border-pulsate {
+  0%   { border-color: rgba(250, 80, 123, 1); }
+  50%  { border-color: rgba(250, 80, 123, 0.2); }
+  100% { border-color: rgba(250, 80, 123, 1); }
+}
+.line.recording {
+  animation: border-pulsate 1s infinite;
+}
 .line.paused {
   border: 2px solid #E7B8C2 !important;
 }
@@ -86,6 +94,8 @@ button {
   margin-right: 10px;
   margin-left: 10px;
   text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: .1em;
 }
 button.minimal {
   background-color: transparent;
@@ -105,9 +115,24 @@ button:hover {
 button:focus {
   outline:0;
 }
-button.primary, button.play, button.next {
+button.primary {
   background-color: #2086ca;
   color: white;
+}
+button.record {
+  background-color: #ff2f56;
+  color: white;
+}
+@keyframes opacity-pulsate {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 1;}
+}
+button.recording::before {
+  content: "⬤ ";
+  color: #ff2f56;
+  animation: opacity-pulsate 1s infinite;
+  padding-bottom: 1px;
 }
 .sound-sprite {
   align-self: center;

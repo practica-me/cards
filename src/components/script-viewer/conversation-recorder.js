@@ -39,7 +39,7 @@ export default class ConversationRecorder extends Component {
       // Which line in conversation is active
       activeLineIndex: this.defaultIndex(props),
       // In recordMode, flag to wait for user to speak or record something
-      waitingToRecord: this.recordMode(props),
+      waitingToRecord: false,
       // Controls whether audio (corresponding to activeLineIndex) is playing.
       playing: false, // Controls
       // allPlayed is once all the lines for one conversation have been played
@@ -60,6 +60,11 @@ export default class ConversationRecorder extends Component {
   recordMode(optionalProps) {
     var props = optionalProps || this.props;
     return props.mode === MODES.Recording;
+  }
+  /* onRecordingLine: are we actively on a line that should be user-spoken? */
+  onRecordingLine(optionalProps) {
+    var props = optionalProps || this.props;
+    return this.recordMode(props) && ((this.state.activeLineIndex %2) == 0);
   }
   componentWillReceiveProps(nextProps) {
     // If mode or conversation is changed, completely reset the state
@@ -92,7 +97,7 @@ export default class ConversationRecorder extends Component {
                          playing: true, waitingToRecord: false});
         } else { // user just heard something, wait to record the next one
           this.setState({activeLineIndex: activeLineIndex + 1,
-                         playing: false, waitingToRecord: true});
+                         playing: false, waitingToRecord: false});
         }
         return;
       /* For audio mode, depends on whether a final or non-final line played. */
@@ -127,7 +132,7 @@ export default class ConversationRecorder extends Component {
       var playing = _this.state.playing && onCurrentLine;
       var highlight = !onCurrentLine ? "" :
         (_this.state.waitingToRecord ? "recording" :
-          (_this.state.allPlayed || !_this.state.startedPlaying) ? "" :
+          _this.state.allPlayed ? "" :
           (_this.state.playing || _this.state.waitingToPlay) ? "playing" : "paused");
       /* In recording mode, before everything is played, all but activeLine is visible. */
       var invisible = false;
@@ -172,32 +177,37 @@ export default class ConversationRecorder extends Component {
     /* Replay: playing or waitingToRecord depending on mode,
      * allPlayed set to false and activeLineIndex is reset */
     var onReplay = () => this.setState({
-      playing: !this.recordMode(), waitingToRecord: this.recordMode(),
+      playing: !this.recordMode(), waitingToRecord: false,
       allPlayed: false, activeLineIndex: this.defaultIndex()});
     /* Next button: reset allPlayed, waitingToRecord if in recording mode. */
     var onNext = () => {
-      this.setState({allPlayed: false, waitingToRecord: this.recordMode()});
+      this.setState({allPlayed: false, waitingToRecord: false});
       this.props.onFinishedPlaying();
+    }
+    /* On Speak pressed: turn _waitingToRecord on. */
+    var onSpeak = () => {
+      this.setState({waitingToRecord: true});
     }
     /* Define all the buttons */
     var btnGen = function (cls, onClk, txt) {
       return <button className={cls} onClick={onClk}> {txt} </button>;
     }
-    var play = btnGen("playpause play", onPlay, "Play");
-    var pause = btnGen("playpause pause", onPause, "Pause");
+    var play = btnGen("play primary", onPlay, "Play");
+    var pause = btnGen("pause", onPause, "Pause");
     var replayText = (this.recordMode() ? "Redo" : "Replay");
-    var replay = btnGen("playpause replay", onReplay, replayText);
-    var next = btnGen("next", onNext, "Next");
-    var cont = btnGen("playpause continue", this.onLinePlayed, "Continue");
+    var replay = btnGen("replay", onReplay, replayText);
+    var next = btnGen("next primary", onNext, "Next");
+    var stop = btnGen("recording", this.onLinePlayed, "Stop");
+    var speak = btnGen("record", onSpeak, "Speak");
     var skip = this.state.startedPlaying ? "" : btnGen("minimal skip", onNext, "Skip");
     if (this.state.allPlayed) {
       return <div className="controls"> {replay} {next} </div>
-    } else if (this.state.waitingToRecord) {
-      return (
-        <div className="controls">
-          Your turn to speak! {cont}
-        </div>
-      );
+    } else if (this.onRecordingLine()) {
+      if (this.state.waitingToRecord) {
+        return <div className="controls"> {stop} </div>;
+      } else {
+        return <div className="controls"> {speak} </div>;
+      }
     } else {
       return (
         <div className="controls">
