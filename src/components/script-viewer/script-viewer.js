@@ -11,11 +11,12 @@ import AllConversationsViewer from './all-conversations-viewer.js';
 class ScriptViewer extends Component {
   static propTypes = {
     script: T.object.isRequired,
-    mode: T.oneOf(Object.keys(MODES)).isRequired
+    mode: T.oneOf(Object.keys(MODES)).isRequired,
+    skipTitle: T.bool
   };
   constructor(props) {
     super(props);
-    this.state = { pastTheTitle: false };
+    this.state = { pastTheTitle: this.props.skipTitle };
     this.renderTitleScreen = this.renderTitleScreen.bind(this);
   }
   renderTitleScreen() {

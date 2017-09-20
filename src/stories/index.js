@@ -18,7 +18,9 @@ storiesOf('Button', module)
   .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
 
 storiesOf('ScriptViewer', module)
-  .add('title mode', () => <ScriptViewer script={script} mode={MODES.TitleMode}/>)
-  .add('text mode', () => <ScriptViewer script={script} mode={MODES.TextMode}/>)
-  .add('audio mode', () => <ScriptViewer script={script} mode={MODES.Listening}/>)
-  .add('both', () => <ScriptViewer script={script} mode={MODES.Recording}/>);
+  .add('intro screen', () => <ScriptViewer script={script} mode={MODES.TitleMode} />)
+  .add('title mode', () => <ScriptViewer script={script} mode={MODES.TitleMode} skipTitle={true} />)
+  .add('text mode', () => <ScriptViewer script={script} mode={MODES.TextMode} skipTitle={true} />)
+  .add('audio mode', () => <ScriptViewer script={script} mode={MODES.Listening} skipTitle={true} />)
+  .add('listening review mode', () => <ScriptViewer script={script} mode={MODES.Reviewing} skipTitle={true} />)
+  .add('recording', () => <ScriptViewer script={script} mode={MODES.Recording} skipTitle={true} />);
