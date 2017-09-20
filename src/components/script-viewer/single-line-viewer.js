@@ -39,13 +39,16 @@ export default class SingleLineViewer extends Component {
     return (
         <div className={cls}>
           {txt}
-          <SoundSprite
+          {/* NOTE: Rendering more than one SoundSprite is super buggy on Android\Chrome */}
+          {this.props.playing ?
+            <SoundSprite
               playing={isPlaying}
               hidePlayPause={true}
               audioStart={audioStart}
               audioEnd={audioEnd}
               audio_url={this.props.audio_url}
-              onFinishedPlaying={this.props.onDone} />
+              onFinishedPlaying={this.props.onDone} /> :
+            ""}
         </div>
     );
   }
