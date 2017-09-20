@@ -37,21 +37,15 @@ export default class AllConversationsViewer extends Component {
     this.setState({conversationIndex: newIndex});
   }
   advance() {
-    // Cycle MODE from Title_Mode -> Listening -> Reviewing -> Recording -> Title_Mode
-    // When switching to another Title_Mode, advance to next conversation
-    if (this.state.mode === MODES.TitleMode) {
-      this.setState({mode: MODES.Listening});
-    } else if (this.state.mode === MODES.Listening) {
-      this.setState({mode: MODES.Reviewing});
-    } else if (this.state.mode === MODES.Reviewing) {
-      this.setState({mode: MODES.Recording});
-    } else if (this.state.mode === MODES.Recording) {
-      this.setState({mode: MODES.TitleMode});
-      this.changeConversation(+1);
-    } else {
-      console.log("CATCH ALL MODE", this.state.mode);
+    // Cycle MODEs: Title_Mode -> Listening -> Reviewing -> Recording
+    var modeCycle = [MODES.TitleMode, MODES.Listening, MODES.Reviewing, MODES.Recording];
+    var curModeIndex = modeCycle.indexOf(this.state.mode);
+    var numModes = modeCycle.length;
+    // When switching past the end, advance to next conversation
+    if (curModeIndex < -1 || curModeIndex >= numModes - 1) {
       this.changeConversation(+1);
     }
+    this.setState({mode: modeCycle[(curModeIndex + 1) % numModes]});
   }
   render() {
     /* Pagination: creating too much trouble for now.
