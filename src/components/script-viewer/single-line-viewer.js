@@ -6,6 +6,7 @@ import T from 'prop-types';
 function audioMode(props) {
   return (props.mode === MODES.TitleMode ||
           props.mode === MODES.Recording ||
+          props.mode === MODES.Reviewing ||
           props.mode === MODES.Listening);
 }
 
