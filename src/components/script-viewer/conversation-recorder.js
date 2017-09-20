@@ -80,6 +80,7 @@ export default class ConversationRecorder extends Component {
         return;
       /* For audio mode, depends on whether a final or non-final line played. */
       case MODES.Listening:
+      case MODES.Reviewing:
         if (!isFinal) {
           // wait for pauseLengthe, and play the next line
           this.setState({activeLineIndex: activeLineIndex + 1,
@@ -163,7 +164,8 @@ export default class ConversationRecorder extends Component {
     }
     var play = btnGen("playpause play", onPlay, "Play");
     var pause = btnGen("playpause pause", onPause, "Pause");
-    var replay = btnGen("playpause replay", onReplay, "Replay");
+    var replayText = (this.recordMode() ? "Redo" : "Replay");
+    var replay = btnGen("playpause replay", onReplay, replayText);
     var next = btnGen("next", onNext, "Next");
     var cont = btnGen("playpause continue", this.onLinePlayed, "Continue");
     if (this.state.allPlayed) {
@@ -187,6 +189,7 @@ export default class ConversationRecorder extends Component {
     var cardTitle =
       (this.props.mode === MODES.TitleMode) ? "Explanation" :
       (this.props.mode === MODES.Listening) ? "Listening Practice" :
+      (this.props.mode === MODES.Reviewing) ? "Review" :
       (this.props.mode === MODES.Recording) ? "Speaking Practice" : "";
     return(
       <div className={"single-conversation"}>
