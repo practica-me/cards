@@ -21,7 +21,7 @@ export default class SingleLineViewer extends Component {
       audioEnd: T.number.isRequired
     }),
     index: T.number.isRequired,
-    active: T.bool,
+    highlight: T.string, // paused, playing, or recording
     playing: T.bool,
     invisible: T.bool,
     onDone: T.func
@@ -30,8 +30,7 @@ export default class SingleLineViewer extends Component {
     var {text, audioStart, audioEnd} = this.props.line;
     var dotted = text.replace(/[\w,'.!?]/ig, "-");
     var side = (this.props.index % 2) ? "right" : "left";
-    var cls = ["line", side,
-               (this.props.active ? "active" : ""),
+    var cls = ["line", side, this.props.highlight,
                (this.props.invisible ? "hidden" : ""),
                (audioMode(this.props) ? "audio" : "")].join(" ");
     var txt = this.props.mode === MODES.Listening ? dotted : text;

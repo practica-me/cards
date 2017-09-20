@@ -42,8 +42,11 @@
   margin-bottom: 0.5em;
   color: #2d2d2d;
 }
-.active.line {
+.line.playing, .line.recording {
   border: 2px solid #ff2f56 !important;
+}
+.line.paused {
+  border: 2px solid #E7B8C2 !important;
 }
 .line.left {
   background-color: #92d1fb;

@@ -18,17 +18,30 @@ export default class ConversationRecorder extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = {pauseLength: 1000,
-                  activeLineIndex: this.defaultIndex(props),
-                  waitingToRecord: this.recordMode(props),
-                  playing: false,
-                  allPlayed: false};
+    this.state = this.defaultState(props);
+    /* props -> state data convertors */
+    this.defaultState = this.defaultState.bind(this);
     this.defaultIndex = this.defaultIndex.bind(this);
     this.recordMode = this.recordMode.bind(this);
+    /* Monster logic, called on line change */
     this.onLinePlayed = this.onLinePlayed.bind(this);
+    /* Sub-part of the component that depend heavily on state */
     this.renderBodyForTitleMode = this.renderBodyForTitleMode.bind(this);
     this.renderLines = this.renderLines.bind(this);
     this.renderControls = this.renderControls.bind(this);
+  }
+  /* ResetState: What the state should be at the beginning. */
+  defaultState(optionalProps) {
+    var props = optionalProps || this.props;
+    return {
+      pauseLength: 1000,
+      activeLineIndex: this.defaultIndex(props),
+      waitingToRecord: this.recordMode(props),
+      playing: false,
+      allPlayed: false,
+      waitingToPlay: false,
+      startedPlaying: false
+    }
   }
   /* DefaultIndex: special only if we are in title audio mode. */
   defaultIndex(optionalProps) {
@@ -42,16 +55,10 @@ export default class ConversationRecorder extends Component {
     return props.mode === MODES.Recording;
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.mode !== this.props.mode) {
-      this.setState({activeLineIndex: this.defaultIndex(nextProps),
-                     waitingToRecord: this.recordMode(nextProps)});
-    } else if (nextProps.convoElement.title.text !== this.props.convoElement.title.text) {
-      //conversation updated: do a full reset
-      this.setState({
-        activeLineIndex: this.defaultIndex(nextProps),
-        waitingToRecord: this.recordMode(nextProps),
-        playing: false, allPlayed: false, waitingToPlay: false
-      });
+    // If mode or conversation is changed, completely reset the state
+    if (nextProps.mode !== this.props.mode ||
+        nextProps.convoElement.title.text !== this.props.convoElement.title.text) {
+      this.setState(this.defaultState(nextProps));
     }
   }
   /* The big callback to be called everytime a line gets "played"
@@ -67,6 +74,9 @@ export default class ConversationRecorder extends Component {
         return;
       /* For record mode, depends on whether user spoke, audio played, or we finished. */
       case MODES.Recording:
+        if (activeLineIndex === 0) {
+          this.setState({startedPlaying: true});
+        }
         if (isFinal) { // got to the end of the script, just display everything
           this.setState({activeLineIndex: this.defaultIndex(),
                          allPlayed: true, playing: false});
@@ -108,7 +118,10 @@ export default class ConversationRecorder extends Component {
       var activeLineIndex = _this.state.activeLineIndex;
       var onCurrentLine = !_this.state.allPlayed && (index === activeLineIndex);
       var playing = _this.state.playing && onCurrentLine;
-      var active = (_this.state.waitingToRecord || _this.state.playing) && onCurrentLine;
+      var highlight = !onCurrentLine ? "" :
+        (_this.state.waitingToRecord ? "recording" :
+          (_this.state.allPlayed || !_this.state.startedPlaying) ? "" :
+          (_this.state.playing || _this.state.waitingToPlay) ? "playing" : "paused");
       /* In recording mode, before everything is played, all but activeLine is visible. */
       var invisible = false;
       if (_this.props.mode === MODES.Recording &&
@@ -119,7 +132,7 @@ export default class ConversationRecorder extends Component {
                 invisible={invisible}
                 playing={playing}
                 key={index}
-                active={active}
+                highlight={highlight}
                 index={index}
                 mode={_this.props.mode}
                 audio_url={_this.props.audio_url}
@@ -146,7 +159,8 @@ export default class ConversationRecorder extends Component {
   }
   renderControls() {
     /* play and pause overwrite waitingToPlay; user action overrides timer wait. */
-    var onPlay = () => this.setState({playing: true, waitingToPlay: false});
+    var onPlay = () => this.setState({playing: true, waitingToPlay: false,
+                                      startedPlaying: true});
     var onPause = () => this.setState({playing: false, waitingToPlay: false});
     /* Replay: playing or waitingToRecord depending on mode,
      * allPlayed set to false and activeLineIndex is reset */
