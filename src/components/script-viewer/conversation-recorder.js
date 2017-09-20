@@ -34,13 +34,20 @@ export default class ConversationRecorder extends Component {
   defaultState(optionalProps) {
     var props = optionalProps || this.props;
     return {
+      // How long to pause between each speaker
       pauseLength: 1000,
+      // Which line in conversation is active
       activeLineIndex: this.defaultIndex(props),
+      // In recordMode, flag to wait for user to speak or record something
       waitingToRecord: this.recordMode(props),
-      playing: false,
+      // Controls whether audio (corresponding to activeLineIndex) is playing.
+      playing: false, // Controls
+      // allPlayed is once all the lines for one conversation have been played
       allPlayed: false,
+      // startedPlaying is off in the very beginning, before any of the lines are played
+      startedPlaying: false,
+      // waitingToPlay is on in between lines, on a short timer
       waitingToPlay: false,
-      startedPlaying: false
     }
   }
   /* DefaultIndex: special only if we are in title audio mode. */
@@ -182,6 +189,7 @@ export default class ConversationRecorder extends Component {
     var replay = btnGen("playpause replay", onReplay, replayText);
     var next = btnGen("next", onNext, "Next");
     var cont = btnGen("playpause continue", this.onLinePlayed, "Continue");
+    var skip = this.state.startedPlaying ? "" : btnGen("minimal skip", onNext, "Skip");
     if (this.state.allPlayed) {
       return <div className="controls"> {replay} {next} </div>
     } else if (this.state.waitingToRecord) {
@@ -193,6 +201,8 @@ export default class ConversationRecorder extends Component {
     } else {
       return (
         <div className="controls">
+          {/* waitingToPlay is a minimal wait working off of the timer;
+            * showing a play on that state causes flickering */}
           {this.state.playing || this.state.waitingToPlay ? pause : play }
         </div>
       );
