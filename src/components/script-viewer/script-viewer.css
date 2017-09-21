@@ -20,6 +20,7 @@
   margin: 10px;
   border-radius: 5px;
   justify-content: space-around;
+  align-self: center;
 }
 .conversation-title, .script-title {
   align-self: center;
@@ -95,7 +96,8 @@ button {
   margin-left: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: .1em;
+  letter-spacing: .05em;
+  color: #4c4c4c;
 }
 button.minimal {
   background-color: transparent;
@@ -139,4 +141,7 @@ button.recording::before {
 }
 .bold {
   font-weight: bold;
+}
+.invisible {
+  opacity: 0 !important;
 }

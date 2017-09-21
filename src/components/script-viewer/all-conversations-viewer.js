@@ -19,7 +19,7 @@ export default class AllConversationsViewer extends Component {
     }
     this.getActiveConvo = this.getActiveConvo.bind(this);
     this.changeConversation = this.changeConversation.bind(this);
-    this.advance = this.advance.bind(this);
+    this.onPrevOnNextGenerator = this.onPrevOnNextGenerator.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.mode !== this.props.mode) {
@@ -36,29 +36,37 @@ export default class AllConversationsViewer extends Component {
     if (newIndex < 0) { newIndex = limit - 1; }
     this.setState({conversationIndex: newIndex});
   }
-  advance() {
+  /* Generator for onPrev or onNext function. prevOrNext is 'prev' or 'next'.
+   * If we're at a bound and can't go previous or next, return null */
+  onPrevOnNextGenerator(prevOrNext) {
+    if (prevOrNext !== 'prev' && prevOrNext !== 'next') console.log('PrevNext error');
+
     // Cycle MODEs: Title_Mode -> Listening -> Reviewing -> Recording
     var modeCycle = [MODES.TitleMode, MODES.Listening, MODES.Reviewing, MODES.Recording];
     var curModeIndex = modeCycle.indexOf(this.state.mode);
+    if (curModeIndex < -1) console.error("Unsupported mode");
     var numModes = modeCycle.length;
+    var newModeIndex = (prevOrNext === 'next') ?
+      (curModeIndex + 1) % numModes :
+      (curModeIndex - 1 + numModes) % numModes;
+
     // When switching past the end, advance to next conversation
-    if (curModeIndex < -1 || curModeIndex >= numModes - 1) {
-      this.changeConversation(+1);
+    var numConvos = this.props.conversations.length;
+    var convoDelta  = 0;
+    if (prevOrNext === 'next' && curModeIndex === numModes - 1) { // end of modes: advance convo
+      if (this.state.conversationIndex === numConvos - 1) return null; // can't go further
+      convoDelta = +1;
+    } else if (prevOrNext === 'prev' && curModeIndex === 0) { // beginning of modes: roll back convo
+      if (this.state.conversationIndex === 0) return null; // can't go further back.
+      convoDelta = -1;
     }
-    this.setState({mode: modeCycle[(curModeIndex + 1) % numModes]});
+    // Remember, this is a callback generator
+    return () => {
+      this.changeConversation(convoDelta);
+      this.setState({mode: modeCycle[newModeIndex]});
+    }
   }
   render() {
-    /* Pagination: creating too much trouble for now.
-    var previous = () => this.changeConversation(-1);
-    var next = () => this.changeConversation(+1);
-    var idx = this.state.conversationIndex;
-    var pagination =
-      <div className="pagination">
-        (idx > 0 ?  <button className="minimal" onclick={previous}> {"<"} </button> : "")
-        # {idx + 1} / {numConversations}
-        <button className="minimal" onClick={next}> {">"} </button>
-      </div>;
-    */
     var numConversations = this.props.conversations.length;
     return(
       <div className="all-conversations">
@@ -66,8 +74,8 @@ export default class AllConversationsViewer extends Component {
           convoElement={this.getActiveConvo()}
           mode={this.state.mode} // MODE is controlled
           audio_url={this.props.audio_url}
-          onFinishedPlaying={this.advance}
-          />
+          next={this.onPrevOnNextGenerator('next')}
+          prev={this.onPrevOnNextGenerator('prev')} />
         <div className="pagination">
         # {this.state.conversationIndex + 1} / {numConversations}
         </div>

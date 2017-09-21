@@ -3,7 +3,6 @@ const MODES = {
   Recording: "Recording",
   Listening: "Listening",
   Reviewing: "Reviewing",
-  Text: "Text",
 };
 
 export default MODES;

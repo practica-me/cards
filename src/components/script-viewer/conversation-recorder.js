@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MODES from './consts.js';
 import T from 'prop-types';
+import {Icon} from 'react-fa';
 import SingleLineViewer from './single-line-viewer.js';
 import SoundSprite from '../../lib/sound-sprite.js';
 
@@ -15,6 +16,8 @@ export default class ConversationRecorder extends Component {
       title: T.object.isRequired,
       conversation: T.array.isRequired
     }).isRequired,
+    next: T.func,
+    prev: T.func
   };
   constructor(props) {
     super(props);
@@ -64,7 +67,7 @@ export default class ConversationRecorder extends Component {
   /* onRecordingLine: are we actively on a line that should be user-spoken? */
   onRecordingLine(optionalProps) {
     var props = optionalProps || this.props;
-    return this.recordMode(props) && ((this.state.activeLineIndex %2) == 0);
+    return this.recordMode(props) && ((this.state.activeLineIndex %2) === 0);
   }
   componentWillReceiveProps(nextProps) {
     // If mode or conversation is changed, completely reset the state
@@ -179,41 +182,44 @@ export default class ConversationRecorder extends Component {
     var onReplay = () => this.setState({
       playing: !this.recordMode(), waitingToRecord: false,
       allPlayed: false, activeLineIndex: this.defaultIndex()});
-    /* Next button: reset allPlayed, waitingToRecord if in recording mode. */
-    var onNext = () => {
-      this.setState({allPlayed: false, waitingToRecord: false});
-      this.props.onFinishedPlaying();
-    }
     /* On Speak pressed: turn _waitingToRecord on. */
     var onSpeak = () => {
       this.setState({waitingToRecord: true});
     }
     /* Define all the buttons */
-    var btnGen = function (cls, onClk, txt) {
-      return <button className={cls} onClick={onClk}> {txt} </button>;
+    var btnGen = function (cls, onClk, txt, icon) {
+      return <button className={cls} onClick={onClk}>
+                {icon ? <Icon name={icon} /> : ""} {txt}
+             </button>;
     }
-    var play = btnGen("play primary", onPlay, "Play");
-    var pause = btnGen("pause", onPause, "Pause");
+    var play = btnGen("play primary", onPlay, "Play", "play");
+    var pause = btnGen("pause", onPause, "Pause", "pause");
     var replayText = (this.recordMode() ? "Redo" : "Replay");
-    var replay = btnGen("replay", onReplay, replayText);
-    var next = btnGen("next primary", onNext, "Next");
+    var replay = btnGen("replay", onReplay, replayText, "repeat");
+    var next = this.props.next ?
+      btnGen("next primary", this.props.next, "Next", "step-forward") : "";
     var stop = btnGen("recording", this.onLinePlayed, "Stop");
-    var speak = btnGen("record", onSpeak, "Speak");
-    var skip = this.state.startedPlaying ? "" : btnGen("minimal skip", onNext, "Skip");
+    var speak = btnGen("record", onSpeak, "Speak", "comment");
+    var skip = (this.props.next && !this.state.startedPlaying) ?
+      btnGen("minimal skip", this.props.next, "", "step-forward") :
+      btnGen("minimal invisible", () => {}, "", "step-forward");
+    var back = (this.props.prev && !this.state.startedPlaying) ?
+      btnGen("minimal skip", this.props.prev, "", "step-backward") :
+      btnGen("minimal invisible", () => {}, "", "step-backward");
     if (this.state.allPlayed) {
       return <div className="controls"> {replay} {next} </div>
     } else if (this.onRecordingLine()) {
       if (this.state.waitingToRecord) {
         return <div className="controls"> {stop} </div>;
       } else {
-        return <div className="controls"> {speak} </div>;
+        return <div className="controls"> {back} {speak} {skip} </div>;
       }
     } else {
       return (
         <div className="controls">
           {/* waitingToPlay is a minimal wait working off of the timer;
             * showing a play on that state causes flickering */}
-          {this.state.playing || this.state.waitingToPlay ? pause : play }
+          {back} {this.state.playing || this.state.waitingToPlay ? pause : play } {skip}
         </div>
       );
     }
