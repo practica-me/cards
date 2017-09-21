@@ -20,6 +20,7 @@
   margin: 10px;
   border-radius: 5px;
   justify-content: space-around;
+  align-self: center;
 }
 .conversation-title, .script-title {
   align-self: center;
@@ -91,11 +92,16 @@ button {
   height: 30px;
   min-width: 80px;
   border-radius: 4px;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: 0px 10px;
+  padding: 0px 10px;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: .1em;
+  letter-spacing: .05em;
+  color: #4c4c4c;
+}
+/* span.fa is an icon */
+button > span.fa {
+  padding-right: 2px;
 }
 button.minimal {
   background-color: transparent;
@@ -139,4 +145,7 @@ button.recording::before {
 }
 .bold {
   font-weight: bold;
+}
+.invisible {
+  opacity: 0 !important;
 }
