@@ -41,8 +41,9 @@ export default class ConversationRecorder extends Component {
       pauseLength: 1000,
       // Which line in conversation is active
       activeLineIndex: this.defaultIndex(props),
-      // In recordMode, flag to wait for user to speak or record something
-      waitingToRecord: false,
+      // In recordMode, recording siganls either recording or pretending to record,
+      // depending on whether browser actually supports recording
+      recording: false,
       // Controls whether audio (corresponding to activeLineIndex) is playing.
       playing: false, // Controls
       // allPlayed is once all the lines for one conversation have been played
@@ -95,12 +96,12 @@ export default class ConversationRecorder extends Component {
         if (isFinal) { // got to the end of the script, just display everything
           this.setState({activeLineIndex: this.defaultIndex(),
                          allPlayed: true, playing: false});
-        } else if (this.state.waitingToRecord) { // user recorded something, play next line
+        } else if (this.state.recording) { // user recorded something, play next line
           this.setState({activeLineIndex: activeLineIndex + 1,
-                         playing: true, waitingToRecord: false});
+                         playing: true, recording: false});
         } else { // user just heard something, wait to record the next one
           this.setState({activeLineIndex: activeLineIndex + 1,
-                         playing: false, waitingToRecord: false});
+                         playing: false, recording: false});
         }
         return;
       /* For audio mode, depends on whether a final or non-final line played. */
@@ -134,7 +135,7 @@ export default class ConversationRecorder extends Component {
       var onCurrentLine = !_this.state.allPlayed && (index === activeLineIndex);
       var playing = _this.state.playing && onCurrentLine;
       var highlight = !onCurrentLine ? "" :
-        (_this.state.waitingToRecord ? "recording" :
+        (_this.state.recording ? "recording" :
           _this.state.allPlayed ? "" :
           (_this.state.playing || _this.state.waitingToPlay) ? "playing" : "paused");
       /* In recording mode, before everything is played, all but activeLine is visible. */
@@ -177,14 +178,14 @@ export default class ConversationRecorder extends Component {
     var onPlay = () => this.setState({playing: true, waitingToPlay: false,
                                       startedPlaying: true});
     var onPause = () => this.setState({playing: false, waitingToPlay: false});
-    /* Replay: playing or waitingToRecord depending on mode,
+    /* Replay: playing or recording depending on mode,
      * allPlayed set to false and activeLineIndex is reset */
     var onReplay = () => this.setState({
-      playing: !this.recordMode(), waitingToRecord: false,
+      playing: !this.recordMode(), recording: false,
       allPlayed: false, activeLineIndex: this.defaultIndex()});
-    /* On Speak pressed: turn _waitingToRecord on. */
+    /* On Speak pressed: turn _recording on. */
     var onSpeak = () => {
-      this.setState({waitingToRecord: true});
+      this.setState({recording: true});
     }
     /* Define all the buttons */
     var btnGen = function (cls, onClk, txt, icon) {
@@ -209,7 +210,7 @@ export default class ConversationRecorder extends Component {
     if (this.state.allPlayed) {
       return <div className="controls"> {replay} {next} </div>
     } else if (this.onRecordingLine()) {
-      if (this.state.waitingToRecord) {
+      if (this.state.recording) {
         return <div className="controls"> {stop} </div>;
       } else {
         return <div className="controls"> {back} {speak} {skip} </div>;
