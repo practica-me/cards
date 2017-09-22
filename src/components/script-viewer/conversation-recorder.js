@@ -188,8 +188,8 @@ export default class ConversationRecorder extends Component {
       this.setState({recording: true});
     }
     /* Define all the buttons */
-    var btnGen = function (cls, onClk, txt, icon) {
-      return <button className={cls} onClick={onClk}>
+    var btnGen = function (cls, onClk, txt, icon, key) {
+      return <button className={cls} onClick={onClk} key={cls}>
                 {icon ? <Icon name={icon} /> : ""} {txt}
              </button>;
     }
@@ -201,29 +201,31 @@ export default class ConversationRecorder extends Component {
       btnGen("next primary", this.props.next, "Next", "step-forward") : "";
     var stop = btnGen("recording", this.onLinePlayed, "Stop");
     var speak = btnGen("record", onSpeak, "Speak", "comment");
-    var skip = (this.props.next && !this.state.startedPlaying) ?
-      btnGen("minimal skip", this.props.next, "", "step-forward") :
-      btnGen("minimal invisible", () => {}, "", "step-forward");
-    var back = (this.props.prev && !this.state.startedPlaying) ?
-      btnGen("minimal skip", this.props.prev, "", "step-backward") :
-      btnGen("minimal invisible", () => {}, "", "step-backward");
-    if (this.state.allPlayed) {
-      return <div className="controls"> {replay} {next} </div>
-    } else if (this.onRecordingLine()) {
-      if (this.state.recording) {
-        return <div className="controls"> {stop} </div>;
-      } else {
-        return <div className="controls"> {back} {speak} {skip} </div>;
-      }
-    } else {
-      return (
-        <div className="controls">
-          {/* waitingToPlay is a minimal wait working off of the timer;
-            * showing a play on that state causes flickering */}
-          {back} {this.state.playing || this.state.waitingToPlay ? pause : play } {skip}
-        </div>
-      );
-    }
+    var skip = this.props.next ?
+      btnGen("minimal skip next", this.props.next, "", "step-forward") :
+      btnGen("minimal invisible next", () => {}, "", "step-forward");
+    var back = this.props.prev ?
+      btnGen("minimal skip back", this.props.prev, "", "step-backward") :
+      btnGen("minimal invisible back", () => {}, "", "step-backward");
+    /* And... render them depending on what is going on in the UI */
+    var controlsToRender = {
+      "allPlayed": [back, replay, next],
+      "preRecording": [back, speak, skip],
+      "recording": ["", stop, ""],
+      "playing": ["", pause, ""],
+      "paused": [back, play, skip]
+    };
+    // Note: waitingToPlay is a timer-wait, to user its a part of playback
+    var key = this.state.allPlayed ? "allPlayed" :
+                this.onRecordingLine() ?
+                  (this.state.recording ? "recording" : "preRecording") :
+                ((this.state.playing || this.state.waitingToPlay) ?
+                 "playing" : "paused");
+    return (
+      <div className="controls">
+        {controlsToRender[key]}
+      </div>
+    );
   }
   render() {
     var {title} = this.props.convoElement;
