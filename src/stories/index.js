@@ -8,14 +8,28 @@ import { Button, Welcome } from '@storybook/react/demo';
 
 import ScriptViewer from '../components/script-viewer/script-viewer.js'
 import MODES from '../components/script-viewer/consts.js';
-
 import script from '../data/short_replies_annotated.json';
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+import StoryPage from '../components/script-viewer/story-page.js';
+import FormPage from '../components/script-viewer/form-page.js';
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+
+var content = {
+  'header': 'Practica',
+  'subheader': 'Welcome! To start, can we ask you two questions?',
+  'body': 'Short Replies are simple phrases that you can use to make your conversations longer.',
+  'buttonText': 'Continue',
+  onAction: () => {}
+};
+var fields = [
+  {question: "What is your name?"},
+  {question: "What language do you speak best?"}
+];
+
+storiesOf('Content Pages', module)
+  .add('story page', () => <StoryPage {...content} />)
+  .add('story w/ subheader first', () => <StoryPage {...content} subheaderFirst={true} />)
+  .add('form page', () => <FormPage {...content} fields={fields} />);
 
 storiesOf('ScriptViewer', module)
   .add('intro screen', () => <ScriptViewer script={script} mode={MODES.TitleMode} />)
