@@ -36,7 +36,7 @@ class ScriptViewer extends Component {
   }
   render() {
     return(
-      <div className="script-viewer">
+      <div className="phone-view">
       {this.state.pastTheTitle ?
         <AllConversationsViewer
           conversations={this.props.script.conversations}

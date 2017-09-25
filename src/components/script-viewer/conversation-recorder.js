@@ -237,7 +237,7 @@ export default class ConversationRecorder extends Component {
     return(
       <div className={"single-conversation"}>
         <div className="conversation-title">
-          <div className="subheader"> {cardTitle} </div>
+          <div className="subheader above"> {cardTitle} </div>
           <div className="header"> {title.text} </div>
         </div>
         <div className="lines">
