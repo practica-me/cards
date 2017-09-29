@@ -6,14 +6,14 @@
 		"lessons": [{
 				"number": 1,
 				"name": "Short Replies",
-				"script": "unit1_casual_interactions/lesson1_shortreplies/short_replies_annotated.json",
-                "audio_url": "/data/short_replies.mp3"
+				"script_url": "/scripts/short_replies.json",
+                "audio_url": "/audio/short_replies.mp3"
 			},
 			{
 				"number": 2,
 				"name": "Short Replies",
-				"script": "unit1_casual_interactions/lesson1_shortreplies/short_replies_annotated.json",
-                "audio_url": "/data/quick_questions.mp3"
+				"script_url": "/scripts/short_replies.json",
+                "audio_url": "/audio/quick_questions.mp3"
 			}
 		]
 	}]

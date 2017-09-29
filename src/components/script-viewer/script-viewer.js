@@ -8,7 +8,7 @@ import AllConversationsViewer from './all-conversations-viewer.js';
 /* ScriptViewer manages which set of conversations (eg. short replies)
  * we are viewing.
  * Currently a pass-through, because only short replies are thought of so far. */
-class ScriptViewer extends Component {
+export default class ScriptViewer extends Component {
   static propTypes = {
     script: T.object.isRequired,
     mode: T.oneOf(Object.keys(MODES)).isRequired,
@@ -48,4 +48,3 @@ class ScriptViewer extends Component {
   }
 }
 
-export default ScriptViewer;

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import ScriptViewer from './components/script-viewer/script-viewer.js';
-import MODES from './components/script-viewer/consts.js';
-
-import script from './data/quick_questions_annotated.json';
 import { FullStory } from 'react-fullstory-component';
+import unitData from './data/units_and_lessons.json';
+import AllUnitsViewer from './components/all-units-viewer.js';
 
 const settings = {
     debug: false,
@@ -16,9 +14,10 @@ const data = {
 
 class App extends Component {
   render() {
+    var units = unitData.units;
     return(
       <div>
-        <ScriptViewer script={script} mode={MODES.TitleMode}/>
+        <AllUnitsViewer units={units} />
         <FullStory settings={settings} custom={data} />
       </div>
     );
