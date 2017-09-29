@@ -1,0 +1,316 @@
+{
+ "audio_url": "/audio/quick_questions.mp3",
+ "title": "Follow-Up Questions",
+ "description": "Follow-up questions are short questions that you can use to continue a conversation and learn more details about a topic.",
+ "conversations": [
+  {
+   "usage": "Ask about the place where they went (past tense).",
+   "conversation": [
+    {
+     "text": "How was your weekend?",
+     "audioStart": 1570,
+     "audioEnd": 2780
+    },
+    {
+     "text": "Great! My family went for a walk.",
+     "audioStart": 3090,
+     "audioEnd": 5240
+    },
+    {
+     "text": "Cool! Where did you go?",
+     "audioStart": 5350,
+     "audioEnd": 6840
+    },
+    {
+     "text": "We went to Kelley Park.",
+     "audioStart": 7170,
+     "audioEnd": 8690.000000000002
+    },
+    {
+     "text": "Nice! That sounds fun.",
+     "audioStart": 8950,
+     "audioEnd": 10559.999999999998
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Where did you go?",
+    "audioStart": 5880,
+    "audioEnd": 6840
+   }
+  },
+  {
+   "usage": "Ask about the time something happened (past tense).",
+   "conversation": [
+    {
+     "text": "How is your week going?",
+     "audioStart": 13820,
+     "audioEnd": 15010
+    },
+    {
+     "text": "Good! My daughter had a dance performace at school.",
+     "audioStart": 15450,
+     "audioEnd": 18439.999
+    },
+    {
+     "text": "Wow! When was that?",
+     "audioStart": 18790,
+     "audioEnd": 20189.999999999996
+    },
+    {
+     "text": "On Tuesday night.",
+     "audioStart": 20340,
+     "audioEnd": 21420
+    },
+    {
+     "text": "Congratulations, you must be proud!",
+     "audioStart": 21620,
+     "audioEnd": 23700
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "When was that?",
+    "audioStart": 19210,
+    "audioEnd": 20189.999999999996
+   }
+  },
+  {
+   "usage": "Ask about activities (past tense).",
+   "conversation": [
+    {
+     "text": "What did you do for Mother's Day?",
+     "audioStart": 28030,
+     "audioEnd": 29680.000000000004
+    },
+    {
+     "text": "I went to LA with my kids.",
+     "audioStart": 29960,
+     "audioEnd": 31830.000000000004
+    },
+    {
+     "text": "Oh, interesting. What did you do there?",
+     "audioStart": 32150,
+     "audioEnd": 34540.00000000001
+    },
+    {
+     "text": "We went to the beach and had dinner.",
+     "audioStart": 34809.999,
+     "audioEnd": 36730.00000000001
+    },
+    {
+     "text": "Wow! That sounds like a great trip!",
+     "audioStart": 50599.998999999996,
+     "audioEnd": 52450
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "What did you do there?",
+    "audioStart": 33429.999,
+    "audioEnd": 34540.00000000001
+   }
+  },
+  {
+   "usage": "Ask about other people they went with (past tense).",
+   "conversation": [
+    {
+     "text": "How are you doing?",
+     "audioStart": 54660,
+     "audioEnd": 55610
+    },
+    {
+     "text": "Pretty well, I just went to the park.",
+     "audioStart": 56220,
+     "audioEnd": 58230.00000000001
+    },
+    {
+     "text": "Cool! Who did you go with?",
+     "audioStart": 58580,
+     "audioEnd": 60300
+    },
+    {
+     "text": "I went with my friend and his dog.",
+     "audioStart": 60530,
+     "audioEnd": 62260
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Who did you go with?",
+    "audioStart": 59360,
+    "audioEnd": 60300
+   }
+  },
+  {
+   "usage": "Ask if they enjoyed something (past tense).",
+   "conversation": [
+    {
+     "text": "How was your weekend?",
+     "audioStart": 1570,
+     "audioEnd": 2780
+    },
+    {
+     "text": "Good! I saw Beauty and the Beast.",
+     "audioStart": 66320,
+     "audioEnd": 68350.00000000001
+    },
+    {
+     "text": "Cool! Did you like it?",
+     "audioStart": 68599.999,
+     "audioEnd": 70009.99999999999
+    },
+    {
+     "text": "Yeah, it was a good movie.",
+     "audioStart": 70219.999,
+     "audioEnd": 71650
+    },
+    {
+     "text": "Awesome! I want to see it too.",
+     "audioStart": 71799.999,
+     "audioEnd": 73469.99899999998
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Did you like it?",
+    "audioStart": 69170,
+    "audioEnd": 70009.99999999999
+   }
+  },
+  {
+   "usage": "Ask how something was for them (past tense).",
+   "conversation": [
+    {
+     "text": "How is your day going?",
+     "audioStart": 77360,
+     "audioEnd": 78509.99999999999
+    },
+    {
+     "text": "Good! I visited my sister and her new little baby.",
+     "audioStart": 78800,
+     "audioEnd": 81949.99900000001
+    },
+    {
+     "text": "Aww! How was that?",
+     "audioStart": 82219.999,
+     "audioEnd": 83800
+    },
+    {
+     "text": "Great! They are both doing well.",
+     "audioStart": 83980,
+     "audioEnd": 85630
+    },
+    {
+     "text": "Tell her I said congratulations!",
+     "audioStart": 86020,
+     "audioEnd": 87889.999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "How was that?",
+    "audioStart": 82820,
+    "audioEnd": 83800
+   }
+  },
+  {
+   "usage": "Ask about the reason for something (present tense).",
+   "conversation": [
+    {
+     "text": "What do you think about this weather?",
+     "audioStart": 91459.999,
+     "audioEnd": 92990
+    },
+    {
+     "text": "I don't like it. I hate the rain.",
+     "audioStart": 93270,
+     "audioEnd": 95340
+    },
+    {
+     "text": "Oh, really? Why is that?",
+     "audioStart": 109230,
+     "audioEnd": 111029.99999999999
+    },
+    {
+     "text": "It makes me sad. I prefer sunshine.",
+     "audioStart": 111140,
+     "audioEnd": 113850
+    },
+    {
+     "text": "Me too!",
+     "audioStart": 114010,
+     "audioEnd": 114699.99999999999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Why is that?",
+    "audioStart": 110060,
+    "audioEnd": 111029.99999999999
+   }
+  },
+  {
+   "usage": "Ask about opinions or thoughts (present tense).",
+   "conversation": [
+    {
+     "text": "What did you do today?",
+     "audioStart": 117880,
+     "audioEnd": 119009.99999999999
+    },
+    {
+     "text": "I went to a city meeting. They are building a new school.",
+     "audioStart": 119320,
+     "audioEnd": 122110
+    },
+    {
+     "text": "Oh, interesting. What do you think about that?",
+     "audioStart": 122580,
+     "audioEnd": 125369.99900000001
+    },
+    {
+     "text": "I think it's great. It will have a big computer lab.",
+     "audioStart": 125430,
+     "audioEnd": 128510.00000000001
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "What do you think about that?",
+    "audioStart": 123990,
+    "audioEnd": 125369.99900000001
+   }
+  },
+  {
+   "usage": "Ask how they feel about something(present tense).",
+   "conversation": [
+    {
+     "text": "How is your family doing?",
+     "audioStart": 131290,
+     "audioEnd": 132600
+    },
+    {
+     "text": "Good! My son is moving away to college this weekend.",
+     "audioStart": 133010,
+     "audioEnd": 135900
+    },
+    {
+     "text": "Wow! How do you feel about that?",
+     "audioStart": 136160,
+     "audioEnd": 138429.99999999997
+    },
+    {
+     "text": "Happy and sad. Kids grow up so fast!",
+     "audioStart": 138860,
+     "audioEnd": 141859.99999999997
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "How do you feel about that?",
+    "audioStart": 137030,
+    "audioEnd": 138429.99999999997
+   }
+  }
+ ]
+}

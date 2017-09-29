@@ -1,4 +1,31 @@
 
+function lineWithAudioAnnotations (line, transcriptTxt, wordsByStart, wordsByEnd) {
+   var lineStartOffset = transcriptTxt.indexOf(line);
+   if (lineStartOffset < 0) {
+     console.error("ERROR: didn't find the following line:");
+     console.error(line);
+     return {
+       text: line,
+       audioStart: undefined,
+       audioEnd: undefined
+     };
+   } else {
+     var lineExcludingEndPunctuation = line.replace(/[?.,!]+$/, '');
+     var lineEndOffset = lineStartOffset + lineExcludingEndPunctuation.length;
+     var startWord = wordsByStart[lineStartOffset];
+     var endWord = wordsByEnd[lineEndOffset];
+     if (!startWord || !endWord) {
+       console.error("ERROR: start or end word not found for line:");
+       console.error(line, lineStartOffset, lineEndOffset);
+       console.error("startWord", startWord, "endWord", endWord);
+     }
+     return {
+       text: line,
+       audioStart: 1000 * startWord.start, // convert from s to ms
+       audioEnd: 1000 * endWord.end // convert from s to ms
+     };
+   }
+}
 
 /* Function to take a script format (practicaJSON) and align format (gentleJSON)
  * and give us a combo that is more useful to work with. */
@@ -17,41 +44,13 @@ function destructivelyAlignScript(practicaJSON, gentleJSON) {
     * and add the start and end offset in the audio for each of those. */
    practicaJSON.conversations.forEach(function(convoElement) {
      convoElement.conversation = convoElement.conversation.map(function(line) {
-       var lineStartOffset = transcriptTxt.indexOf(line);
-       if (lineStartOffset < 0) {
-         console.error("ERROR: didn't find the following line:");
-         console.error(line);
-         return {
-           text: line,
-           audioStart: undefined,
-           audioEnd: undefined
-         };
-       } else {
-         var lineExcludingEndPunctuation = line.replace(/[?.,!]+$/, '');
-         var lineEndOffset = lineStartOffset + lineExcludingEndPunctuation.length;
-         var startWord = wordsByStart[lineStartOffset];
-         var endWord = wordsByEnd[lineEndOffset];
-         if (!startWord || !endWord) {
-           console.error("ERROR: start or end word not found for line:");
-           console.error(line, lineStartOffset, lineEndOffset);
-           console.error("startWord", startWord, "endWord", endWord);
-         }
-         return {
-           text: line,
-           audioStart: 1000 * startWord.start, // convert from s to ms
-           audioEnd: 1000 * endWord.end // convert from s to ms
-         };
-       }
+       return lineWithAudioAnnotations(line, transcriptTxt, wordsByStart, wordsByEnd);
      });
      // Now find the line that matches with the title, and get audioStart & audioEnd in the title
-     convoElement.conversation.forEach(function(line, index) {
-       var normalize = (s) => {
-         return (typeof s !== "string") ? s : s.replace(/[^\w]/ig, '').toLowerCase();
-       }
-       if (normalize(line.text) === normalize(convoElement.title)) {
-         convoElement.title = Object.assign({lineIndexInConversation: index}, line);
-       }
-     });
+     var titleFound = false;
+     convoElement.title = Object.assign({lineIndexInConversation: 2},
+                                         lineWithAudioAnnotations(convoElement.title,
+                                           transcriptTxt, wordsByStart, wordsByEnd));
    });
    return practicaJSON;
 }

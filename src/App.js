@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ScriptViewer from './components/script-viewer/script-viewer.js';
 import MODES from './components/script-viewer/consts.js';
 
-import script from './data/short_replies_annotated.json';
+import script from './data/quick_questions_annotated.json';
 import { FullStory } from 'react-fullstory-component';
 
 const settings = {
@@ -11,7 +11,7 @@ const settings = {
     orgKey: '6GPQQ'
 };
 const data = {
-    script: 'short_replies'
+    script: 'quick_questions'
 };
 
 class App extends Component {
