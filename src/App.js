@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FullStory } from 'react-fullstory-component';
 import unitData from './data/units_and_lessons.json';
 import AllUnitsViewer from './components/all-units-viewer.js';
+import './App.css';
 
 const settings = {
     debug: false,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UnitViewer from './unit-viewer.js';
 import T from 'prop-types';
+import './all-units-viewer.css';
 
 export default class AllUnitsViewer extends Component {
   static propTypes = {

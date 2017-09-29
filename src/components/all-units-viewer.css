@@ -1,0 +1,24 @@
+.unit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.unit .arrow-block {
+  display: flex;
+  flex-direction: column;
+}
+.unit .arrow-block.right {
+  align-items: flex-start;
+  text-align: left;
+}
+.unit .arrow-block.left {
+  align-items: flex-end;
+  text-align: right;
+}
+.unit .arrow {
+  font-size: 2em;
+  margin: 10px 0;
+}
+
+

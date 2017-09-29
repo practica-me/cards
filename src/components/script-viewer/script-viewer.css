@@ -152,13 +152,13 @@ button.minimal {
   background-color: transparent;
   padding: 0;
   min-width: 0;
-  height: 0;
   font-weight: bold;
   color: #2086ca;
   opacity: 0.8;
 }
 button.minimal:hover {
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 0 !important;
 }
 button:hover {
   box-shadow: 2px 1px 2px rgba(0,0,0,0.5);
