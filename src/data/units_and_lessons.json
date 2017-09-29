@@ -1,0 +1,20 @@
+{
+	"namespace": "cards.practica.me",
+	"units": [{
+		"name": "Casual Interactions",
+		"number": 1,
+		"lessons": [{
+				"number": 1,
+				"name": "Short Replies",
+				"script": "unit1_casual_interactions/lesson1_shortreplies/short_replies_annotated.json",
+                "audio_url": "/data/short_replies.mp3"
+			},
+			{
+				"number": 2,
+				"name": "Short Replies",
+				"script": "unit1_casual_interactions/lesson1_shortreplies/short_replies_annotated.json",
+                "audio_url": "/data/quick_questions.mp3"
+			}
+		]
+	}]
+}
