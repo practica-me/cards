@@ -1,5 +1,4 @@
 
-
 /* Function to take a script format (practicaJSON) and align format (gentleJSON)
  * and give us a combo that is more useful to work with. */
 function destructivelyAlignScript(practicaJSON, gentleJSON) {
