@@ -44,14 +44,19 @@ function destructivelyAlignScript(practicaJSON, gentleJSON) {
        }
      });
      // Now find the line that matches with the title, and get audioStart & audioEnd in the title
+     var titleFound = false;
      convoElement.conversation.forEach(function(line, index) {
        var normalize = (s) => {
          return (typeof s !== "string") ? s : s.replace(/[^\w]/ig, '').toLowerCase();
        }
-       if (normalize(line.text) === normalize(convoElement.title)) {
+       if (normalize(line.text).indexOf(normalize(convoElement.title)) > -1) {
          convoElement.title = Object.assign({lineIndexInConversation: index}, line);
+         titleFound = true;
        }
      });
+     if (!titleFound) {
+       console.error("Title not found: ", convoElement.title);
+     }
    });
    return practicaJSON;
 }
