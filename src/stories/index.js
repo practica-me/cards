@@ -8,7 +8,7 @@ import { Button, Welcome } from '@storybook/react/demo';
 
 import ScriptViewer from '../components/script-viewer/script-viewer.js'
 import MODES from '../components/script-viewer/consts.js';
-import script from '../data/short_replies_annotated.json';
+import script from '../data/quick_questions_annotated.json';
 
 import StoryPage from '../components/script-viewer/story-page.js';
 import FormPage from '../components/script-viewer/form-page.js';

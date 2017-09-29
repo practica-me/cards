@@ -33,8 +33,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Cool! Where did you go?",
-    "audioStart": 5350,
+    "text": "Where did you go?",
+    "audioStart": 5880,
     "audioEnd": 6840
    }
   },
@@ -69,8 +69,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Wow! When was that?",
-    "audioStart": 18790,
+    "text": "When was that?",
+    "audioStart": 19210,
     "audioEnd": 20189.999999999996
    }
   },
@@ -105,8 +105,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Oh, interesting. What did you do there?",
-    "audioStart": 32150,
+    "text": "What did you do there?",
+    "audioStart": 33429.999,
     "audioEnd": 34540.00000000001
    }
   },
@@ -136,8 +136,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Cool! Who did you go with?",
-    "audioStart": 58580,
+    "text": "Who did you go with?",
+    "audioStart": 59360,
     "audioEnd": 60300
    }
   },
@@ -172,8 +172,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Cool! Did you like it?",
-    "audioStart": 68599.999,
+    "text": "Did you like it?",
+    "audioStart": 69170,
     "audioEnd": 70009.99999999999
    }
   },
@@ -208,8 +208,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Aww! How was that?",
-    "audioStart": 82219.999,
+    "text": "How was that?",
+    "audioStart": 82820,
     "audioEnd": 83800
    }
   },
@@ -244,8 +244,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Oh, really? Why is that?",
-    "audioStart": 109230,
+    "text": "Why is that?",
+    "audioStart": 110060,
     "audioEnd": 111029.99999999999
    }
   },
@@ -275,8 +275,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Oh, interesting. What do you think about that?",
-    "audioStart": 122580,
+    "text": "What do you think about that?",
+    "audioStart": 123990,
     "audioEnd": 125369.99900000001
    }
   },
@@ -306,8 +306,8 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Wow! How do you feel about that?",
-    "audioStart": 136160,
+    "text": "How do you feel about that?",
+    "audioStart": 137030,
     "audioEnd": 138429.99999999997
    }
   }
