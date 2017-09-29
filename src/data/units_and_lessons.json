@@ -11,8 +11,8 @@
 			},
 			{
 				"number": 2,
-				"name": "Short Replies",
-				"script_url": "/scripts/short_replies.json",
+				"name": "Quick Questions",
+				"script_url": "/scripts/quick_questions.json",
                 "audio_url": "/audio/quick_questions.mp3"
 			}
 		]

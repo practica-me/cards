@@ -8,7 +8,7 @@ import ConversationRecorder from './conversation-recorder.js';
 export default class AllConversationsViewer extends Component {
   static propTypes = {
     mode: T.oneOf(Object.keys(MODES)).isRequired,
-    audio_url: T.string.isRequired,
+    audioUrl: T.string.isRequired,
     conversations: T.array.isRequired
   };
   constructor(props) {
@@ -73,7 +73,7 @@ export default class AllConversationsViewer extends Component {
         <ConversationRecorder
           convoElement={this.getActiveConvo()}
           mode={this.state.mode} // MODE is controlled
-          audio_url={this.props.audio_url}
+          audioUrl={this.props.audioUrl}
           next={this.onPrevOnNextGenerator('next')}
           prev={this.onPrevOnNextGenerator('prev')} />
         <div className="pagination">

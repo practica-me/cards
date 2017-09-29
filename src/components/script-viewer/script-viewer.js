@@ -11,7 +11,8 @@ import AllConversationsViewer from './all-conversations-viewer.js';
 export default class ScriptViewer extends Component {
   static propTypes = {
     script: T.object.isRequired,
-    mode: T.oneOf(Object.keys(MODES)).isRequired,
+    audioUrl: T.string.isRequired,
+    mode: T.oneOf(Object.keys(MODES)),
     skipTitle: T.bool
   };
   constructor(props) {
@@ -35,13 +36,14 @@ export default class ScriptViewer extends Component {
     );
   }
   render() {
+    var mode = this.props.mode || MODES.TitleMode;
     return(
       <div className="phone-view">
       {this.state.pastTheTitle ?
         <AllConversationsViewer
           conversations={this.props.script.conversations}
-          mode={this.props.mode}
-          audio_url={this.props.script.audio_url} />
+          audioUrl={this.props.audioUrl}
+          mode={mode} />
         : this.renderTitleScreen()}
       </div>
     );

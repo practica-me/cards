@@ -11,7 +11,7 @@ import SoundSprite from '../../lib/sound-sprite.js';
 export default class ConversationRecorder extends Component {
   static propTypes = {
     mode: T.oneOf(Object.keys(MODES)).isRequired,
-    audio_url: T.string.isRequired,
+    audioUrl: T.string.isRequired,
     convoElement: T.shape({
       title: T.object.isRequired,
       conversation: T.array.isRequired
@@ -151,7 +151,7 @@ export default class ConversationRecorder extends Component {
                 highlight={highlight}
                 index={index}
                 mode={_this.props.mode}
-                audio_url={_this.props.audio_url}
+                audioUrl={_this.props.audioUrl}
                 line={line}
                 onDone={_this.onLinePlayed} />
     });
@@ -168,7 +168,7 @@ export default class ConversationRecorder extends Component {
             hidePlayPause={true}
             audioStart={title.audioStart}
             audioEnd={title.audioEnd}
-            audio_url={this.props.audio_url}
+            audioUrl={this.props.audioUrl}
             onFinishedPlaying={this.onLinePlayed} />
         </div>
     );

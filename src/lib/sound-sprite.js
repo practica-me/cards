@@ -4,7 +4,7 @@ import T from 'prop-types';
 
 class SoundSprite extends Component {
   static propTypes = {
-    audio_url: T.string.isRequired,
+    audioUrl: T.string.isRequired,
     allowPausing: T.bool,
     audioStart: T.number.isRequired,
     audioEnd: T.number.isRequired,
@@ -20,8 +20,8 @@ class SoundSprite extends Component {
     this.pause = this.pause.bind(this);
   }
   componentWillReceiveProps(nextProps) {
-    // if audio_url changes reset everything
-    if (nextProps.audio_url !== this.props.audio_url) {
+    // if audioUrl changes reset everything
+    if (nextProps.audioUrl !== this.props.audioUrl) {
       this.setState({position: nextProps.audioStart, playing: nextProps.playing,
                     loaded: false, played: false, errorMsg: undefined});
     }
@@ -79,7 +79,7 @@ class SoundSprite extends Component {
         {this.state.errorMsg}
         {this.props.hidePlayPause ? "" :
           (!this.state.loaded) ? "Loading audio..." : playOrPause}
-        <Sound url={this.props.audio_url}
+        <Sound url={this.props.audioUrl}
                autoLoad={true}
                playStatus={this.state.playing ? Sound.status.PLAYING : Sound.status.PAUSED}
                onLoad={onLoad}
