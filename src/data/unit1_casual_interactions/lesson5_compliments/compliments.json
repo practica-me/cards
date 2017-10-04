@@ -1,0 +1,94 @@
+{
+  "audio_url": null, 
+  "title": "Compliments", 
+  "description": "Use these phrases to give someone a compliment, or show admiration.", 
+  "conversations": [
+    {
+      "usage": "Compliment a belonging.", 
+      "conversation": [
+        "I really like your shoes!", 
+        "Thanks! They are new.", 
+        "Where did you get them?", 
+        "I got them at the mall last week."
+      ], 
+      "title": "I really like your __."
+    }, 
+    {
+      "usage": "Compliment a belonging.", 
+      "conversation": [
+        "Thanks for inviting me to your home. What a lovely apartment!", 
+        "Thank you! it\u2019s pretty small, but I like it.", 
+        "Well, I really like how you decorated it."
+      ], 
+      "title": "What a lovely __!"
+    }, 
+    {
+      "usage": "Compliment a belonging or creation.", 
+      "conversation": [
+        "Nice drawing!", 
+        "Thanks! I drew it in art class today.", 
+        "It\u2019s beautiful. Do you want to hang it on the fridge?"
+      ], 
+      "title": "Nice __!"
+    }, 
+    {
+      "usage": "Compliment an action.", 
+      "conversation": [
+        "You did a great job on your science project!", 
+        "I did?", 
+        "Yes, your teacher said it was one of the best.", 
+        "Wow, thanks!"
+      ], 
+      "title": "You did a great job..."
+    }, 
+    {
+      "usage": "Compliment a belonging.", 
+      "conversation": [
+        "That\u2019s a nice blouse you\u2019re wearing.", 
+        "Thanks! I like yours too.", 
+        "Thank you! It was a birthday gift from my sister."
+      ], 
+      "title": "That\u2019s a nice __."
+    }, 
+    {
+      "usage": "Compliment a belonging.", 
+      "conversation": [
+        "Your dress is beautiful.", 
+        "Oh, do you think so? It\u2019s pretty old.", 
+        "Yes, that color looks great on you.", 
+        "Thanks! I like the color too."
+      ], 
+      "title": "Your __ is beautiful."
+    }, 
+    {
+      "usage": "Compliment someone\u2019s personality.", 
+      "conversation": [
+        "Thanks for picking up my kids today!", 
+        "No problem! They were great.", 
+        "You are so kind. I really appreciate it.", 
+        "Not a problem. I hope you have a good day!"
+      ], 
+      "title": "You are so __."
+    }, 
+    {
+      "usage": "Compliment someone\u2019s appearance.", 
+      "conversation": [
+        "You look nice today!", 
+        "Thanks! I have an interview this afternoon.", 
+        "I\u2019m sure you\u2019ll do great. Good luck!", 
+        "Thank you!"
+      ], 
+      "title": "You look nice today."
+    }, 
+    {
+      "usage": "Tell someone they are good at something.", 
+      "conversation": [
+        "Wow, this meal is delicious!", 
+        "Thank you!", 
+        "You are a great cook!", 
+        "Thanks, you are too kind. I\u2019m glad you like it!"
+      ], 
+      "title": "You are a great __."
+    }
+  ]
+}

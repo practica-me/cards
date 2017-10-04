@@ -14,6 +14,24 @@
 				"name": "Quick Questions",
 				"script_url": "/scripts/quick_questions.json",
                 "audio_url": "/audio/quick_questions.mp3"
+			},
+			{
+				"number": 3,
+				"name": "Detailed Questions",
+				"script_url": "/scripts/custom_questions.json",
+                "audio_url": "/audio/custom_questions.mp3"
+			},
+			{
+				"number": 4,
+				"name": "Goodbyes",
+				"script_url": "/scripts/goodbyes.json",
+                "audio_url": "/audio/goodbyes.mp3"
+			},
+			{
+				"number": 5,
+				"name": "Compliments",
+				"script_url": "/scripts/compliments.json",
+                "audio_url": "/audio/compliments.mp3"
 			}
 		]
 	}]

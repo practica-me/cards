@@ -1,0 +1,76 @@
+title: Custom Questions
+description: These phrases help you think of your own questions to ask, so you can make your conversations longer.
+audio_url: 
+conversations:
+  - title: When...?
+    usage: Ask about the time something happened (or will happen).
+    conversation:
+      - How's your day going?
+      - Great! I got a new job!
+      - Congratulations! When do you start?
+      - My first day is next Monday.
+      - That's awesome! Are you excited?
+  - title: Where...?
+    usage: Ask about the location of something.
+    conversation:
+      - Do you have any plans for the rest of the weekend?
+      - I'm going to walk my friend's cute new puppy!
+      - Aww! Where are you going to walk?
+      - Probably just around the neighborhood.
+      - Cool! What kind of dog is it?
+  - title: What...?
+    usage: Ask about activities.
+    conversation:
+     - How is your week going?
+     - Good! I am going to see some friends tonight.
+     - That's awesome! What are you going to do together?
+     - We are going to have dinner at a restaurant.
+     - Cool! What restaurant are you going to?
+  - title: Who...?
+    usage: Ask about other people.
+    conversation:
+     - How was your weekend?
+     - It was good, we went to the library.
+     - Nice! Who did you go with?
+     - I went with my kids and my husband.
+     - Cool! Do your kids like the library?
+  - title: Why...?
+    usage: Ask for a reason.
+    conversation:
+     - What do you think about this weather?
+     - It's terrible. I really don't like when it rains!
+     - I'm sorry to hear that. Why don't you like the rain?
+     - Because I get wet on my way to work.
+     - Aww...do you walk to work?
+  - title: How...?
+    usage: Ask about the method.
+    conversation:
+     - Are you excited for the weekend?
+     - Yes, we are going to Los Angeles!
+     - Awesome! How are you getting there?
+     - We are driving. I hope the traffic is not bad.
+     - I hope so too! What time are you leaving?
+  - title: Did you...?
+    usage: Ask about past actions.
+    conversation:
+     - How was your weekend?
+     - Great! My brother's birthday was on Saturday.
+     - That's awesome! Did you give him a present?
+     - Yes, I gave him a book. He loves to read.
+     - Cool! What book did you give him?
+  - title: How long...?
+    usage: Ask about a length of time.
+    conversation:
+     - How was your weekend?
+     - It was good! We went to the beach to have a picnic.
+     - Oh, interesting! How long were you at the beach?
+     - Just for a few hours. We came home for dinner.
+     - Cool! How was the weather?
+  - title: What was ___ about it?
+    usage: Ask what made something good or bad.
+    conversation:
+     - How was your day today?
+     - Gooooooood.
+     - That's awesome! What was good about it?
+     - I played soccer during recess.
+     - That's great! Who did you play with?

@@ -1,0 +1,106 @@
+{
+  "audio_url": null, 
+  "title": "Goodbyes", 
+  "description": "These phrases can be used to end a conversation in English.", 
+  "conversations": [
+    {
+      "usage": "Use when you will see the person sometime in the future.", 
+      "conversation": [
+        "Hi, can I check this book out from the library?", 
+        "Of course, do you have a library card?", 
+        "I do! Here it is.", 
+        "Great, your book is due back to the library in 3 weeks.", 
+        "Thanks, see you later!"
+      ], 
+      "title": "See you later"
+    }, 
+    {
+      "usage": "Say this to with someone well.", 
+      "conversation": [
+        "I heard you were sick last week. Are you feeling better?", 
+        "Yeah, I went to the doctor and she gave me medicine to take.", 
+        "I\u2019m glad to hear it. I hope you start feeling better soon.", 
+        "Of course, thanks for checking in.", 
+        "No problem. Take care."
+      ], 
+      "title": "Take care"
+    }, 
+    {
+      "usage": "Use when you enjoyed speaking with someone.", 
+      "conversation": [
+        "How is my son doing in math class?", 
+        "He\u2019s doing much better these days, His grades are up!", 
+        "That\u2019s great! Thanks for all your help, we really appreciate it.", 
+        "Of course. Thanks for meeting with me today.", 
+        "Yes, it was nice talking to you. Goodbye!"
+      ], 
+      "title": "It was nice talking to you"
+    }, 
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        "Hi! I\u2019d like to order a pastrami sandwich and a small soda.", 
+        "Sure! Your total comes to $9.50. Cash or credit?", 
+        "I'll pay with cash.", 
+        "Ok, here is your change.", 
+        "Thank you! Have a great day."
+      ], 
+      "title": "Have a great day!"
+    }, 
+    {
+      "usage": "Use when you see someone regularly.", 
+      "conversation": [
+        "Today\u2019s class was really fun.", 
+        "It was! I really liked watching the movie with subtitles.", 
+        "Me too. It\u2019s much more fun that studying!", 
+        "It is! Well, I'll see you next week in class.", 
+        "Ok, see you next time!"
+      ], 
+      "title": "See you next time"
+    }, 
+    {
+      "usage": "Use to say goodbye when it\u2019s nighttime.", 
+      "conversation": [
+        "Thanks for coming to my party! I hope you had a good time.", 
+        "I had a great time! Thanks for inviting me.", 
+        "Of course! Well, let\u2019s get together again soon.", 
+        "Sure, I'll call you later this week. Bye!", 
+        "Goodnight!"
+      ], 
+      "title": "Goodnight"
+    }, 
+    {
+      "usage": "Use as an informal goodbye.", 
+      "conversation": [
+        "What time does your class end?", 
+        "We get out at 4pm.", 
+        "Ok, I'll be there to pick you up at 4 this afternoon.", 
+        "Thanks, I'll see you then!", 
+        "Ok, bye!"
+      ], 
+      "title": "Ok, bye!"
+    }, 
+    {
+      "usage": "Say when you know you will see someone in the near future.", 
+      "conversation": [
+        "When is the next available appointment?", 
+        "We have a spot open this Wednesday at 2pm.", 
+        "Great, that works for me!", 
+        "Perfect, I'll schedule that right now.", 
+        "Thanks, see you soon!"
+      ], 
+      "title": "See you soon"
+    }, 
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        "Thanks again for meeting me for lunch.", 
+        "Yes, it was so nice to catch up!", 
+        "Well, I should get back to work soon, it\u2019s almost 1pm.", 
+        "Of course. I hope you have a good afternoon!", 
+        "You too. Have a good one!"
+      ], 
+      "title": "Have a good one"
+    }
+  ]
+}
