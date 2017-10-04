@@ -8,6 +8,18 @@ body {
 .transparent {
   opacity: 0 !important;
 }
+.error {
+  background-color: #ff8888;
+  border: 2px solid #ff6666;
+  padding: 10px;
+  border-radius: 4px;
+}
+.warning {
+  background-color: #eeeeee;
+  border: 2px solid #dddddd;
+  padding: 10px;
+  border-radius: 4px;
+}
 
 
 /* Mobile first queries */

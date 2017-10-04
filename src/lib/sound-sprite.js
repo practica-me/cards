@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Sound from './react-sound-plus.js';
 import T from 'prop-types';
+import {Icon} from 'react-fa';
 
 class SoundSprite extends Component {
   static propTypes = {
@@ -51,7 +52,11 @@ class SoundSprite extends Component {
   render() {
     var onLoad = (obj) => {
       if (obj.readyState < 3) { // soundmanager-2: readyState = 3 => loaded
-        this.setState({errorMsg: "Sound not loaded :( :(", loaded: false})
+        var loading = <Icon name="spinner" pulse={true} />
+        var msgs = [<div className="error"> "Sound unitialized :( Please let your coach know!" </div>,
+                    <div className="warning"> {loading} "Loading ..." </div>,
+                    <div className="error"> "Sound loading ERROR :( Please let your coach know!" </div>]
+        this.setState({errorMsg: msgs[obj.readyState], loaded: false})
       } else {
         this.setState({loaded: true, errorMsg: ''})
       }
