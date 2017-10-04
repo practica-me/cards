@@ -24,6 +24,7 @@ export default class ScriptViewer extends Component {
     var {title, description} = this.props.script;
     var movePastTitle = ()=> this.setState({ pastTheTitle: true});
     return(
+        <div className="card">
         <div className="title-screen">
           <div className="script-title">
             <div className="header"> {title} </div>
@@ -33,12 +34,13 @@ export default class ScriptViewer extends Component {
             <button className={"primary start"} onClick={movePastTitle}> Start </button>
           </div>
         </div>
+        </div>
     );
   }
   render() {
     var mode = this.props.mode || MODES.TitleMode;
     return(
-      <div className="card">
+      <div className="conversation">
       {this.state.pastTheTitle ?
         <AllConversationsViewer
           conversations={this.props.script.conversations}

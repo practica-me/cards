@@ -1,21 +1,27 @@
 .card {
-  max-width: 320px;
+  width: 320px;
+  height: 480px;
+}
+.card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #666666;
 }
 .card.inverse {
   border: none;
-  border-radius: 5px;
   background: #06A9FF; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#228CFC, #3E53E2); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#228CFC, #3E53E2); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#228CFC, #3E53E2); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#228CFC, #3E53E2); /* Standard syntax */
+  box-shadow: 2px 2px 5px #ffffff22;
 }
 .all-conversations {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.single-conversation, .title-screen {
+.single-conversation {
   flex-grow: 100;
   height: 420px;
   display: flex;
@@ -23,10 +29,8 @@
   padding: 20px 10px 20px 10px;
   justify-content: space-around;
   align-self: center;
-  border: 3px solid #2e88c4;
-  border-radius: 5px;
 }
-.story-screen {
+.story-screen, .title-screen {
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -46,10 +50,11 @@
 .story-screen button.disabled {
   color: #4c4c4c;
 }
-text-align: center;
 .pagination {
   align-self: center;
-  color: #888;
+  color: #000;
+  opacity: 0.5;
+  margin: 5px;
 }
 .conversation-title, .script-title {
   align-self: center;
@@ -141,7 +146,7 @@ button {
 }
 /* span.fa is an icon */
 button > span.fa {
-  padding-right: 2px;
+  padding: 2px; /* just some tiny padding */
 }
 button.minimal {
   background-color: transparent;

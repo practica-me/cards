@@ -235,6 +235,7 @@ export default class ConversationRecorder extends Component {
       (this.props.mode === MODES.Reviewing) ? "Review" :
       (this.props.mode === MODES.Recording) ? "Speaking Practice" : "";
     return(
+      <div className="card">
       <div className={"single-conversation"}>
         <div className="conversation-title">
           <div className="subheader above"> {cardTitle} </div>
@@ -246,6 +247,7 @@ export default class ConversationRecorder extends Component {
           this.renderLines()}
         </div>
         {this.renderControls()}
+      </div>
       </div>
     )
   }
