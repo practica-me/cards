@@ -1,12 +1,19 @@
 .unit {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .unit .arrow-block {
   display: flex;
   flex-direction: column;
+  flex: 1 10 100px;
+}
+.unit .lesson {
+  flex: 0 1 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .unit .arrow-block.right {
   align-items: flex-start;
@@ -16,9 +23,17 @@
   align-items: flex-end;
   text-align: right;
 }
-.unit .arrow {
-  font-size: 2em;
-  margin: 10px 0;
+@media (min-width: 420px) {
+  .unit .arrow {
+    font-size: 2em;
+    margin: 10px 0;
+  }
+}
+@media (max-width: 419px) {
+  .unit .arrow {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
 }
 
 

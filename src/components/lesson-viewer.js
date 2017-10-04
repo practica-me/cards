@@ -44,6 +44,11 @@ export default class LessonViewer extends Component {
   }
   render() {
     var lesson = this.props.lesson;
+    var startLesson = () => {
+      this.setState({started: true});
+      if (this.props.onLessonStarted)
+        this.props.onLessonStarted();
+    };
     return(
       <div className="lesson">
       {this.state.started ?
@@ -54,7 +59,8 @@ export default class LessonViewer extends Component {
                    header={lesson.name}
                    body={lesson.description || this.state.description}
                    buttonText="Get Started"
-                   onAction={() => this.setState({started: true})} />}
+                   onAction={startLesson} />
+      }
       </div>
     );
   }

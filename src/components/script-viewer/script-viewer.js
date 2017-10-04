@@ -38,7 +38,7 @@ export default class ScriptViewer extends Component {
   render() {
     var mode = this.props.mode || MODES.TitleMode;
     return(
-      <div className="phone-view">
+      <div className="card">
       {this.state.pastTheTitle ?
         <AllConversationsViewer
           conversations={this.props.script.conversations}

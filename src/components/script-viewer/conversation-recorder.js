@@ -194,7 +194,7 @@ export default class ConversationRecorder extends Component {
              </button>;
     }
     var play = btnGen("play primary", onPlay, "Play", "play");
-    var pause = btnGen("pause", onPause, "Pause", "pause");
+    var pause = btnGen("pause", onPause, "Pause", "pause-circle");
     var replayText = (this.recordMode() ? "Redo" : "Replay");
     var replay = btnGen("replay", onReplay, replayText, "repeat");
     var next = this.props.next ?
