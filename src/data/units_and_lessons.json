@@ -17,7 +17,7 @@
 			},
 			{
 				"number": 3,
-				"name": "Detailed Questions",
+				"name": "Open-ended Questions",
 				"script_url": "/scripts/custom_questions.json",
                 "audio_url": "/audio/custom_questions.mp3"
 			},
