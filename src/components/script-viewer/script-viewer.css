@@ -1,11 +1,15 @@
 .card {
   width: 320px;
   height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .card {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #666666;
+  margin-right: 2px;
 }
 .card.inverse {
   border: none;
@@ -15,39 +19,31 @@
   background: -moz-linear-gradient(#228CFC, #3E53E2); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#228CFC, #3E53E2); /* Standard syntax */
   box-shadow: 2px 2px 5px #ffffff22;
+  color: white;
 }
 .all-conversations {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
 }
-.single-conversation {
-  flex-grow: 100;
-  height: 420px;
+.story-screen.card-content, .title-screen.card-content {
+  margin-bottom: 40px;
+}
+.card-content {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px 10px 20px 10px;
-  justify-content: space-around;
-  align-self: center;
-}
-.story-screen, .title-screen {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  height: 420px;
-  padding: 20px 10px 20px 10px;
-  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
   justify-content: space-around;
   align-self: center;
   align-items: center;
-  color: white;
   text-align: center;
 }
-.story-screen button {
+.inverse button {
   background-color: white;
   color: #3E53E2;
 }
-.story-screen button.disabled {
+.inverse button.disabled {
   color: #4c4c4c;
 }
 .pagination {
@@ -86,6 +82,7 @@
   border-radius: 10px;
   margin-bottom: 0.5em;
   color: #2d2d2d;
+  text-align: left;
 }
 .line.playing, .line.recording {
   border: 2px solid #ff2f56 !important;
@@ -118,17 +115,19 @@
 .line.right.hidden {
   color: #d8d8d8;
 }
-.controls {
+.card-controls {
+  margin-bottom: 60px;
   display: flex;
   flex-direction: row;
-  align-self: center;
   align-items: baseline;
 }
-.usage, .script-description {
-  font-size: 1.25em;
+.usage, .script-description, .story-screen .text {
+  font-size: 1.15em;
   text-align: center;
   padding: 40px 10px 40px 10px;
   align-self: center;
+}
+.usage, .script-description {
   color: #2d2d2d;
 }
 button {

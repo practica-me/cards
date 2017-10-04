@@ -222,7 +222,7 @@ export default class ConversationRecorder extends Component {
                 ((this.state.playing || this.state.waitingToPlay) ?
                  "playing" : "paused");
     return (
-      <div className="controls">
+      <div className="card-controls">
         {controlsToRender[key]}
       </div>
     );
@@ -236,7 +236,7 @@ export default class ConversationRecorder extends Component {
       (this.props.mode === MODES.Recording) ? "Speaking Practice" : "";
     return(
       <div className="card">
-      <div className={"single-conversation"}>
+      <div className="card-content single-conversation">
         <div className="conversation-title">
           <div className="subheader above"> {cardTitle} </div>
           <div className="header"> {title.text} </div>
@@ -246,8 +246,8 @@ export default class ConversationRecorder extends Component {
           this.renderBodyForTitleMode() :
           this.renderLines()}
         </div>
-        {this.renderControls()}
       </div>
+      {this.renderControls()}
       </div>
     )
   }
