@@ -140,8 +140,8 @@ export default class ConversationRecorder extends Component {
           (_this.state.playing || _this.state.waitingToPlay) ? "playing" : "paused");
       /* In recording mode, before everything is played, all but activeLine is visible. */
       var invisible = false;
-      if (_this.props.mode === MODES.Recording &&
-          !_this.state.allPlayed && !onCurrentLine) {
+      if (_this.props.mode === MODES.Recording && !_this.state.allPlayed
+          && index > activeLineIndex) {
         invisible = true;
       }
       return <SingleLineViewer
