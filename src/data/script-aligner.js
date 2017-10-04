@@ -1,6 +1,10 @@
 
 function lineWithAudioAnnotations (line, transcriptTxt, wordsByStart, wordsByEnd) {
    var lineStartOffset = transcriptTxt.indexOf(line);
+   // If that doesnt' work, Try once more, while ignoring the case
+   if (lineStartOffset < 0) {
+     lineStartOffset = transcriptTxt.toLowerCase().indexOf(line.toLowerCase());
+   }
    if (lineStartOffset < 0) {
      console.error("ERROR: didn't find the following line:");
      console.error(line);

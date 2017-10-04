@@ -29,14 +29,14 @@
     {
      "text": "Thanks, see you later!",
      "audioStart": 13139.999,
-     "audioEnd": 14670
+     "audioEnd": 14680
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "See you later",
-    "audioStart": 250,
-    "audioEnd": 329.99999999999994
+    "audioStart": 13860,
+    "audioEnd": 14680
    }
   },
   {
@@ -65,14 +65,14 @@
     {
      "text": "No problem. Take care.",
      "audioStart": 29059.998999999996,
-     "audioEnd": 30479.999000000003
+     "audioEnd": 30720.000000000004
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "Take care",
-    "audioStart": 16710,
-    "audioEnd": 16770
+    "audioStart": 29929.999000000003,
+    "audioEnd": 30720.000000000004
    }
   },
   {
@@ -80,17 +80,17 @@
    "conversation": [
     {
      "text": "How is my son doing in math class?",
-     "audioStart": 40000,
-     "audioEnd": 42060
+     "audioStart": 39970,
+     "audioEnd": 44480
     },
     {
      "text": "He’s doing much better these days, His grades are up!",
-     "audioStart": 42630,
-     "audioEnd": 45569.99999999999
+     "audioStart": 44540,
+     "audioEnd": 45559.999
     },
     {
      "text": "That’s great! Thanks for all your help, we really appreciate it.",
-     "audioStart": 45700,
+     "audioStart": 45699.998999999996,
      "audioEnd": 49440
     },
     {
@@ -107,8 +107,8 @@
    "title": {
     "lineIndexInConversation": 2,
     "text": "It was nice talking to you",
-    "audioStart": 30479.999000000003,
-    "audioEnd": 40000
+    "audioStart": 52039.999,
+    "audioEnd": 53489.999
    }
   },
   {
@@ -116,7 +116,7 @@
    "conversation": [
     {
      "text": "Hi! I’d like to order a pastrami sandwich and a small soda.",
-     "audioStart": 58909.998999999996,
+     "audioStart": 58899.998999999996,
      "audioEnd": 62370
     },
     {
@@ -137,14 +137,14 @@
     {
      "text": "Thank you! Have a great day.",
      "audioStart": 70059.99900000001,
-     "audioEnd": 71559.99999999999
+     "audioEnd": 76450
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Have a great day!",
-    "audioStart": 58499.998999999996,
-    "audioEnd": 58599.998999999996
+    "text": "Have a great day",
+    "audioStart": 70740,
+    "audioEnd": 76450
    }
   },
   {
@@ -152,12 +152,12 @@
    "conversation": [
     {
      "text": "Today’s class was really fun.",
-     "audioStart": 76399.99999999999,
-     "audioEnd": 77979.99999999999
+     "audioStart": 76450,
+     "audioEnd": 78050
     },
     {
      "text": "It was! I really liked watching the movie with subtitles.",
-     "audioStart": 78600,
+     "audioStart": 78520,
      "audioEnd": 81759.99999999999
     },
     {
@@ -179,8 +179,8 @@
    "title": {
     "lineIndexInConversation": 2,
     "text": "See you next time",
-    "audioStart": 71570,
-    "audioEnd": 71679.99999999999
+    "audioStart": 88359.999,
+    "audioEnd": 89330.00000000001
    }
   },
   {
@@ -215,8 +215,8 @@
    "title": {
     "lineIndexInConversation": 2,
     "text": "Goodnight",
-    "audioStart": 91990.00000000001,
-    "audioEnd": 92070.00000000001
+    "audioStart": 103690,
+    "audioEnd": 104450
    }
   },
   {
@@ -244,15 +244,15 @@
     },
     {
      "text": "Ok, bye!",
-     "audioStart": 107219.999,
-     "audioEnd": 107270
+     "audioStart": 117730,
+     "audioEnd": 118670
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "Ok, bye!",
-    "audioStart": 107219.999,
-    "audioEnd": 107270
+    "audioStart": 117730,
+    "audioEnd": 118670
    }
   },
   {
@@ -260,13 +260,13 @@
    "conversation": [
     {
      "text": "When is the next available appointment?",
-     "audioStart": 121470,
-     "audioEnd": 123300
+     "audioStart": 121469.999,
+     "audioEnd": 123440.00000000001
     },
     {
      "text": "We have a spot open this Wednesday at 2pm.",
-     "audioStart": 123340,
-     "audioEnd": 127240
+     "audioStart": 124129.999,
+     "audioEnd": 126520
     },
     {
      "text": "Great, that works for me!",
@@ -287,8 +287,8 @@
    "title": {
     "lineIndexInConversation": 2,
     "text": "See you soon",
-    "audioStart": 120470,
-    "audioEnd": 120540
+    "audioStart": 132390,
+    "audioEnd": 133120
    }
   },
   {
@@ -296,7 +296,7 @@
    "conversation": [
     {
      "text": "Thanks again for meeting me for lunch.",
-     "audioStart": 136320,
+     "audioStart": 136260,
      "audioEnd": 138160.00000000003
     },
     {
@@ -323,8 +323,8 @@
    "title": {
     "lineIndexInConversation": 2,
     "text": "Have a good one",
-    "audioStart": 136050,
-    "audioEnd": 136150
+    "audioStart": 146590,
+    "audioEnd": 147370
    }
   }
  ]
