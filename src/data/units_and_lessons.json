@@ -11,21 +11,21 @@
 			},
 			{
 				"number": 2,
-				"name": "Quick Questions",
+				"name": "Follow-up Questions",
 				"script_url": "/scripts/quick_questions.json",
                 "audio_url": "/audio/quick_questions.mp3"
 			},
 			{
 				"number": 3,
 				"name": "Open-ended Questions",
-				"script_url": "/scripts/custom_questions.json",
-                "audio_url": "/audio/custom_questions.mp3"
+				"script_url": "/scripts/open_ended_questions.json",
+        "audio_url": "/audio/open_ended_questions.mp3"
 			},
 			{
 				"number": 4,
 				"name": "Goodbyes",
 				"script_url": "/scripts/goodbyes.json",
-                "audio_url": "/audio/goodbyes.mp3"
+        "audio_url": "/audio/goodbyes.mp3"
 			},
 			{
 				"number": 5,

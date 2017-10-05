@@ -27,9 +27,8 @@ export default class AllConversationsViewer extends Component {
     this.renderIntroScreen = this.renderIntroScreen.bind(this);
   }
   renderIntroScreen() {
-    var conversations = this.props.conversations;
     var movePastIntro = ()=> this.setState({ started: true });
-    var topics = conversations.map(function(convo, idx) {
+    var topics = this.props.conversations.map(function(convo, idx) {
       return <div className="topic" key={idx}>
                <Icon name="comment-o" /> {convo.title.text}
              </div>;
