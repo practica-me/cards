@@ -27,9 +27,11 @@ export default class AllConversationsViewer extends Component {
     this.renderIntroScreen = this.renderIntroScreen.bind(this);
   }
   renderIntroScreen() {
+    var _this = this;
     var movePastIntro = ()=> this.setState({ started: true });
     var topics = this.props.conversations.map(function(convo, idx) {
-      return <div className="topic" key={idx}>
+      return <div className="topic" key={idx}
+               onClick={() => _this.setState({ started: true, conversationIndex: idx })}>
                <Icon name="comment-o" /> {convo.title.text}
              </div>;
     });
@@ -70,6 +72,8 @@ export default class AllConversationsViewer extends Component {
   onPrevOnNextGenerator(prevOrNext) {
     if (prevOrNext !== 'prev' && prevOrNext !== 'next') console.log('PrevNext error');
 
+    var backToIntro = () => this.setState({conversationIndex: 0, started: false});
+
     // Cycle MODEs: Title_Mode -> Listening -> Reviewing -> Recording
     var modeCycle = [MODES.TitleMode, MODES.Listening, MODES.Reviewing, MODES.Recording];
     var curModeIndex = modeCycle.indexOf(this.state.mode);
@@ -83,10 +87,12 @@ export default class AllConversationsViewer extends Component {
     var numConvos = this.props.conversations.length;
     var convoDelta  = 0;
     if (prevOrNext === 'next' && curModeIndex === numModes - 1) { // end of modes: advance convo
-      if (this.state.conversationIndex === numConvos - 1) return null; // can't go further
+      if (this.state.conversationIndex === numConvos - 1)
+        return backToIntro; // can't go further
       convoDelta = +1;
     } else if (prevOrNext === 'prev' && curModeIndex === 0) { // beginning of modes: roll back convo
-      if (this.state.conversationIndex === 0) return null; // can't go further back.
+      if (this.state.conversationIndex === 0)
+        return backToIntro;
       convoDelta = -1;
     }
     // Remember, this is a callback generator
