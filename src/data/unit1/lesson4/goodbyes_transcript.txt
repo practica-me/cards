@@ -1,63 +1,53 @@
-﻿See you later
-Hi, can I check this book out from the library?
+﻿Hi, can I check this book out from the library?
 Of course, do you have a library card?
 I do! Here it is.
 Great, your book is due back to the library in 3 weeks.
 Thanks, see you later!
 
-Take care
 I heard you were sick last week. Are you feeling better?
 Yeah, I went to the doctor and she gave me medicine to take.
 I’m glad to hear it. I hope you start feeling better soon.
 Of course, thanks for checking in.
 No problem. Take care.
 
-It was nice talking to you
 How is my son doing in math class?
 He’s doing much better these days, his grades are up!
 That’s great! Thanks for all your help, we really appreciate it.
 Of course. Thanks for meeting with me today.
 Yes, it was nice talking to you. Goodbye!
 
-Have a great day
 Hi! I’d like to order a pastrami sandwich and a small soda.
 Sure! Your total comes to $9.50. Cash or credit?
 I'll pay with cash.
 Ok, here is your change.
 Thank you! Have a great day.
 
-See you next time
 Today’s class was really fun.
 It was! I really liked watching the movie with subtitles.
 Me too. It’s much more fun than studying!
 It is! Well, I'll see you next week in class.
 Ok, see you next time!
 
-Goodnight
 Thanks for coming to my party! I hope you had a good time.
 I had a great time! Thanks for inviting me.
 Of course! Well, let’s get together again soon.
 Sure, I'll call you later this week. Bye!
 Goodnight!
 
-Ok, bye
 What time does your class end?
 We get out at 4pm.
 Ok, I'll be there to pick you up at 4 this afternoon.
 Thanks, I'll see you then!
 Ok, bye!
 
-See you soon
 When is the next available appointment?
 We have a spot open this Wednesday at 2pm.
 Great, that works for me!
 Perfect, I'll schedule that right now.
 Thanks, see you soon!
 
-Have a good one
 Thanks again for meeting me for lunch.
 Yes, it was so nice to catch up!
 Well, I should get back to work soon, it’s almost 1pm.
 Of course. I hope you have a good afternoon!
 You too. Have a good one!
-
