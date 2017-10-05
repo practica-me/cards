@@ -11,7 +11,7 @@ conversations:
       - Great, your book is due back to the library in 3 weeks.
       - Thanks, see you later!
   - title: Take care
-    usage: Say this to with someone well.
+    usage: Say this to wish someone well.
     conversation:
       - I heard you were sick last week. Are you feeling better?
       - Yeah, I went to the doctor and she gave me medicine to take.
@@ -22,11 +22,11 @@ conversations:
     usage: Use when you enjoyed speaking with someone.
     conversation:
      - How is my son doing in math class?
-     - He’s doing much better these days, His grades are up!
+     - He’s doing much better these days, his grades are up!
      - That’s great! Thanks for all your help, we really appreciate it.
      - Of course. Thanks for meeting with me today.
      - Yes, it was nice talking to you. Goodbye!
-  - title: Have a great day!
+  - title: Have a great day
     usage: Use to wish someone a good day.
     conversation:
      - Hi! I’d like to order a pastrami sandwich and a small soda.
@@ -39,7 +39,7 @@ conversations:
     conversation:
      - Today’s class was really fun.
      - It was! I really liked watching the movie with subtitles.
-     - Me too. It’s much more fun that studying!
+     - Me too. It’s much more fun than studying!
      - It is! Well, I'll see you next week in class.
      - Ok, see you next time!
   - title: Goodnight
@@ -50,7 +50,7 @@ conversations:
      - Of course! Well, let’s get together again soon.
      - Sure, I'll call you later this week. Bye!
      - Goodnight!
-  - title: Ok, bye!
+  - title: Ok, bye
     usage: Use as an informal goodbye.
     conversation:
      - What time does your class end?
