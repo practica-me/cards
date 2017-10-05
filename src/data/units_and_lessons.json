@@ -1,0 +1,38 @@
+{
+  "namespace": "cards.practica.me",
+  "units": [{
+    "name": "Casual Interactions",
+    "number": 1,
+    "lessons": [{
+        "number": 1,
+        "name": "Short Replies",
+        "script_url": "/scripts/short_replies.json",
+        "audio_url": "/audio/short_replies.mp3"
+      },
+      {
+        "number": 2,
+        "name": "Follow-up Questions",
+        "script_url": "/scripts/follow_up_questions.json",
+        "audio_url": "/audio/follow_up_questions.mp3"
+      },
+      {
+        "number": 3,
+        "name": "Open-ended Questions",
+        "script_url": "/scripts/open_ended_questions.json",
+        "audio_url": "/audio/open_ended_questions.mp3"
+      },
+      {
+        "number": 4,
+        "name": "Goodbyes",
+        "script_url": "/scripts/goodbyes.json",
+        "audio_url": "/audio/goodbyes.mp3"
+      },
+      {
+        "number": 5,
+        "name": "Compliments",
+        "script_url": "/scripts/compliments.json",
+        "audio_url": "/audio/compliments.mp3"
+      }
+    ]
+  }]
+}

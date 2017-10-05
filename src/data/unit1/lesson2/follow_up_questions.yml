@@ -1,6 +1,5 @@
 title: Follow-Up Questions
 description: Follow-up questions are short questions that you can use to continue a conversation and learn more details about a topic.
-audio_url: /audio/quick_questions.mp3
 conversations:
   - title: Where did you go?
     usage: Ask about the place where they went (past tense).
@@ -65,7 +64,7 @@ conversations:
      - Oh, interesting. What do you think about that?
      - I think it's great. It will have a big computer lab.
   - title: How do you feel about that?
-    usage: Ask how they feel about something(present tense).
+    usage: Ask how they feel about something (present tense).
     conversation:
      - How is your family doing?
      - Good! My son is moving away to college this weekend.

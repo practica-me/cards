@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "http://cards.practica.me",
   "dependencies": {
+    "dns": "file:./src/mock/dns",
+    "fetch": "^1.1.0",
     "gh-pages": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

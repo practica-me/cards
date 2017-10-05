@@ -1,65 +1,56 @@
-.phone-view {
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  max-width: 400px;
+.card {
   width: 320px;
-  min-height: 420px;
-  margin: 10px;
+  min-height: 480px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.phone-view.inverse {
-  border: none;
+.card {
+  background-color: #fff;
   border-radius: 5px;
+  box-shadow: 2px 2px 5px #666666;
+  margin-right: 2px;
+}
+.card.inverse {
+  border: none;
   background: #06A9FF; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#228CFC, #3E53E2); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#228CFC, #3E53E2); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#228CFC, #3E53E2); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#228CFC, #3E53E2); /* Standard syntax */
+  box-shadow: 2px 2px 5px #ffffff22;
+  color: white;
 }
 .all-conversations {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
 }
-.single-conversation, .title-screen {
-  flex-grow: 100;
-  height: 420px;
+.story-screen.card-content, .title-screen.card-content {
+  margin-bottom: 40px;
+}
+.card-content {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px 10px 20px 10px;
-  justify-content: space-around;
-  align-self: center;
-  border: 3px solid #2e88c4;
-  border-radius: 5px;
-}
-.story-screen {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  height: 420px;
-  padding: 20px 10px 20px 10px;
-  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
   justify-content: space-around;
   align-self: center;
   align-items: center;
-  color: white;
   text-align: center;
 }
-.story-screen button {
+.inverse button {
   background-color: white;
   color: #3E53E2;
 }
-.story-screen button.disabled {
+.inverse button.disabled {
   color: #4c4c4c;
 }
-text-align: center;
 .pagination {
   align-self: center;
-  color: #888;
-}
-.conversation-title, .script-title {
-  align-self: center;
-  text-align: center;
-  color: #2d2d2d;
+  color: #000;
+  opacity: 0.5;
+  margin: 5px;
 }
 .headers {
   margin: 10px;
@@ -73,19 +64,38 @@ text-align: center;
 .subheader {
   font-size: 1em;
   font-weight: bold;
-  opacity: 0.8;
   margin-top: 5px;
   margin-bottom: 0px;
+  color: #2d2d2d;
+  opacity: 0.8;
+}
+.inverse .subheader {
+  color: white;
 }
 .subheader.above {
   margin-bottom: 0px;
   margin-top: 5px;
 }
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.topic {
+  padding: 4px;
+  margin: 2px;
+  box-shadow: 1px 1px 2px #eee;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+}
 .line {
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   margin-bottom: 0.5em;
   color: #2d2d2d;
+  text-align: left;
 }
 .line.playing, .line.recording {
   border: 2px solid #ff2f56 !important;
@@ -118,17 +128,19 @@ text-align: center;
 .line.right.hidden {
   color: #d8d8d8;
 }
-.controls {
+.card-controls {
+  margin-bottom: 60px;
   display: flex;
   flex-direction: row;
-  align-self: center;
   align-items: baseline;
 }
-.usage, .script-description {
-  font-size: 1.25em;
+.usage, .script-description, .story-screen .text {
+  font-size: 1.15em;
   text-align: center;
   padding: 40px 10px 40px 10px;
   align-self: center;
+}
+.usage, .script-description {
   color: #2d2d2d;
 }
 button {
@@ -146,19 +158,19 @@ button {
 }
 /* span.fa is an icon */
 button > span.fa {
-  padding-right: 2px;
+  padding: 2px; /* just some tiny padding */
 }
 button.minimal {
   background-color: transparent;
   padding: 0;
   min-width: 0;
-  height: 0;
   font-weight: bold;
   color: #2086ca;
   opacity: 0.8;
 }
 button.minimal:hover {
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 0 !important;
 }
 button:hover {
   box-shadow: 2px 1px 2px rgba(0,0,0,0.5);

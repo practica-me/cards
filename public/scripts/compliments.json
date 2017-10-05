@@ -1,0 +1,271 @@
+{
+ "audio_url": null,
+ "title": "Compliments",
+ "description": "Use these phrases to give someone a compliment, or show admiration.",
+ "conversations": [
+  {
+   "usage": "Compliment a belonging.",
+   "conversation": [
+    {
+     "text": "I really like your shoes!",
+     "audioStart": 4440,
+     "audioEnd": 5970.000000000001
+    },
+    {
+     "text": "Thanks! They are new.",
+     "audioStart": 6370,
+     "audioEnd": 7860
+    },
+    {
+     "text": "Where did you get them?",
+     "audioStart": 8029.999999999999,
+     "audioEnd": 9170
+    },
+    {
+     "text": "I got them at the mall last week.",
+     "audioStart": 9490,
+     "audioEnd": 11150
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "I really like your __.",
+    "audioStart": 890,
+    "audioEnd": 2349.9999999999995
+   }
+  },
+  {
+   "usage": "Compliment a belonging.",
+   "conversation": [
+    {
+     "text": "Thanks for inviting me to your home. What a lovely apartment!",
+     "audioStart": 17059.999,
+     "audioEnd": 20300
+    },
+    {
+     "text": "Thank you! it’s pretty small, but I like it.",
+     "audioStart": 20530,
+     "audioEnd": 23610
+    },
+    {
+     "text": "Well, I really like how you decorated it.",
+     "audioStart": 23910,
+     "audioEnd": 26060
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "What a lovely __!",
+    "audioStart": 14780,
+    "audioEnd": 17059.999
+   }
+  },
+  {
+   "usage": "Compliment a belonging or creation.",
+   "conversation": [
+    {
+     "text": "Nice drawing!",
+     "audioStart": 30070,
+     "audioEnd": 31270
+    },
+    {
+     "text": "Thanks! I drew it in art class today.",
+     "audioStart": 31590,
+     "audioEnd": 33670
+    },
+    {
+     "text": "It’s beautiful. Do you want to hang it on the fridge?",
+     "audioStart": 33750,
+     "audioEnd": 36269.99999999999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Nice __!",
+    "audioStart": 28099.999,
+    "audioEnd": 28850
+   }
+  },
+  {
+   "usage": "Compliment an action.",
+   "conversation": [
+    {
+     "text": "You did a great job on your science project!",
+     "audioStart": 43490,
+     "audioEnd": 45859.998999999996
+    },
+    {
+     "text": "I did?",
+     "audioStart": 46099.998999999996,
+     "audioEnd": 46530
+    },
+    {
+     "text": "Yes, your teacher said it was one of the best.",
+     "audioStart": 46940,
+     "audioEnd": 49280
+    },
+    {
+     "text": "Wow, thanks!",
+     "audioStart": 49330,
+     "audioEnd": 50760
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "You did a great job...",
+    "audioStart": 40970,
+    "audioEnd": 42540
+   }
+  },
+  {
+   "usage": "Compliment a belonging.",
+   "conversation": [
+    {
+     "text": "That’s a nice blouse you’re wearing.",
+     "audioStart": 55470,
+     "audioEnd": 57140
+    },
+    {
+     "text": "Thanks! I like yours too.",
+     "audioStart": 57710,
+     "audioEnd": 59429.99999999999
+    },
+    {
+     "text": "Thank you! It was a birthday gift from my sister.",
+     "audioStart": 59680,
+     "audioEnd": 62310
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "That’s a nice __.",
+    "audioStart": 53389.999,
+    "audioEnd": 55460
+   }
+  },
+  {
+   "usage": "Compliment a belonging.",
+   "conversation": [
+    {
+     "text": "Your dress is beautiful.",
+     "audioStart": 70820,
+     "audioEnd": 72319.99900000001
+    },
+    {
+     "text": "Oh, do you think so? It’s pretty old.",
+     "audioStart": 72969.999,
+     "audioEnd": 75260
+    },
+    {
+     "text": "Yes, that color looks great on you.",
+     "audioStart": 75330,
+     "audioEnd": 77350.00000000001
+    },
+    {
+     "text": "Thanks! I like the color too.",
+     "audioStart": 77790,
+     "audioEnd": 79399.99999999999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Your __ is beautiful.",
+    "audioStart": 66700,
+    "audioEnd": 68300
+   }
+  },
+  {
+   "usage": "Compliment someone’s personality.",
+   "conversation": [
+    {
+     "text": "Thanks for picking up my kids today!",
+     "audioStart": 84599.999,
+     "audioEnd": 86399.999
+    },
+    {
+     "text": "No problem! They were great.",
+     "audioStart": 86839.99900000001,
+     "audioEnd": 88630
+    },
+    {
+     "text": "You are so kind. I really appreciate it.",
+     "audioStart": 88719.999,
+     "audioEnd": 91240
+    },
+    {
+     "text": "Not a problem. I hope you have a good day!",
+     "audioStart": 91340,
+     "audioEnd": 93520.00000000001
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "You are so __.",
+    "audioStart": 82170,
+    "audioEnd": 84600.00000000001
+   }
+  },
+  {
+   "usage": "Compliment someone’s appearance.",
+   "conversation": [
+    {
+     "text": "You look nice today!",
+     "audioStart": null,
+     "audioEnd": null
+    },
+    {
+     "text": "Thanks! I have an interview this afternoon.",
+     "audioStart": 98940,
+     "audioEnd": 101310
+    },
+    {
+     "text": "I’m sure you’ll do great. Good luck!",
+     "audioStart": 101440,
+     "audioEnd": 103470
+    },
+    {
+     "text": "Thank you!",
+     "audioStart": 20530,
+     "audioEnd": 21380.000000000004
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "You look nice today.",
+    "audioStart": 97030,
+    "audioEnd": 98369.99999999999
+   }
+  },
+  {
+   "usage": "Tell someone they are good at something.",
+   "conversation": [
+    {
+     "text": "Wow, this meal is delicious!",
+     "audioStart": 109590,
+     "audioEnd": 111610
+    },
+    {
+     "text": "Thank you!",
+     "audioStart": 20530,
+     "audioEnd": 21380.000000000004
+    },
+    {
+     "text": "You are a great cook!",
+     "audioStart": 112590,
+     "audioEnd": 114020.00000000001
+    },
+    {
+     "text": "Thanks, you are too kind. I’m glad you like it!",
+     "audioStart": 114190,
+     "audioEnd": 117170
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "You are a great __.",
+    "audioStart": 107400,
+    "audioEnd": 108670
+   }
+  }
+ ]
+}

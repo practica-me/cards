@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MODES from './consts.js';
 import T from 'prop-types';
+import {Icon} from 'react-fa';
+
 import ConversationRecorder from './conversation-recorder.js';
 
 /* AllConversationsViewer manages which conversation we are viewing,
@@ -8,18 +10,47 @@ import ConversationRecorder from './conversation-recorder.js';
 export default class AllConversationsViewer extends Component {
   static propTypes = {
     mode: T.oneOf(Object.keys(MODES)).isRequired,
-    audio_url: T.string.isRequired,
-    conversations: T.array.isRequired
+    audioUrl: T.string.isRequired,
+    conversations: T.array.isRequired,
+    title: T.string.isRequired
   };
   constructor(props) {
     super(props);
     this.state = {
+      started: false,
       conversationIndex: 0,
       mode: this.props.mode // WE WILL CONTROL THE MODE
     }
     this.getActiveConvo = this.getActiveConvo.bind(this);
     this.changeConversation = this.changeConversation.bind(this);
     this.onPrevOnNextGenerator = this.onPrevOnNextGenerator.bind(this);
+    this.renderIntroScreen = this.renderIntroScreen.bind(this);
+  }
+  renderIntroScreen() {
+    var _this = this;
+    var movePastIntro = ()=> this.setState({ started: true });
+    var topics = this.props.conversations.map(function(convo, idx) {
+      return <div className="topic" key={idx}
+               onClick={() => _this.setState({ started: true, conversationIndex: idx })}>
+               <Icon name="comment-o" /> {convo.title.text}
+             </div>;
+    });
+    return(
+        <div className="card">
+          <div className="card-content title-screen">
+            <div className="headers">
+              <div className="subheader"> Commonly Used </div>
+              <div className="header"> {this.props.title} </div>
+            </div>
+            <div className="topic-list">
+            {topics}
+            </div>
+          </div>
+          <div className="card-controls">
+            <button className={"primary start"} onClick={movePastIntro}> Start </button>
+          </div>
+        </div>
+    );
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.mode !== this.props.mode) {
@@ -41,6 +72,8 @@ export default class AllConversationsViewer extends Component {
   onPrevOnNextGenerator(prevOrNext) {
     if (prevOrNext !== 'prev' && prevOrNext !== 'next') console.log('PrevNext error');
 
+    var backToIntro = () => this.setState({conversationIndex: 0, started: false});
+
     // Cycle MODEs: Title_Mode -> Listening -> Reviewing -> Recording
     var modeCycle = [MODES.TitleMode, MODES.Listening, MODES.Reviewing, MODES.Recording];
     var curModeIndex = modeCycle.indexOf(this.state.mode);
@@ -54,10 +87,12 @@ export default class AllConversationsViewer extends Component {
     var numConvos = this.props.conversations.length;
     var convoDelta  = 0;
     if (prevOrNext === 'next' && curModeIndex === numModes - 1) { // end of modes: advance convo
-      if (this.state.conversationIndex === numConvos - 1) return null; // can't go further
+      if (this.state.conversationIndex === numConvos - 1)
+        return backToIntro; // can't go further
       convoDelta = +1;
     } else if (prevOrNext === 'prev' && curModeIndex === 0) { // beginning of modes: roll back convo
-      if (this.state.conversationIndex === 0) return null; // can't go further back.
+      if (this.state.conversationIndex === 0)
+        return backToIntro;
       convoDelta = -1;
     }
     // Remember, this is a callback generator
@@ -68,19 +103,22 @@ export default class AllConversationsViewer extends Component {
   }
   render() {
     var numConversations = this.props.conversations.length;
-    return(
-      <div className="all-conversations">
-        <ConversationRecorder
-          convoElement={this.getActiveConvo()}
-          mode={this.state.mode} // MODE is controlled
-          audio_url={this.props.audio_url}
-          next={this.onPrevOnNextGenerator('next')}
-          prev={this.onPrevOnNextGenerator('prev')} />
-        <div className="pagination">
-        # {this.state.conversationIndex + 1} / {numConversations}
+    if (!this.state.started) {
+      return this.renderIntroScreen();
+    } else {
+      return(
+        <div className="all-conversations">
+          <ConversationRecorder
+            convoElement={this.getActiveConvo()}
+            mode={this.state.mode} // MODE is controlled
+            audioUrl={this.props.audioUrl}
+            next={this.onPrevOnNextGenerator('next')}
+            prev={this.onPrevOnNextGenerator('prev')} />
+          <div className="pagination">
+          # {this.state.conversationIndex + 1} / {numConversations}
+          </div>
         </div>
-      </div>
-    )
-
+      );
+    }
   }
 }

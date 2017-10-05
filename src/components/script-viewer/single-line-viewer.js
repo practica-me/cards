@@ -13,7 +13,7 @@ function audioMode(props) {
 /* Single Line component. Just renders ---- or real text depending on mode. */
 export default class SingleLineViewer extends Component {
   static propTypes = {
-    audio_url: T.string.isRequired,
+    audioUrl: T.string.isRequired,
     mode: T.oneOf(Object.keys(MODES)).isRequired,
     line: T.shape({
       text: T.string.isRequired,
@@ -46,7 +46,7 @@ export default class SingleLineViewer extends Component {
               hidePlayPause={true}
               audioStart={audioStart}
               audioEnd={audioEnd}
-              audio_url={this.props.audio_url}
+              audioUrl={this.props.audioUrl}
               onFinishedPlaying={this.props.onDone} /> :
             ""}
         </div>

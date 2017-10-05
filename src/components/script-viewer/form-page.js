@@ -19,9 +19,9 @@ export default class FormPage extends Component {
       type = type || "text";
       var qstn = question.toLowerCase().replace(/\W/ig, "-");
       return (
-        <div className="form-group">
+        <div className="form-group" key={idx}>
           <label for={qstn}> {question} </label>
-          <input type={type} name={qstn} key={idx} />
+          <input type={type} name={qstn} />
           <div className="input-hint"> {hint} </div>
         </div>
       );

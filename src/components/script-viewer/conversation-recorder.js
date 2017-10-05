@@ -11,7 +11,7 @@ import SoundSprite from '../../lib/sound-sprite.js';
 export default class ConversationRecorder extends Component {
   static propTypes = {
     mode: T.oneOf(Object.keys(MODES)).isRequired,
-    audio_url: T.string.isRequired,
+    audioUrl: T.string.isRequired,
     convoElement: T.shape({
       title: T.object.isRequired,
       conversation: T.array.isRequired
@@ -140,8 +140,8 @@ export default class ConversationRecorder extends Component {
           (_this.state.playing || _this.state.waitingToPlay) ? "playing" : "paused");
       /* In recording mode, before everything is played, all but activeLine is visible. */
       var invisible = false;
-      if (_this.props.mode === MODES.Recording &&
-          !_this.state.allPlayed && !onCurrentLine) {
+      if (_this.props.mode === MODES.Recording && !_this.state.allPlayed
+          && index > activeLineIndex) {
         invisible = true;
       }
       return <SingleLineViewer
@@ -151,7 +151,7 @@ export default class ConversationRecorder extends Component {
                 highlight={highlight}
                 index={index}
                 mode={_this.props.mode}
-                audio_url={_this.props.audio_url}
+                audioUrl={_this.props.audioUrl}
                 line={line}
                 onDone={_this.onLinePlayed} />
     });
@@ -168,7 +168,7 @@ export default class ConversationRecorder extends Component {
             hidePlayPause={true}
             audioStart={title.audioStart}
             audioEnd={title.audioEnd}
-            audio_url={this.props.audio_url}
+            audioUrl={this.props.audioUrl}
             onFinishedPlaying={this.onLinePlayed} />
         </div>
     );
@@ -194,7 +194,7 @@ export default class ConversationRecorder extends Component {
              </button>;
     }
     var play = btnGen("play primary", onPlay, "Play", "play");
-    var pause = btnGen("pause", onPause, "Pause", "pause");
+    var pause = btnGen("pause", onPause, "Pause", "pause-circle");
     var replayText = (this.recordMode() ? "Redo" : "Replay");
     var replay = btnGen("replay", onReplay, replayText, "repeat");
     var next = this.props.next ?
@@ -222,7 +222,7 @@ export default class ConversationRecorder extends Component {
                 ((this.state.playing || this.state.waitingToPlay) ?
                  "playing" : "paused");
     return (
-      <div className="controls">
+      <div className="card-controls">
         {controlsToRender[key]}
       </div>
     );
@@ -235,7 +235,8 @@ export default class ConversationRecorder extends Component {
       (this.props.mode === MODES.Reviewing) ? "Review" :
       (this.props.mode === MODES.Recording) ? "Speaking Practice" : "";
     return(
-      <div className={"single-conversation"}>
+      <div className="card">
+      <div className="card-content single-conversation">
         <div className="conversation-title">
           <div className="subheader above"> {cardTitle} </div>
           <div className="header"> {title.text} </div>
@@ -245,7 +246,8 @@ export default class ConversationRecorder extends Component {
           this.renderBodyForTitleMode() :
           this.renderLines()}
         </div>
-        {this.renderControls()}
+      </div>
+      {this.renderControls()}
       </div>
     )
   }

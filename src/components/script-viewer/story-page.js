@@ -19,21 +19,21 @@ export default class StoryPage extends Component {
     var subheader = <div className={"subheader " + above}> {this.props.subheader} </div>;
     var buttonClasses = (this.props.buttonClasses || "") + " story-screen";
     return(
-      <div className="phone-view inverse">
-        <div className="story-screen">
+      <div className="card inverse">
+        <div className="card-content story-screen">
           <div className="headers">
             {this.props.subheaderFirst ? subheader : header}
             {this.props.subheaderFirst ? header : subheader}
           </div>
-          <div className="body">
+          <div className="text">
             {this.props.bodyObj || this.props.body}
           </div>
-          <div className="controls">
+        </div>
+        <div className="card-controls">
             <button onClick={this.props.onAction}
                     className={buttonClasses}>
               {this.props.buttonText}
             </button>
-          </div>
         </div>
       </div>
     );
