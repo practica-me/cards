@@ -23,15 +23,18 @@ var fields = [
   {question: "What is your name?"},
   {question: "What language do you speak best?"}
 ];
+var srAudio = "/audio/short_replies.mp3";
 
 storiesOf('Content Pages', module)
   .add('story page', () => <StoryPage {...content} />)
   .add('story w/ subheader first', () => <StoryPage {...content} subheaderFirst={true} />)
   .add('form page', () => <FormPage {...content} fields={fields} />);
 
+var ModedScript = (m, sT) =>
+  <ScriptViewer script={script} audioUrl={srAudio} mode={m} skipTitle={sT} />;
 storiesOf('ScriptViewer', module)
-  .add('intro screen', () => <ScriptViewer script={script} mode={MODES.TitleMode} />)
-  .add('title mode', () => <ScriptViewer script={script} mode={MODES.TitleMode} skipTitle={true} />)
-  .add('audio mode', () => <ScriptViewer script={script} mode={MODES.Listening} skipTitle={true} />)
-  .add('listening review mode', () => <ScriptViewer script={script} mode={MODES.Reviewing} skipTitle={true} />)
-  .add('recording', () => <ScriptViewer script={script} mode={MODES.Recording} skipTitle={true} />);
+  .add('intro screen', () => ModedScript(MODES.TitleMode, false))
+  .add('title mode', () => ModedScript(MODES.TitleMode, true))
+  .add('audio mode', () => ModedScript(MODES.Listening, true))
+  .add('review mode', () => ModedScript(MODES.Reviewing, true))
+  .add('record mode', () => ModedScript(MODES.Recording, true))
