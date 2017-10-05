@@ -30,8 +30,8 @@ storiesOf('Content Pages', module)
   .add('story w/ subheader first', () => <StoryPage {...content} subheaderFirst={true} />)
   .add('form page', () => <FormPage {...content} fields={fields} />);
 
-var ModedScript = (m, sT) =>
-  <ScriptViewer script={script} audioUrl={srAudio} mode={m} skipTitle={sT} />;
+var ModedScript = (mode, skip) =>
+  <ScriptViewer script={script} audioUrl={srAudio} mode={mode} skipIntro={skip} />;
 storiesOf('ScriptViewer', module)
   .add('intro screen', () => ModedScript(MODES.TitleMode, false))
   .add('title mode', () => ModedScript(MODES.TitleMode, true))

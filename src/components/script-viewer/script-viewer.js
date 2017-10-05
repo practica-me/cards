@@ -13,40 +13,16 @@ export default class ScriptViewer extends Component {
     script: T.object.isRequired,
     audioUrl: T.string.isRequired,
     mode: T.oneOf(Object.keys(MODES)),
-    skipTitle: T.bool
   };
-  constructor(props) {
-    super(props);
-    this.state = { pastTheTitle: this.props.skipTitle };
-    this.renderTitleScreen = this.renderTitleScreen.bind(this);
-  }
-  renderTitleScreen() {
-    var {title, description} = this.props.script;
-    var movePastTitle = ()=> this.setState({ pastTheTitle: true});
-    return(
-        <div className="card">
-          <div className="card-content title-screen">
-            <div className="script-title">
-              <div className="header"> {title} </div>
-            </div>
-            <div className="script-description"> {description} </div>
-          </div>
-          <div className="card-controls">
-            <button className={"primary start"} onClick={movePastTitle}> Start </button>
-          </div>
-        </div>
-    );
-  }
   render() {
     var mode = this.props.mode || MODES.TitleMode;
     return(
       <div className="conversation">
-      {this.state.pastTheTitle ?
         <AllConversationsViewer
           conversations={this.props.script.conversations}
+          title={this.props.script.title}
           audioUrl={this.props.audioUrl}
           mode={mode} />
-        : this.renderTitleScreen()}
       </div>
     );
   }

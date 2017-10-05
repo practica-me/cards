@@ -52,11 +52,6 @@
   opacity: 0.5;
   margin: 5px;
 }
-.conversation-title, .script-title {
-  align-self: center;
-  text-align: center;
-  color: #2d2d2d;
-}
 .headers {
   margin: 10px;
   padding: 0px 20px 0px 20px;
@@ -69,16 +64,30 @@
 .subheader {
   font-size: 1em;
   font-weight: bold;
-  opacity: 0.8;
   margin-top: 5px;
   margin-bottom: 0px;
+  color: #2d2d2d;
+  opacity: 0.8;
+}
+.inverse .subheader {
+  color: white;
 }
 .subheader.above {
   margin-bottom: 0px;
   margin-top: 5px;
 }
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  align-self: felx-start;
+}
+.topic {
+  padding: 5px;
+}
 .line {
-  padding: 10px;
+  padding: 8px;
   border-radius: 10px;
   margin-bottom: 0.5em;
   color: #2d2d2d;
