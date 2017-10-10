@@ -48,7 +48,8 @@ export default class UnitViewer extends Component {
           {this.state.lessonStarted ? "" : this.renderArrow(true)}
           <LessonViewer
             lesson={lesson}
-            onLessonStarted={() => this.setState({lessonStarted: true})} />
+            onLessonStarted={() => this.setState({lessonStarted: true})}
+            onLessonReset={() => this.setState({lessonStarted: false})}/>
           {this.state.lessonStarted ? "" : this.renderArrow(false)}
         </div>
     );

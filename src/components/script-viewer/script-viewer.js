@@ -13,12 +13,14 @@ export default class ScriptViewer extends Component {
     script: T.object.isRequired,
     audioUrl: T.string.isRequired,
     mode: T.oneOf(Object.keys(MODES)),
+    onExit: T.func,
   };
   render() {
     var mode = this.props.mode || MODES.TitleMode;
     return(
       <div className="conversation">
         <AllConversationsViewer
+          onExit={this.props.onExit}
           conversations={this.props.script.conversations}
           title={this.props.script.title}
           audioUrl={this.props.audioUrl}

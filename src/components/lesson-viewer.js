@@ -49,10 +49,16 @@ export default class LessonViewer extends Component {
       if (this.props.onLessonStarted)
         this.props.onLessonStarted();
     };
+    var backToLessonView = () => {
+      this.setState({started: false});
+      if (this.props.onLessonReset)
+        this.props.onLessonReset();
+    }
     return(
       <div className="lesson">
       {this.state.started ?
         <ScriptViewer script={this.state.script}
+                      onExit={backToLessonView}
                       audioUrl={this.props.lesson.audio_url} /> :
         <StoryPage subheader={"Lesson " + lesson.number}
                    subheaderFirst={true}

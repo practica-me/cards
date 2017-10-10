@@ -12,7 +12,8 @@ export default class AllConversationsViewer extends Component {
     mode: T.oneOf(Object.keys(MODES)).isRequired,
     audioUrl: T.string.isRequired,
     conversations: T.array.isRequired,
-    title: T.string.isRequired
+    title: T.string.isRequired,
+    onExit: T.func,
   };
   constructor(props) {
     super(props);
@@ -37,6 +38,9 @@ export default class AllConversationsViewer extends Component {
     });
     return(
         <div className="card">
+          <div className="close"> 
+            <button className="minimal" onClick={this.props.onExit}> &times; </button>
+          </div>
           <div className="card-content title-screen">
             <div className="headers">
               <div className="subheader"> Commonly Used </div>
@@ -112,6 +116,7 @@ export default class AllConversationsViewer extends Component {
             convoElement={this.getActiveConvo()}
             mode={this.state.mode} // MODE is controlled
             audioUrl={this.props.audioUrl}
+            onExit={this.props.onExit}
             next={this.onPrevOnNextGenerator('next')}
             prev={this.onPrevOnNextGenerator('prev')} />
           <div className="pagination">

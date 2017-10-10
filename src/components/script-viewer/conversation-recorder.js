@@ -236,6 +236,9 @@ export default class ConversationRecorder extends Component {
       (this.props.mode === MODES.Recording) ? "Speaking Practice" : "";
     return(
       <div className="card">
+      <div className="close"> 
+            <button className="minimal" onClick={this.props.onExit}> &times; </button>
+          </div>
       <div className="card-content single-conversation">
         <div className="conversation-title">
           <div className="subheader above"> {cardTitle} </div>

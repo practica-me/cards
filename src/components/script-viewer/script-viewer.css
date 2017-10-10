@@ -21,6 +21,10 @@
   box-shadow: 2px 2px 5px #ffffff22;
   color: white;
 }
+.close {
+  align-self: flex-end;
+  opacity: 0.5;
+}
 .all-conversations {
   display: flex;
   flex-direction: column;
