@@ -8,30 +8,30 @@
    "conversation": [
     {
      "text": "I really like your shoes!",
-     "audioStart": 4440,
-     "audioEnd": 5970.000000000001
+     "audioStart": 4490,
+     "audioEnd": 6020.000000000001
     },
     {
      "text": "Thanks! They are new.",
-     "audioStart": 6370,
-     "audioEnd": 7860
+     "audioStart": 6420,
+     "audioEnd": 7910
     },
     {
      "text": "Where did you get them?",
-     "audioStart": 8029.999999999999,
-     "audioEnd": 9170
+     "audioStart": 8080,
+     "audioEnd": 9219.999999999998
     },
     {
      "text": "I got them at the mall last week.",
-     "audioStart": 9490,
-     "audioEnd": 11150
+     "audioStart": 9540,
+     "audioEnd": 11209.999999999998
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "I really like your __.",
-    "audioStart": 890,
-    "audioEnd": 2349.9999999999995
+    "audioStart": 940,
+    "audioEnd": 2400
    }
   },
   {
@@ -39,25 +39,25 @@
    "conversation": [
     {
      "text": "Thanks for inviting me to your home. What a lovely apartment!",
-     "audioStart": 17059.999,
-     "audioEnd": 20300
+     "audioStart": 17109.999,
+     "audioEnd": 20350
     },
     {
      "text": "Thank you! it’s pretty small, but I like it.",
-     "audioStart": 20530,
-     "audioEnd": 23610
+     "audioStart": 20580,
+     "audioEnd": 23660
     },
     {
      "text": "Well, I really like how you decorated it.",
-     "audioStart": 23910,
-     "audioEnd": 26060
+     "audioStart": 23960,
+     "audioEnd": 26120
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "What a lovely __!",
-    "audioStart": 14780,
-    "audioEnd": 17059.999
+    "audioStart": 14830,
+    "audioEnd": 17110.000000000004
    }
   },
   {
@@ -65,25 +65,25 @@
    "conversation": [
     {
      "text": "Nice drawing!",
-     "audioStart": 30070,
-     "audioEnd": 31270
+     "audioStart": 30119.999999999996,
+     "audioEnd": 31320
     },
     {
      "text": "Thanks! I drew it in art class today.",
-     "audioStart": 31590,
-     "audioEnd": 33670
+     "audioStart": 31639.999,
+     "audioEnd": 33720
     },
     {
      "text": "It’s beautiful. Do you want to hang it on the fridge?",
-     "audioStart": 33750,
-     "audioEnd": 36269.99999999999
+     "audioStart": 33799.998999999996,
+     "audioEnd": 36319.998999999996
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "Nice __!",
-    "audioStart": 28099.999,
-    "audioEnd": 28850
+    "audioStart": 28150,
+    "audioEnd": 28910
    }
   },
   {
@@ -91,30 +91,30 @@
    "conversation": [
     {
      "text": "You did a great job on your science project!",
-     "audioStart": 43490,
-     "audioEnd": 45859.998999999996
+     "audioStart": 43540,
+     "audioEnd": 45909.999
     },
     {
      "text": "I did?",
-     "audioStart": 46099.998999999996,
-     "audioEnd": 46530
+     "audioStart": 46150,
+     "audioEnd": 46580
     },
     {
      "text": "Yes, your teacher said it was one of the best.",
-     "audioStart": 46940,
-     "audioEnd": 49280
+     "audioStart": 46990,
+     "audioEnd": 49329.999
     },
     {
      "text": "Wow, thanks!",
-     "audioStart": 49330,
-     "audioEnd": 50760
+     "audioStart": 49380,
+     "audioEnd": 50809.998999999996
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "You did a great job...",
-    "audioStart": 40970,
-    "audioEnd": 42540
+    "audioStart": 41019.99999999999,
+    "audioEnd": 42589.99999999999
    }
   },
   {
@@ -122,25 +122,25 @@
    "conversation": [
     {
      "text": "That’s a nice blouse you’re wearing.",
-     "audioStart": 55470,
-     "audioEnd": 57140
+     "audioStart": 55520,
+     "audioEnd": 57190
     },
     {
      "text": "Thanks! I like yours too.",
-     "audioStart": 57710,
-     "audioEnd": 59429.99999999999
+     "audioStart": 57760,
+     "audioEnd": 59480
     },
     {
      "text": "Thank you! It was a birthday gift from my sister.",
-     "audioStart": 59680,
-     "audioEnd": 62310
+     "audioStart": 59730.00000000001,
+     "audioEnd": 62360
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "That’s a nice __.",
-    "audioStart": 53389.999,
-    "audioEnd": 55460
+    "audioStart": 53449.998999999996,
+    "audioEnd": 55510
    }
   },
   {
@@ -148,30 +148,30 @@
    "conversation": [
     {
      "text": "Your dress is beautiful.",
-     "audioStart": 70820,
-     "audioEnd": 72319.99900000001
+     "audioStart": 70869.99900000001,
+     "audioEnd": 72380
     },
     {
      "text": "Oh, do you think so? It’s pretty old.",
-     "audioStart": 72969.999,
-     "audioEnd": 75260
+     "audioStart": 73020,
+     "audioEnd": 75310
     },
     {
      "text": "Yes, that color looks great on you.",
-     "audioStart": 75330,
-     "audioEnd": 77350.00000000001
+     "audioStart": 75380,
+     "audioEnd": 77410
     },
     {
      "text": "Thanks! I like the color too.",
-     "audioStart": 77790,
-     "audioEnd": 79399.99999999999
+     "audioStart": 77840,
+     "audioEnd": 79449.99999999999
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "Your __ is beautiful.",
-    "audioStart": 66700,
-    "audioEnd": 68300
+    "audioStart": 66759.999,
+    "audioEnd": 68359.99999999999
    }
   },
   {
@@ -179,30 +179,30 @@
    "conversation": [
     {
      "text": "Thanks for picking up my kids today!",
-     "audioStart": 84599.999,
-     "audioEnd": 86399.999
+     "audioStart": 84639.999,
+     "audioEnd": 86450
     },
     {
      "text": "No problem! They were great.",
-     "audioStart": 86839.99900000001,
-     "audioEnd": 88630
+     "audioStart": 86889.999,
+     "audioEnd": 88679.999
     },
     {
      "text": "You are so kind. I really appreciate it.",
-     "audioStart": 88719.999,
-     "audioEnd": 91240
+     "audioStart": 88770,
+     "audioEnd": 91289.99999999999
     },
     {
      "text": "Not a problem. I hope you have a good day!",
-     "audioStart": 91340,
-     "audioEnd": 93520.00000000001
+     "audioStart": 91390,
+     "audioEnd": 93570.00000000001
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "You are so __.",
-    "audioStart": 82170,
-    "audioEnd": 84600.00000000001
+    "audioStart": 82219.999,
+    "audioEnd": 83490.00000000001
    }
   },
   {
@@ -210,30 +210,30 @@
    "conversation": [
     {
      "text": "You look nice today!",
-     "audioStart": null,
-     "audioEnd": null
+     "audioStart": 99340,
+     "audioEnd": 100679.99999999999
     },
     {
      "text": "Thanks! I have an interview this afternoon.",
-     "audioStart": 98940,
-     "audioEnd": 101310
+     "audioStart": 101250,
+     "audioEnd": 103610.00000000001
     },
     {
      "text": "I’m sure you’ll do great. Good luck!",
-     "audioStart": 101440,
-     "audioEnd": 103470
+     "audioStart": 103750,
+     "audioEnd": 105780
     },
     {
      "text": "Thank you!",
-     "audioStart": 20530,
-     "audioEnd": 21380.000000000004
+     "audioStart": 20580,
+     "audioEnd": 21430
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "You look nice today.",
-    "audioStart": 97030,
-    "audioEnd": 98369.99999999999
+    "audioStart": 96960,
+    "audioEnd": 98309.99999999999
    }
   },
   {
@@ -241,30 +241,30 @@
    "conversation": [
     {
      "text": "Wow, this meal is delicious!",
-     "audioStart": 109590,
-     "audioEnd": 111610
+     "audioStart": 111900,
+     "audioEnd": 113920
     },
     {
      "text": "Thank you!",
-     "audioStart": 20530,
-     "audioEnd": 21380.000000000004
+     "audioStart": 20580,
+     "audioEnd": 21430
     },
     {
      "text": "You are a great cook!",
-     "audioStart": 112590,
-     "audioEnd": 114020.00000000001
+     "audioStart": 114900,
+     "audioEnd": 116330
     },
     {
      "text": "Thanks, you are too kind. I’m glad you like it!",
-     "audioStart": 114190,
-     "audioEnd": 117170
+     "audioStart": 116500,
+     "audioEnd": 119479.999
     }
    ],
    "title": {
     "lineIndexInConversation": 2,
     "text": "You are a great __.",
-    "audioStart": 107400,
-    "audioEnd": 108670
+    "audioStart": 109740,
+    "audioEnd": 110980
    }
   }
  ]
