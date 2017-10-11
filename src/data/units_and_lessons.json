@@ -1,38 +1,52 @@
 {
   "namespace": "cards.practica.me",
-  "units": [{
-    "name": "Casual Interactions",
-    "number": 1,
-    "lessons": [{
+  "units": [
+    {
+      "name": "Casual Interactions",
+      "number": 1,
+      "lessons": [{
+          "number": 1,
+          "name": "Short Replies",
+          "script_url": "/scripts/short_replies.json",
+          "audio_url": "/audio/short_replies.mp3"
+        },
+        {
+          "number": 2,
+          "name": "Follow-up Questions",
+          "script_url": "/scripts/follow_up_questions.json",
+          "audio_url": "/audio/follow_up_questions.mp3"
+        },
+        {
+          "number": 3,
+          "name": "Open-ended Questions",
+          "script_url": "/scripts/open_ended_questions.json",
+          "audio_url": "/audio/open_ended_questions.mp3"
+        },
+        {
+          "number": 4,
+          "name": "Goodbyes",
+          "script_url": "/scripts/goodbyes.json",
+          "audio_url": "/audio/goodbyes.mp3"
+        },
+        {
+          "number": 5,
+          "name": "Compliments",
+          "script_url": "/scripts/compliments.json",
+          "audio_url": "/audio/compliments.mp3"
+        }
+      ]
+    },
+    {
+      "name": "Customer Service",
+      "number": 2,
+      "lessons":  [{
         "number": 1,
-        "name": "Short Replies",
-        "script_url": "/scripts/short_replies.json",
-        "audio_url": "/audio/short_replies.mp3"
-      },
-      {
-        "number": 2,
-        "name": "Follow-up Questions",
-        "script_url": "/scripts/follow_up_questions.json",
-        "audio_url": "/audio/follow_up_questions.mp3"
-      },
-      {
-        "number": 3,
-        "name": "Open-ended Questions",
-        "script_url": "/scripts/open_ended_questions.json",
-        "audio_url": "/audio/open_ended_questions.mp3"
-      },
-      {
-        "number": 4,
-        "name": "Goodbyes",
-        "script_url": "/scripts/goodbyes.json",
-        "audio_url": "/audio/goodbyes.mp3"
-      },
-      {
-        "number": 5,
-        "name": "Compliments",
-        "script_url": "/scripts/compliments.json",
-        "audio_url": "/audio/compliments.mp3"
-      }
-    ]
-  }]
+        "name": "Basic Phrases",
+          "script_url": "/scripts/customer_service1.json",
+          "audio_url": "/audio/customer_service1.mp3"
+  
+      }]
+    }
+          
+  ]
 }

@@ -3,7 +3,12 @@ function lineWithAudioAnnotations (line, transcriptTxt, wordsByStart, wordsByEnd
    var lineStartOffset = transcriptTxt.indexOf(line);
    // If that doesnt' work, Try once more, while ignoring the case
    if (lineStartOffset < 0) {
-     lineStartOffset = transcriptTxt.toLowerCase().indexOf(line.toLowerCase());
+     var newLine = line.replace(/[^a-z0-9\ _]/gi,'.')
+                       /*.replace("___", "[\\w]+")*/
+                       .toLowerCase();
+     var lineFind = new RegExp(newLine);
+     var match = transcriptTxt.toLowerCase().match(lineFind);
+     lineStartOffset = match && match.index;
    }
    if (lineStartOffset < 0) {
      console.error("ERROR: didn't find the following line:");
@@ -22,12 +27,13 @@ function lineWithAudioAnnotations (line, transcriptTxt, wordsByStart, wordsByEnd
        console.error("ERROR: start or end word not found for line:");
        console.error(line, lineStartOffset, lineEndOffset);
        console.error("startWord", startWord, "endWord", endWord);
+     } else {
+       return {
+         text: line,
+         audioStart: 1000 * startWord.start, // convert from s to ms
+         audioEnd: 1000 * endWord.end // convert from s to ms
+       };
      }
-     return {
-       text: line,
-       audioStart: 1000 * startWord.start, // convert from s to ms
-       audioEnd: 1000 * endWord.end // convert from s to ms
-     };
    }
 }
 
@@ -60,7 +66,7 @@ function destructivelyAlignScript(practicaJSON, gentleJSON) {
 }
 
 var USAGE = "\nExample usage:\n\t" +
-  "node script-aligner.js short_replies.json short_replies_aligned.json > short_replies_annotated.json"
+  "node script-aligner.js short_replies.json short_replies_aligned.json > ../../public/scripts/short_replies.json"
 if(process.argv.length < 4) {
   console.log(USAGE);
   throw "script-alinger requires path to json data";
