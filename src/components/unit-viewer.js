@@ -36,8 +36,9 @@ export default class UnitViewer extends Component {
     var nextLesson = allLessons[nextIndex];
     var icon = goBackward ? "chevron-left" : "chevron-right";
     /* lessonNumber 1-indexed */
-    var pathFromIdx = (lIdx) => (
-      "/unit/" + this.props.unit.name + "/lesson/" + (lIdx + 1)
+    var pathFromIdx = (lIdx) => (this.props.pathGenerator ?
+        this.props.pathGenerator(this.props.unit.name, lIdx + 1) :
+        ("/unit/" + this.props.unit.name + "/lesson/" + (lIdx + 1))
     );
     return(
       <div className={"arrow-block " + vizClass + " " + dirClass}>

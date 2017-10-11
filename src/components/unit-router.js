@@ -7,14 +7,14 @@ import { Route, Redirect } from 'react-router-dom'
 const DEFAULT_UNIT = 'casual-interactions';
 const DEFAULT_LESSON = '1';
 
-const unitLessonPath = (optionalUnitName, optionalLessonNumber) => ( '/unit/' + (optionalUnitName || DEFAULT_UNIT) + '/lesson/' + (optionalLessonNumber || DEFAULT_LESSON));
+const normalizeString = (s, replacer) => (
+  s && s.toLowerCase().replace(/[^a-z0-9]/gi, (replacer || ''))
+);
+
+const unitLessonPath = (optionalUnitName, optionalLessonNumber) => ( '/unit/' + (normalizeString(optionalUnitName, '-') || DEFAULT_UNIT) + '/lesson/' + (optionalLessonNumber || DEFAULT_LESSON));
 
 const RedirectToDefaultPath = ({match}) => (
   <Redirect to={{pathname: unitLessonPath()}} />
-);
-
-const normalizeString = (s) => (
-  s && s.toLowerCase().replace(/[^a-z0-9]/gi,'')
 );
 
 export default class UnitRouter extends Component {
@@ -36,7 +36,8 @@ export default class UnitRouter extends Component {
         undefined : (lNum);
     if (unit && lessonNumber) {
       return <UnitViewer unit={unit} 
-                         lessonIndex={lessonNumber - 1} />
+                         lessonIndex={lessonNumber - 1}
+                         pathGenerator={unitLessonPath} />
     } else {
       var path = unitLessonPath(unit && unit.name);
       return <Redirect to={{pathname: path}} />;
