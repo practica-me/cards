@@ -3,7 +3,6 @@
   "units": [
     {
       "name": "Casual Interactions",
-      "number": 1,
       "lessons": [{
           "number": 1,
           "name": "Short Replies",
@@ -38,7 +37,6 @@
     },
     {
       "name": "Customer Service",
-      "number": 2,
       "lessons":  [{
         "number": 1,
         "name": "Basic Phrases",
