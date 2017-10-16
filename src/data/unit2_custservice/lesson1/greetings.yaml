@@ -1,0 +1,34 @@
+title: Greeting a Customer
+description: These are polite phrases you can use to say hello to a customer.
+audio_url:
+conversations:
+  - title: Hello!
+    usage: Quickly say hi to a customer.
+    conversation:
+      - Hello!
+      - Hi! How are you?
+      - I'm fine thanks, how about you?
+  - title: Good morning!
+    usage: Say hello to a customer in the morning (use "Good afternoon!" after noon, or "Good evening!" after 6pm)
+    conversation:
+      - Good morning!
+      - Good morning! It's a beautiful day today, isn't it?
+      - Yes, it's lovely outside!
+  - title: How are you doing?
+    usage: Ask a customer how they are feeling.
+    conversation:
+      - Hi, how are you doing?
+      - Pretty good, how about you?
+      - I'm doing well, thanks for asking!
+  - title: How's it going?
+    usage: Ask how a customer's day is going.
+    conversation:
+      - How's it going?
+      - Not bad! And you?
+      - We had a busy morning, but it's a lot quieter now.
+  - title: Good to see you!
+    usage: Say hello to a customer that you know (not a stranger)
+    conversation:
+      - Hi, it's good to see you!
+      - You too! How have you been?
+      - Great! How's your family doing?

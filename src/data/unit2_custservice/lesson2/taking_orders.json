@@ -41,7 +41,7 @@
         "Oh, no problem. Then I\u2019ll have a turkey sandwich instead.", 
         "Ok, great! Do you want chips with that?"
       ], 
-      "title": "Sorry, we're all out of tuna salad."
+      "title": "Sorry, we're all out of ___."
     }, 
     {
       "usage": "Use to give a customer a suggestion about what to order.", 
@@ -52,7 +52,7 @@
         "Oh, that sounds delicious! I\u2019ll have one of those, please.", 
         "Ok, great choice!"
       ], 
-      "title": "The apple cider is really popular."
+      "title": "The ___ is really popular."
     }, 
     {
       "usage": "Tell a customer that their order will be ready soon.", 
@@ -99,5 +99,5 @@
     }
   ], 
   "description": "These are polite phrases you can use to take customers' orders at a restaurant or cafe.", 
-  "title": "Customer Service Interactions"
+  "title": "Taking an Order"
 }

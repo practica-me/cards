@@ -39,12 +39,18 @@
       "name": "Customer Service",
       "lessons":  [{
         "number": 1,
-        "name": "Basic Phrases",
-          "script_url": "/scripts/customer_service1.json",
-          "audio_url": "/audio/customer_service1.mp3"
-  
+        "name": "Greeting a customer",
+        "script_url": "/scripts/greetings.json",
+        "audio_url": "/audio/greetings.mp3"
+      },
+      {
+        "number": 2,
+        "name": "Taking an order",
+        "script_url": "/scripts/taking_orders.json",
+        "audio_url": "/audio/taking_orders.mp3"
+
       }]
     }
-          
+
   ]
 }

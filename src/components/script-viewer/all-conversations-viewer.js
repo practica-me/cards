@@ -38,12 +38,11 @@ export default class AllConversationsViewer extends Component {
     });
     return(
         <div className="card">
-          <div className="close"> 
+          <div className="close">
             <button className="minimal" onClick={this.props.onExit}> &times; </button>
           </div>
           <div className="card-content title-screen">
             <div className="headers">
-              <div className="subheader"> Commonly Used </div>
               <div className="header"> {this.props.title} </div>
             </div>
             <div className="topic-list">
