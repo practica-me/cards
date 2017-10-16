@@ -1,0 +1,137 @@
+{
+ "audio_url": null,
+ "title": "Greeting a Customer",
+ "description": "These are polite phrases you can use to say hello to a customer.",
+ "conversations": [
+  {
+   "usage": "Quickly say hi to a customer.",
+   "conversation": [
+    {
+     "text": "Hello!",
+     "audioStart": 1710,
+     "audioEnd": 2270
+    },
+    {
+     "text": "Hi! How are you?",
+     "audioStart": 2510,
+     "audioEnd": 3740
+    },
+    {
+     "text": "I'm fine thanks, how about you?",
+     "audioStart": 4240,
+     "audioEnd": 5850.000000000001
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Hello!",
+    "audioStart": 1710,
+    "audioEnd": 2270
+   }
+  },
+  {
+   "usage": "Say hello to a customer in the morning (use \"Good afternoon!\" after noon, or \"Good evening!\" after 6pm)",
+   "conversation": [
+    {
+     "text": "Good morning!",
+     "audioStart": 9139.999,
+     "audioEnd": 9889.999
+    },
+    {
+     "text": "Good morning! It's a beautiful day today, isn't it?",
+     "audioStart": 10099.999,
+     "audioEnd": 12729.999999999998
+    },
+    {
+     "text": "Yes, it's lovely outside!",
+     "audioStart": 13099.999,
+     "audioEnd": 14789.999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Good morning!",
+    "audioStart": 9139.999,
+    "audioEnd": 9889.999
+   }
+  },
+  {
+   "usage": "Ask a customer how they are feeling.",
+   "conversation": [
+    {
+     "text": "Hi, how are you doing?",
+     "audioStart": 18370,
+     "audioEnd": 19650.000000000004
+    },
+    {
+     "text": "Pretty good, how about you?",
+     "audioStart": 19970,
+     "audioEnd": 21360
+    },
+    {
+     "text": "I'm doing well, thanks for asking!",
+     "audioStart": 21810,
+     "audioEnd": 23450.000000000004
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "How are you doing?",
+    "audioStart": 18800,
+    "audioEnd": 19650.000000000004
+   }
+  },
+  {
+   "usage": "Ask how a customer's day is going.",
+   "conversation": [
+    {
+     "text": "How's it going?",
+     "audioStart": 25900,
+     "audioEnd": 26710
+    },
+    {
+     "text": "Not bad! And you?",
+     "audioStart": 26929.999000000003,
+     "audioEnd": 28209.999000000003
+    },
+    {
+     "text": "We had a busy morning, but it's a lot quieter now.",
+     "audioStart": 28860,
+     "audioEnd": 31569.999000000003
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "How's it going?",
+    "audioStart": 25900,
+    "audioEnd": 26710
+   }
+  },
+  {
+   "usage": "Say hello to a customer that you know (not a stranger)",
+   "conversation": [
+    {
+     "text": "Hi, it's good to see you!",
+     "audioStart": 35170,
+     "audioEnd": 36429.999
+    },
+    {
+     "text": "You too! How have you been?",
+     "audioStart": 36580,
+     "audioEnd": 38150.00000000001
+    },
+    {
+     "text": "Great! How's your family doing?",
+     "audioStart": 38610,
+     "audioEnd": 40419.99999999999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Good to see you!",
+    "audioStart": 35629.998999999996,
+    "audioEnd": 36429.999
+   }
+  }
+ ]
+}

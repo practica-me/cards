@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FullStory } from 'react-fullstory-component';
 import unitData from './data/units_and_lessons.json';
-import AllUnitsViewer from './components/all-units-viewer.js';
+import UnitRouter from './components/unit-router.js';
 import './App.css';
 
 const settings = {
@@ -18,7 +18,7 @@ class App extends Component {
     var units = unitData.units;
     return(
       <div>
-        <AllUnitsViewer units={units} />
+        <UnitRouter units={units} />
         <FullStory settings={settings} custom={data} />
       </div>
     );

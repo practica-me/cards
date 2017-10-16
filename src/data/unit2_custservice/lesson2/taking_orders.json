@@ -1,0 +1,103 @@
+{
+  "conversations": [
+    {
+      "usage": "Ask a customer if they want to have their food or drink here, or take it with them. (Short version: For here or to go?)", 
+      "conversation": [
+        "Let\u2019s see...I\u2019ve got one large coffee, and one chocolate chip cookie. Is that all?", 
+        "Yes, that\u2019s all today.", 
+        "Great! Would you like that for here or to go?", 
+        "I\u2019ll take it to go, please.", 
+        "Ok, I\u2019ll get that coffee and cookie for you right now!"
+      ], 
+      "title": "Would you like that for here or to go?"
+    }, 
+    {
+      "usage": "Use when a customer has to wait for something.", 
+      "conversation": [
+        "I can help whoever is next in line?", 
+        "Oh that\u2019s me, finally...", 
+        "Thank you for your patience! Sorry for the long line.", 
+        "It\u2019s fine, I guess everyone needs their afternoon coffee.", 
+        "Yeah, the morning was quiet but it\u2019s been busy all afternoon!"
+      ], 
+      "title": "Thank you for your patience!"
+    }, 
+    {
+      "usage": "Use to say goodbye to a customer in a friendly way.", 
+      "conversation": [
+        "Here is your change and your receipt.", 
+        "Perfect, thanks!", 
+        "No problem. Have a great day!", 
+        "You too, have a good one!"
+      ], 
+      "title": "Have a great day!"
+    }, 
+    {
+      "usage": "Use when the item a customer requested is not available.", 
+      "conversation": [
+        "Hi, what can I get for you today?", 
+        "I\u2019ll have a tuna salad sandwich, please.", 
+        "I\u2019m sorry, we\u2019re all out of tuna salad.", 
+        "Oh, no problem. Then I\u2019ll have a turkey sandwich instead.", 
+        "Ok, great! Do you want chips with that?"
+      ], 
+      "title": "Sorry, we're all out of ___."
+    }, 
+    {
+      "usage": "Use to give a customer a suggestion about what to order.", 
+      "conversation": [
+        "Have you tried our new Fall specials?", 
+        "No, not yet!", 
+        "The apple cider is really popular.", 
+        "Oh, that sounds delicious! I\u2019ll have one of those, please.", 
+        "Ok, great choice!"
+      ], 
+      "title": "The ___ is really popular."
+    }, 
+    {
+      "usage": "Tell a customer that their order will be ready soon.", 
+      "conversation": [
+        "Just the lemonade for you today?", 
+        "Yeah, that\u2019s all for now.", 
+        "Ok, we\u2019ll have that ready in just a moment!", 
+        "Thanks!"
+      ], 
+      "title": "We\u2019ll have that ready in just a moment."
+    }, 
+    {
+      "usage": "Ask if a customer wants to order any other items. (Short version: Anything else?)", 
+      "conversation": [
+        "Hi, what can I get you today?", 
+        "I\u2019ll have an iced tea, please.", 
+        "Ok, can I get you anything else?", 
+        "Hmm..I\u2019ll have a blueberry muffin too.", 
+        "Got it, here you go!"
+      ], 
+      "title": "Can I get you anything else?"
+    }, 
+    {
+      "usage": "Ask a customer what size drink or meal they want to order.", 
+      "conversation": [
+        "Good morning!", 
+        "Hi, I\u2019ll take a cappuccino, please.", 
+        "Sure, which size would you like?", 
+        "Hmm I\u2019ll go with a medium.", 
+        "Ok, I\u2019ll get that started for you right now."
+      ], 
+      "title": "Which size would you like?"
+    }, 
+    {
+      "usage": "Ask a customer for their name, to put on the order. (Short version: Your name?)", 
+      "conversation": [
+        "What would you like today?", 
+        "I\u2019ll have a small hot chocolate, please.", 
+        "Sure, can I have your name?", 
+        "Yeah, it\u2019s Maya.", 
+        "Great! I\u2019ll get that for you now, Maya."
+      ], 
+      "title": "Can I have your name?"
+    }
+  ], 
+  "description": "These are polite phrases you can use to take customers' orders at a restaurant or cafe.", 
+  "title": "Taking an Order"
+}

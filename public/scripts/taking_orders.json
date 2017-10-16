@@ -1,0 +1,320 @@
+{
+ "conversations": [
+  {
+   "usage": "Ask a customer if they want to have their food or drink here, or take it with them. (Short version: For here or to go?)",
+   "conversation": [
+    {
+     "text": "Let’s see...I’ve got one large coffee, and one chocolate chip cookie. Is that all?",
+     "audioStart": 2110,
+     "audioEnd": 6940
+    },
+    {
+     "text": "Yes, that’s all today.",
+     "audioStart": 7480,
+     "audioEnd": 8850
+    },
+    {
+     "text": "Great! Would you like that for here or to go?",
+     "audioStart": 9370,
+     "audioEnd": 11500
+    },
+    {
+     "text": "I’ll take it to go, please.",
+     "audioStart": 11849.999,
+     "audioEnd": 13270
+    },
+    {
+     "text": "Ok, I’ll get that coffee and cookie for you right now!",
+     "audioStart": 13520,
+     "audioEnd": 15959.999999999998
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Would you like that for here or to go?",
+    "audioStart": 9780,
+    "audioEnd": 11500
+   }
+  },
+  {
+   "usage": "Use when a customer has to wait for something.",
+   "conversation": [
+    {
+     "text": "I can help whoever is next in line?",
+     "audioStart": 18779.999,
+     "audioEnd": 20590
+    },
+    {
+     "text": "Oh that’s me, finally...",
+     "audioStart": 21060,
+     "audioEnd": 22900.000000000004
+    },
+    {
+     "text": "Thank you for your patience! Sorry for the long line.",
+     "audioStart": 23230,
+     "audioEnd": 26020
+    },
+    {
+     "text": "It’s fine, I guess everyone needs their afternoon coffee.",
+     "audioStart": 26439.999999999996,
+     "audioEnd": 29360
+    },
+    {
+     "text": "Yeah, the morning was quiet but it’s been busy all afternoon!",
+     "audioStart": 30020,
+     "audioEnd": 33019.99999999999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Thank you for your patience!",
+    "audioStart": 23230,
+    "audioEnd": 24650
+   }
+  },
+  {
+   "usage": "Use to say goodbye to a customer in a friendly way.",
+   "conversation": [
+    {
+     "text": "Here is your change and your receipt.",
+     "audioStart": 35539.999,
+     "audioEnd": 37280
+    },
+    {
+     "text": "Perfect, thanks!",
+     "audioStart": 37630,
+     "audioEnd": 38680
+    },
+    {
+     "text": "No problem. Have a great day!",
+     "audioStart": 38940,
+     "audioEnd": 40520
+    },
+    {
+     "text": "You too, have a good one!",
+     "audioStart": 40580,
+     "audioEnd": 41970
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Have a great day!",
+    "audioStart": 39640,
+    "audioEnd": 40520
+   }
+  },
+  {
+   "usage": "Use when the item a customer requested is not available.",
+   "conversation": [
+    {
+     "text": "Hi, what can I get for you today?",
+     "audioStart": 46760,
+     "audioEnd": 48409.998999999996
+    },
+    {
+     "text": "I’ll have a tuna salad sandwich, please.",
+     "audioStart": 48759.999,
+     "audioEnd": 51229.998999999996
+    },
+    {
+     "text": "I’m sorry, we’re all out of tuna salad.",
+     "audioStart": 51610,
+     "audioEnd": 53690
+    },
+    {
+     "text": "Oh, no problem. Then I’ll have a turkey sandwich instead.",
+     "audioStart": 53920,
+     "audioEnd": 57160.00000000001
+    },
+    {
+     "text": "Ok, great! Do you want chips with that?",
+     "audioStart": 57590,
+     "audioEnd": 59630
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Sorry, we're all out of ___.",
+    "audioStart": 43610,
+    "audioEnd": 45370
+   }
+  },
+  {
+   "usage": "Use to give a customer a suggestion about what to order.",
+   "conversation": [
+    {
+     "text": "Have you tried our new Fall specials?",
+     "audioStart": 64929.998999999996,
+     "audioEnd": 66900
+    },
+    {
+     "text": "No, not yet!",
+     "audioStart": 67030,
+     "audioEnd": 68170
+    },
+    {
+     "text": "The apple cider is really popular.",
+     "audioStart": 68270,
+     "audioEnd": 70249.999
+    },
+    {
+     "text": "Oh, that sounds delicious! I’ll have one of those, please.",
+     "audioStart": 70340,
+     "audioEnd": 73430
+    },
+    {
+     "text": "Ok, great choice!",
+     "audioStart": 73600,
+     "audioEnd": 74940
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "The ___ is really popular.",
+    "audioStart": 60840,
+    "audioEnd": 63440
+   }
+  },
+  {
+   "usage": "Tell a customer that their order will be ready soon.",
+   "conversation": [
+    {
+     "text": "Just the lemonade for you today?",
+     "audioStart": 76630,
+     "audioEnd": 78119.99999999999
+    },
+    {
+     "text": "Yeah, that’s all for now.",
+     "audioStart": 78470,
+     "audioEnd": 79589.99999999999
+    },
+    {
+     "text": "Ok, we’ll have that ready in just a moment!",
+     "audioStart": 80070,
+     "audioEnd": 82239.99900000001
+    },
+    {
+     "text": "Thanks!",
+     "audioStart": 82490,
+     "audioEnd": 83110
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "We’ll have that ready in just a moment.",
+    "audioStart": 80539.99999999999,
+    "audioEnd": 82239.99900000001
+   }
+  },
+  {
+   "usage": "Ask if a customer wants to order any other items. (Short version: Anything else?)",
+   "conversation": [
+    {
+     "text": "Hi, what can I get you today?",
+     "audioStart": 84750,
+     "audioEnd": 86259.99999999999
+    },
+    {
+     "text": "I’ll have an iced tea, please.",
+     "audioStart": 86549.999,
+     "audioEnd": 88559.999
+    },
+    {
+     "text": "Ok, can I get you anything else?",
+     "audioStart": 89049.999,
+     "audioEnd": 90819.999
+    },
+    {
+     "text": "Hmm..I’ll have a blueberry muffin too.",
+     "audioStart": 91330,
+     "audioEnd": 93940
+    },
+    {
+     "text": "Got it, here you go!",
+     "audioStart": 94420,
+     "audioEnd": 95640
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Can I get you anything else?",
+    "audioStart": 89539.999,
+    "audioEnd": 90819.999
+   }
+  },
+  {
+   "usage": "Ask a customer what size drink or meal they want to order.",
+   "conversation": [
+    {
+     "text": "Good morning!",
+     "audioStart": 97760,
+     "audioEnd": 98479.99999999999
+    },
+    {
+     "text": "Hi, I’ll take a cappuccino, please.",
+     "audioStart": 98860,
+     "audioEnd": 101000
+    },
+    {
+     "text": "Sure, which size would you like?",
+     "audioStart": 101250,
+     "audioEnd": 103100
+    },
+    {
+     "text": "Hmm I’ll go with a medium.",
+     "audioStart": 103450,
+     "audioEnd": 105340
+    },
+    {
+     "text": "Ok, I’ll get that started for you right now.",
+     "audioStart": 105660,
+     "audioEnd": 107960
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Which size would you like?",
+    "audioStart": 101789.99999999999,
+    "audioEnd": 103100
+   }
+  },
+  {
+   "usage": "Ask a customer for their name, to put on the order. (Short version: Your name?)",
+   "conversation": [
+    {
+     "text": "What would you like today?",
+     "audioStart": 110200,
+     "audioEnd": 111240
+    },
+    {
+     "text": "I’ll have a small hot chocolate, please.",
+     "audioStart": 111750,
+     "audioEnd": 113760
+    },
+    {
+     "text": "Sure, can I have your name?",
+     "audioStart": 114220,
+     "audioEnd": 115640
+    },
+    {
+     "text": "Yeah, it’s Maya.",
+     "audioStart": 115880,
+     "audioEnd": 117010
+    },
+    {
+     "text": "Great! I’ll get that for you now, Maya.",
+     "audioStart": 117420,
+     "audioEnd": 119359.999
+    }
+   ],
+   "title": {
+    "lineIndexInConversation": 2,
+    "text": "Can I have your name?",
+    "audioStart": 114720,
+    "audioEnd": 115640
+   }
+  }
+ ],
+ "description": "These are polite phrases you can use to take customers' orders at a restaurant or cafe.",
+ "title": "Taking an Order"
+}
