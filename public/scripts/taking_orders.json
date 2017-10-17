@@ -50,7 +50,7 @@
      "audioEnd": 22900.000000000004
     },
     {
-     "text": "Thank you for your patience! Sorry for the long line.",
+     "text": "Thanks for your patience! Sorry for the long line.",
      "audioStart": 23230,
      "audioEnd": 26020
     },
@@ -67,7 +67,7 @@
    ],
    "title": {
     "lineIndexInConversation": 2,
-    "text": "Thank you for your patience!",
+    "text": "Thanks for your patience!",
     "audioStart": 23230,
     "audioEnd": 24650
    }

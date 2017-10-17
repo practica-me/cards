@@ -42,15 +42,16 @@
         "name": "Greeting a customer",
         "script_url": "/scripts/greetings.json",
         "audio_url": "/audio/greetings.mp3"
-      },
-      {
-        "number": 2,
+      }]
+    },
+    {
+      "name": "Demo",
+      "lessons": [{
+        "number": 1,
         "name": "Taking an order",
         "script_url": "/scripts/taking_orders.json",
         "audio_url": "/audio/taking_orders.mp3"
-
       }]
     }
-
   ]
 }
