@@ -1,0 +1,70 @@
+{
+  "audio_url": null, 
+  "title": "Saying Goodbye", 
+  "description": "These are polite phrases you can use to say goodbye to a customer or a coworker.", 
+  "conversations": [
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        "Are you all finished here?", 
+        "Yes, thanks! It was delicious.", 
+        "I'm glad to hear it, have a great day!"
+      ], 
+      "title": "Have a great day!"
+    }, 
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        "One small coffee to-go?", 
+        "Yup, that\u2019s for me!", 
+        "Great. Enjoy the rest of your day!"
+      ], 
+      "title": "Enjoy the rest of your day!"
+    }, 
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        "We\u2019ll have your order out in a minute.", 
+        "Great, thanks!", 
+        "No problem, have a good one!"
+      ], 
+      "title": "Have a good one!"
+    }, 
+    {
+      "usage": "Use to wish someone a good afternoon.", 
+      "conversation": [
+        "Did you enjoy your meal?", 
+        "Yes, it was great!", 
+        "Wonderful. Have a good afternoon!"
+      ], 
+      "title": "Have a good afternoon!"
+    }, 
+    {
+      "usage": "Use after bringing food to a customer.", 
+      "conversation": [
+        "Here\u2019s your soup and sandwich.", 
+        "Great, thanks!", 
+        "Of course, enjoy your meal!"
+      ], 
+      "title": "Enjoy your meal!"
+    }, 
+    {
+      "usage": "Use when you will see someone the next day (like coworkers you will see again tomorrow).", 
+      "conversation": [
+        "I\u2019m heading out now.", 
+        "Ok, I\u2019ll be leaving soon too.", 
+        "See you tomorrow!"
+      ], 
+      "title": "See you tomorrow!"
+    }, 
+    {
+      "usage": "Use when you know you will see someone in the future (like your coworker of boss)", 
+      "conversation": [
+        "I\u2019ll be back to work on Monday.", 
+        "Ok, have a great weekend!", 
+        "You too, see you later!"
+      ], 
+      "title": "See you later!"
+    }
+  ]
+}

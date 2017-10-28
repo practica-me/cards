@@ -42,7 +42,22 @@
         "name": "Greeting a customer",
         "script_url": "/scripts/greetings.json",
         "audio_url": "/audio/greetings.mp3"
+      },
+      {
+        "number": 2,
+        "name": "Saying goodbye to a customer",
+        "script_url": "/scripts/goodbyes2.json",
+        "audio_url": "/audio/Goodbyes2.m4a"
       }]
+    },
+    {
+        "name": "Phone Calls",
+        "lessons": [{
+            "number": 1,
+            "name": "Phone calls",
+            "script_url": "/scripts/phonecalls.json",
+            "audio_url": "/audio/phonecalls.mp3"
+        }]
     },
     {
       "name": "Demo",

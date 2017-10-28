@@ -1,0 +1,271 @@
+{
+  "conversations": [
+    {
+      "usage": "Introduce yourself formally", 
+      "conversation": [
+        {
+          "text": "Hi this is Debbie from the Family Dental Care office", 
+          "audioStart": 4270.0, 
+          "audioEnd": 7700.0
+        }, 
+        {
+          "text": "Hi Debbie.", 
+          "audioStart": 8480.0, 
+          "audioEnd": 9250.0
+        }, 
+        {
+          "text": "I\u2019m calling to remind you about your appointment for a dental cleaning tomorrow", 
+          "audioStart": 9840.0, 
+          "audioEnd": 13269.999
+        }, 
+        {
+          "text": "Oh, right! Could you remind me what time that is again?", 
+          "audioStart": 14190.0, 
+          "audioEnd": 17720.0
+        }, 
+        {
+          "text": "Of course, your appointment is tomorrow morning at 9AM. We\u2019ll see you then.", 
+          "audioStart": 17719.999, 
+          "audioEnd": 21980.0
+        }
+      ], 
+      "title": {
+        "text": "Hi, this is __ from __", 
+        "audioStart": 480.0, 
+        "audioEnd": 3059.9999999999995
+      }
+    }, 
+    {
+      "usage": "Ask to speak with a specific person", 
+      "conversation": [
+        {
+          "text": "Hi, can I please speak with Daniel Bowers?", 
+          "audioStart": 25470.0, 
+          "audioEnd": 27889.999999999996
+        }, 
+        {
+          "text": "Sure! He\u2019s in the other room, give me just a minute\u2026 Hello?", 
+          "audioStart": 28939.999999999996, 
+          "audioEnd": 33220.0
+        }, 
+        {
+          "text": "Hi Daniel! This is Jennifer, returning your call about the fundraiser.", 
+          "audioStart": 33759.999, 
+          "audioEnd": 37200.0
+        }, 
+        {
+          "text": "Oh, hi! Thanks so much for giving me a call back.", 
+          "audioStart": 38040.0, 
+          "audioEnd": 40510.0
+        }
+      ], 
+      "title": {
+        "text": "Can I please speak with __?", 
+        "audioStart": 22730.0, 
+        "audioEnd": 24110.000000000004
+      }
+    }, 
+    {
+      "usage": "Explain the reason for your call", 
+      "conversation": [
+        {
+          "text": "Hi, this is Sarah calling from Oak Ridge Elementary school.", 
+          "audioStart": 44290.0, 
+          "audioEnd": 47790.0
+        }, 
+        {
+          "text": "Hi Sarah, what\u2019s up?", 
+          "audioStart": 48599.998999999996, 
+          "audioEnd": 49909.999
+        }, 
+        {
+          "text": "I\u2019m calling about your son. He\u2019s not feeling well today, he\u2019s got a bad stomachache.", 
+          "audioStart": 50809.998999999996, 
+          "audioEnd": 55550.0
+        }, 
+        {
+          "text": "Oh no, should I come pick him up?", 
+          "audioStart": 56440.0, 
+          "audioEnd": 58930.0
+        }, 
+        {
+          "text": "Yes, I think that would be a good idea.", 
+          "audioStart": 59380.0, 
+          "audioEnd": 61239.99999999999
+        }
+      ], 
+      "title": {
+        "text": "I\u2019m calling about\u2026", 
+        "audioStart": 41680.0, 
+        "audioEnd": 42809.99999999999
+      }
+    }, 
+    {
+      "usage": "Ask if the other person can talk right now.", 
+      "conversation": [
+        {
+          "text": "Hi, this is Mary from Dr. Collin\u2019s office. Is this Alice?", 
+          "audioStart": 66480.0, 
+          "audioEnd": 69849.999
+        }, 
+        {
+          "text": "Hi, yes this is she.", 
+          "audioStart": 70789.999, 
+          "audioEnd": 72410.0
+        }, 
+        {
+          "text": "I have your test results from the lab. Is now a good time to talk?", 
+          "audioStart": 73090.0, 
+          "audioEnd": 76450.0
+        }, 
+        {
+          "text": "Yes, now is fine.", 
+          "audioStart": 77250.0, 
+          "audioEnd": 78520.0
+        }, 
+        {
+          "text": "Great, Dr. Collin had a chance to review your labs this morning and everything looks normal.", 
+          "audioStart": 79110.0, 
+          "audioEnd": 83729.99999999999
+        }
+      ], 
+      "title": {
+        "text": "Is now still a good time to talk?", 
+        "audioStart": 63210.0, 
+        "audioEnd": 65000.0
+      }
+    }, 
+    {
+      "usage": "Reschedule a time to talk", 
+      "conversation": [
+        {
+          "text": "Hello?", 
+          "audioStart": 88320.0, 
+          "audioEnd": 88809.99999999999
+        }, 
+        {
+          "text": "Hi Rachel, it\u2019s Michelle. Do you have a minute to chat?", 
+          "audioStart": 89940.00099999999, 
+          "audioEnd": 92760.0
+        }, 
+        {
+          "text": "Hi Michelle! Actually I\u2019m just heading out the door. Can I call you back later tonight?", 
+          "audioStart": 93360.0, 
+          "audioEnd": 98000.0
+        }, 
+        {
+          "text": "Of course! I\u2019ll be free after 6pm.", 
+          "audioStart": 99030.0, 
+          "audioEnd": 101120.0
+        }, 
+        {
+          "text": "Great, I\u2019ll give you a call back then!", 
+          "audioStart": 102099.999, 
+          "audioEnd": 103929.99999999999
+        }
+      ], 
+      "title": {
+        "text": "Can I call you back __?", 
+        "audioStart": 85530.0, 
+        "audioEnd": 86720.00000000001
+      }
+    }, 
+    {
+      "usage": "Ask the other person to repeat what they said", 
+      "conversation": [
+        {
+          "text": "Hi, can you please give me the address of your Mountain View location?", 
+          "audioStart": 108619.99900000001, 
+          "audioEnd": 112020.0
+        }, 
+        {
+          "text": "Sure, it\u2019s 403 Castro Street", 
+          "audioStart": 112890.0, 
+          "audioEnd": 114750.0
+        }, 
+        {
+          "text": "I\u2019m sorry, could you repeat that?", 
+          "audioStart": 115480.0, 
+          "audioEnd": 117180.0
+        }, 
+        {
+          "text": "The address is 403 Castro Street.", 
+          "audioStart": 118130.0, 
+          "audioEnd": 121429.999
+        }, 
+        {
+          "text": "Got it, thanks!", 
+          "audioStart": 122049.999, 
+          "audioEnd": 123190.0
+        }
+      ], 
+      "title": {
+        "text": "I\u2019m sorry, could you repeat that?", 
+        "audioStart": 105429.999, 
+        "audioEnd": 107119.99900000001
+      }
+    }, 
+    {
+      "usage": "Say this if you have a bad connection.", 
+      "conversation": [
+        {
+          "text": "Hi, I\u2019m calling to let you know that your photos are printed and ready for pickup. Will you be picking them up today?", 
+          "audioStart": 127850.0, 
+          "audioEnd": 133420.0
+        }, 
+        {
+          "text": "Oh thanks, I might have to get them tomorrow...", 
+          "audioStart": 134490.0, 
+          "audioEnd": 137200.00000000003
+        }, 
+        {
+          "text": "I\u2019m sorry, I\u2019m having trouble hearing you.", 
+          "audioStart": 137370.0, 
+          "audioEnd": 139600.00000000003
+        }, 
+        {
+          "text": "Oh sorry, is this better?", 
+          "audioStart": 140340.0, 
+          "audioEnd": 141970.0
+        }, 
+        {
+          "text": "Yes that\u2019s much better, thanks!", 
+          "audioStart": 142389.99899999998, 
+          "audioEnd": 143970.0
+        }
+      ], 
+      "title": {
+        "text": "I\u2019m having trouble hearing you", 
+        "audioStart": 124680.0, 
+        "audioEnd": 126300.0
+      }
+    }, 
+    {
+      "usage": "Leave your number on someone\u2019s voicemail.", 
+      "conversation": [
+        {
+          "text": "Hello?", 
+          "audioStart": 148100.0, 
+          "audioEnd": 148540.0
+        }, 
+        {
+          "text": "I\u2019m sorry, the person you are trying to reach is not available. Please leave a message after the tone.", 
+          "audioStart": 150040.0, 
+          "audioEnd": 155750.0
+        }, 
+        {
+          "text": "Hi, I\u2019m Teagan, calling from Practica. I have a message regarding your English coaching. Please give me a call back at 888-917-2593. Thanks! Have a great day.", 
+          "audioStart": 158750.0, 
+          "audioEnd": 166359.99999999997
+        }
+      ], 
+      "title": {
+        "text": "Please give me a call back at __.", 
+        "audioStart": 145100.0, 
+        "audioEnd": 146929.99999999997
+      }
+    }
+  ], 
+  "description": "Use these phrases when calling someone on the phone.", 
+  "title": "Phonecalls"
+}

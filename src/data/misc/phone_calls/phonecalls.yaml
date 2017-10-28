@@ -1,0 +1,64 @@
+title: Phonecalls
+description: Use these phrases when calling someone on the phone.
+conversations:
+  - title: Hi, this is __ from __
+    usage: Introduce yourself formally
+    conversation:
+      - Hi this is Debbie from the Family Dental Care office
+      - Hi Debbie.
+      - I’m calling to remind you about your appointment for a dental cleaning tomorrow
+      - Oh, right! Could you remind me what time that is again?
+      - Of course, your appointment is tomorrow morning at 9AM. We’ll see you then.
+  - title: Can I please speak with __?
+    usage: Ask to speak with a specific person
+    conversation:
+      - Hi, can I please speak with Daniel Bowers?
+      - Sure! He’s in the other room, give me just a minute… Hello?
+      - Hi Daniel! This is Jennifer, returning your call about the fundraiser.
+      - Oh, hi! Thanks so much for giving me a call back.
+  - title: I’m calling about…
+    usage: Explain the reason for your call
+    conversation:
+     - Hi, this is Sarah calling from Oak Ridge Elementary school.
+     - Hi Sarah, what’s up?
+     - I’m calling about your son. He’s not feeling well today, he’s got a bad stomachache.
+     - Oh no, should I come pick him up?
+     - Yes, I think that would be a good idea.
+  - title: Is now still a good time to talk?
+    usage: Ask if the other person can talk right now.
+    conversation:
+     - Hi, this is Mary from Dr. Collin’s office. Is this Alice?
+     - Hi, yes this is she.
+     - I have your test results from the lab. Is now a good time to talk?
+     - Yes, now is fine.
+     - Great, Dr. Collin had a chance to review your labs this morning and everything looks normal.
+  - title: Can I call you back __?
+    usage: Reschedule a time to talk
+    conversation:
+     - Hello?
+     - Hi Rachel, it’s Michelle. Do you have a minute to chat?
+     - Hi Michelle! Actually I’m just heading out the door. Can I call you back later tonight?
+     - Of course! I’ll be free after 6pm.
+     - Great, I’ll give you a call back then!
+  - title: I’m sorry, could you repeat that?
+    usage: Ask the other person to repeat what they said
+    conversation:
+     - Hi, can you please give me the address of your Mountain View location?
+     - Sure, it’s 403 Castro Street
+     - I’m sorry, could you repeat that?
+     - The address is 403 Castro Street.
+     - Got it, thanks!
+  - title: I’m having trouble hearing you
+    usage: Say this if you have a bad connection.
+    conversation:
+     - Hi, I’m calling to let you know that your photos are printed and ready for pickup. Will you be picking them up today?
+     - Oh thanks, I might have to get them tomorrow...
+     - I’m sorry, I’m having trouble hearing you.
+     - Oh sorry, is this better?
+     - Yes that’s much better, thanks!
+  - title: Please give me a call back at __.
+    usage: Leave your number on someone’s voicemail.
+    conversation:
+     - Hello?
+     - I’m sorry, the person you are trying to reach is not available. Please leave a message after the tone.
+     - Hi, I’m Teagan, calling from Practica. I have a message regarding your English coaching. Please give me a call back at 888-917-2593. Thanks! Have a great day.
