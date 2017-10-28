@@ -1,0 +1,182 @@
+{
+  "audio_url": null, 
+  "title": "Saying Goodbye", 
+  "description": "These are polite phrases you can use to say goodbye to a customer or a coworker.", 
+  "conversations": [
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        {
+          "text": "Are you all finished here?", 
+          "audioStart": 4700.0, 
+          "audioEnd": 5899.999999999999
+        }, 
+        {
+          "text": "Yes, thanks! It was delicious.", 
+          "audioStart": 6250.0, 
+          "audioEnd": 8350.0
+        }, 
+        {
+          "text": "I'm glad to hear it, have a great day!", 
+          "audioStart": 8650.0, 
+          "audioEnd": 10989.999999999998
+        }
+      ], 
+      "title": {
+        "text": "Have a great day!", 
+        "audioStart": 2360.0, 
+        "audioEnd": 3270.0
+      }
+    }, 
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        {
+          "text": "One small coffee to-go?", 
+          "audioStart": 15520.0, 
+          "audioEnd": 16979.999
+        }, 
+        {
+          "text": "Yup, that\u2019s for me!", 
+          "audioStart": 17570.0, 
+          "audioEnd": 18899.998999999996
+        }, 
+        {
+          "text": "Great. Enjoy the rest of your day!", 
+          "audioStart": 19260.0, 
+          "audioEnd": 21300.0
+        }
+      ], 
+      "title": {
+        "text": "Enjoy the rest of your day!", 
+        "audioStart": 12630.0, 
+        "audioEnd": 14080.0
+      }
+    }, 
+    {
+      "usage": "Use to wish someone a good day.", 
+      "conversation": [
+        {
+          "text": "We\u2019ll have your order out in a minute.", 
+          "audioStart": 24970.0, 
+          "audioEnd": 26790.0
+        }, 
+        {
+          "text": "Great, thanks!", 
+          "audioStart": 27439.999999999996, 
+          "audioEnd": 28449.999000000003
+        }, 
+        {
+          "text": "No problem, have a good one!", 
+          "audioStart": 28700.0, 
+          "audioEnd": 30510.0
+        }
+      ], 
+      "title": {
+        "text": "Have a good one!", 
+        "audioStart": 22650.0, 
+        "audioEnd": 23460.0
+      }
+    }, 
+    {
+      "usage": "Use to wish someone a good afternoon.", 
+      "conversation": [
+        {
+          "text": "Did you enjoy your meal?", 
+          "audioStart": 35580.0, 
+          "audioEnd": 36690.0
+        }, 
+        {
+          "text": "Yes, it was great!", 
+          "audioStart": 37090.0, 
+          "audioEnd": 38340.0
+        }, 
+        {
+          "text": "Wonderful. Have a good afternoon!", 
+          "audioStart": 38450.0, 
+          "audioEnd": 40379.99999999999
+        }
+      ], 
+      "title": {
+        "text": "Have a good afternoon!", 
+        "audioStart": 32830.0, 
+        "audioEnd": 34050.0
+      }
+    }, 
+    {
+      "usage": "Use after bringing food to a customer.", 
+      "conversation": [
+        {
+          "text": "Here\u2019s your soup and sandwich.", 
+          "audioStart": 44679.999, 
+          "audioEnd": 46460.0
+        }, 
+        {
+          "text": "Great, thanks!", 
+          "audioStart": 46700.0, 
+          "audioEnd": 47799.998999999996
+        }, 
+        {
+          "text": "Of course, enjoy your meal!", 
+          "audioStart": 48130.0, 
+          "audioEnd": 49640.0
+        }
+      ], 
+      "title": {
+        "text": "Enjoy your meal!", 
+        "audioStart": 42030.0, 
+        "audioEnd": 43029.99999999999
+      }
+    }, 
+    {
+      "usage": "Use when you will see someone the next day (like coworkers you will see again tomorrow).", 
+      "conversation": [
+        {
+          "text": "I\u2019m heading out now.", 
+          "audioStart": 54389.999, 
+          "audioEnd": 55480.00000000001
+        }, 
+        {
+          "text": "Ok, I\u2019ll be leaving soon too.", 
+          "audioStart": 55880.0, 
+          "audioEnd": 57700.0
+        }, 
+        {
+          "text": "See you tomorrow!", 
+          "audioStart": 58220.00000000001, 
+          "audioEnd": 59170.0
+        }
+      ], 
+      "title": {
+        "text": "See you tomorrow!", 
+        "audioStart": 51670.0, 
+        "audioEnd": 52620.0
+      }
+    }, 
+    {
+      "usage": "Use when you know you will see someone in the future (like your coworker of boss)", 
+      "conversation": [
+        {
+          "text": "I\u2019ll be back to work on Monday.", 
+          "audioStart": 64329.999, 
+          "audioEnd": 66020.00000000001
+        }, 
+        {
+          "text": "Ok, have a great weekend!", 
+          "audioStart": 66340.0, 
+          "audioEnd": 67969.999
+        }, 
+        {
+          "text": "You too, see you later!", 
+          "audioStart": 68210.00000000001, 
+          "audioEnd": 69690.0
+        }
+      ], 
+      "title": {
+        "text": "See you later!", 
+        "audioStart": 61710.00000000001, 
+        "audioEnd": 62780.0
+      }
+    }
+  ]
+}
