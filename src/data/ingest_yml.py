@@ -59,6 +59,7 @@ def get_practica_json(yml_file, include_title):
     def get_line_with_audio(aIndex, line):
         lineObj = {"text": line}
         line = line.replace("-", " ")
+        line = line.replace("...", " ")
         for widx, word in enumerate(line.split(" ")):
             aWord = aWords[aIndex]
             # if alignedWord is part of this

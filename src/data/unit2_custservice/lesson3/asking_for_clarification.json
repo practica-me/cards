@@ -1,0 +1,62 @@
+{
+  "audio_url": null, 
+  "title": "Asking for Clarification", 
+  "description": "These are polite phrases you can use when you don't understand what someone said.", 
+  "conversations": [
+    {
+      "usage": "Ask someone to say something again.", 
+      "conversation": [
+        "Good to see you!", 
+        "You too! It's been a long time.", 
+        "Can you repeat that, please?", 
+        "It's been a long time since I saw you.", 
+        "Oh yes! I was on vacation for a few weeks."
+      ], 
+      "title": "Can you repeat that please?"
+    }, 
+    {
+      "usage": "Ask someone to say something again, more slowly this time.", 
+      "conversation": [
+        "Hi, how's your day going?", 
+        "Great! It's my daughter's birthday today and we're having a party this afternoon!", 
+        "Sorry, can you say that a bit more slowly?", 
+        "Oh, of course! It's my daughter's birthday today and we're having a party this afternoon.", 
+        "That's awesome, happy birthday to her!"
+      ], 
+      "title": "Can you say that a bit more slowly?"
+    }, 
+    {
+      "usage": "Tell someone you did not understand what they said.", 
+      "conversation": [
+        "Hi, how are you doing?", 
+        "Pretty good! Looks like it's going to rain today.", 
+        "Sorry, I didn't understand that.", 
+        "Oh, I said it looks like it's going to rain today.", 
+        "Oh yes, it does!"
+      ], 
+      "title": "Sorry I didn't understand that."
+    }, 
+    {
+      "usage": "Ask someone to explain the meaning of a word or phrase.", 
+      "conversation": [
+        "Here's your cookie, enjoy!", 
+        "Thanks, I've been craving chocolate all day!", 
+        "Sorry, what do you mean by \"craving\"?", 
+        "Oh, it's when you really want to eat a specific food.", 
+        "Ah, I see. Thanks for explaining!"
+      ], 
+      "title": "What do you mean by ___?"
+    }, 
+    {
+      "usage": "Politely tell a customer that you will find another employee to help.", 
+      "conversation": [
+        "Hi, do you have a question?", 
+        "Yeah, I was wondering if this cake has nuts in it?", 
+        "Hmm...I'm not sure. Let me find someone who can help you.", 
+        "Ok, thanks so much!", 
+        "Just one minute."
+      ], 
+      "title": "Let me find someone who can help you."
+    }
+  ]
+}

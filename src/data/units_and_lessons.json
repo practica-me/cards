@@ -48,6 +48,12 @@
         "name": "Saying goodbye to a customer",
         "script_url": "/scripts/goodbyes2.json",
         "audio_url": "/audio/Goodbyes2.m4a"
+      },
+      {
+        "number": 3,
+        "name": "Asking for clarification",
+        "script_url": "/scripts/asking_for_clarification.json",
+        "audio_url": "/audio/asking_for_clarification.mp3"
       }]
     },
     {
