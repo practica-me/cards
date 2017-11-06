@@ -1,0 +1,182 @@
+{
+  "audio_url": null, 
+  "title": "Asking for Clarification", 
+  "description": "These are polite phrases you can use when you don't understand what someone said.", 
+  "conversations": [
+    {
+      "usage": "Ask someone to say something again.", 
+      "conversation": [
+        {
+          "text": "Good to see you!", 
+          "audioStart": 4320.0, 
+          "audioEnd": 5320.0
+        }, 
+        {
+          "text": "You too! It's been a long time.", 
+          "audioStart": 6010.0, 
+          "audioEnd": 7710.0
+        }, 
+        {
+          "text": "Can you repeat that, please?", 
+          "audioStart": 8240.0, 
+          "audioEnd": 9619.999
+        }, 
+        {
+          "text": "It's been a long time since I saw you.", 
+          "audioStart": 10070.0, 
+          "audioEnd": 12210.0
+        }, 
+        {
+          "text": "Oh yes! I was on vacation for a few weeks.", 
+          "audioStart": 12410.0, 
+          "audioEnd": 15149.999000000002
+        }
+      ], 
+      "title": {
+        "text": "Can you repeat that please?", 
+        "audioStart": 1760.0, 
+        "audioEnd": 3310.0
+      }
+    }, 
+    {
+      "usage": "Ask someone to say something again, more slowly this time.", 
+      "conversation": [
+        {
+          "text": "Hi, how's your day going?", 
+          "audioStart": 20509.999999999996, 
+          "audioEnd": 22009.999999999996
+        }, 
+        {
+          "text": "Great! It's my daughter's birthday today and we're having a party this afternoon!", 
+          "audioStart": 22640.0, 
+          "audioEnd": 26040.0
+        }, 
+        {
+          "text": "Sorry, can you say that a bit more slowly?", 
+          "audioStart": 26720.0, 
+          "audioEnd": 28869.999
+        }, 
+        {
+          "text": "Oh, of course! It's my daughter's birthday today and we're having a party this afternoon.", 
+          "audioStart": 29389.999, 
+          "audioEnd": 35230.00000000001
+        }, 
+        {
+          "text": "That's awesome, happy birthday to her!", 
+          "audioStart": 35549.998999999996, 
+          "audioEnd": 37879.99899999999
+        }
+      ], 
+      "title": {
+        "text": "Can you say that a bit more slowly?", 
+        "audioStart": 17119.999, 
+        "audioEnd": 19030.0
+      }
+    }, 
+    {
+      "usage": "Tell someone you did not understand what they said.", 
+      "conversation": [
+        {
+          "text": "Hi, how are you doing?", 
+          "audioStart": 43890.0, 
+          "audioEnd": 45069.999
+        }, 
+        {
+          "text": "Pretty good! Looks like it's going to rain today.", 
+          "audioStart": 45679.999, 
+          "audioEnd": 47850.0
+        }, 
+        {
+          "text": "Sorry, I didn't understand that.", 
+          "audioStart": 48440.0, 
+          "audioEnd": 50290.0
+        }, 
+        {
+          "text": "Oh, I said it looks like it's going to rain today.", 
+          "audioStart": 50780.0, 
+          "audioEnd": 53609.998999999996
+        }, 
+        {
+          "text": "Oh yes, it does!", 
+          "audioStart": 53910.0, 
+          "audioEnd": 55389.99999999999
+        }
+      ], 
+      "title": {
+        "text": "Sorry I didn't understand that.", 
+        "audioStart": 41410.0, 
+        "audioEnd": 43260.0
+      }
+    }, 
+    {
+      "usage": "Ask someone to explain the meaning of a word or phrase.", 
+      "conversation": [
+        {
+          "text": "Here's your cookie, enjoy!", 
+          "audioStart": 59780.0, 
+          "audioEnd": 61400.00000000001
+        }, 
+        {
+          "text": "Thanks, I've been craving chocolate all day!", 
+          "audioStart": 62070.0, 
+          "audioEnd": 65050.0
+        }, 
+        {
+          "text": "Sorry, what do you mean by \"craving\"?", 
+          "audioStart": 65450.0, 
+          "audioEnd": 68090.0
+        }, 
+        {
+          "text": "Oh, it's when you really want to eat a specific food.", 
+          "audioStart": 68710.00000000001, 
+          "audioEnd": 71800.0
+        }, 
+        {
+          "text": "Ah, I see. Thanks for explaining!", 
+          "audioStart": 71969.999, 
+          "audioEnd": 74179.99999999999
+        }
+      ], 
+      "title": {
+        "text": "What do you mean by ___?", 
+        "audioStart": 56969.99999999999, 
+        "audioEnd": 58490.0
+      }
+    }, 
+    {
+      "usage": "Politely tell a customer that you will find another employee to help.", 
+      "conversation": [
+        {
+          "text": "Hi, do you have a question?", 
+          "audioStart": 80280.0, 
+          "audioEnd": 81660.0
+        }, 
+        {
+          "text": "Yeah, I was wondering if this cake has nuts in it?", 
+          "audioStart": 82410.0, 
+          "audioEnd": 85300.0
+        }, 
+        {
+          "text": "Hmm...I'm not sure. Let me find someone who can help you.", 
+          "audioStart": 86150.0, 
+          "audioEnd": 89560.0
+        }, 
+        {
+          "text": "Ok, thanks so much!", 
+          "audioStart": 90310.0, 
+          "audioEnd": 91830.0
+        }, 
+        {
+          "text": "Just one minute.", 
+          "audioStart": 92380.0, 
+          "audioEnd": 93450.0
+        }
+      ], 
+      "title": {
+        "text": "Let me find someone who can help you.", 
+        "audioStart": 75999.99999999999, 
+        "audioEnd": 78030.0
+      }
+    }
+  ]
+}
